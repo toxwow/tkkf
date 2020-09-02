@@ -12,4 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .js('resources/js/index.js', 'public/js')
+    .js('resources/js/admin/articles.js', 'public/js/admin')
+    .js('resources/js/admin/leagues.js', 'public/js/admin')
+    .js('resources/js/admin/matchesForm.js', 'public/js/admin')
+    .js('resources/js/admin/teams.js', 'public/js/admin')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/admin/layout.scss', 'public/css/admin')
+    .sass('resources/sass/admin/home.scss', 'public/css/admin')
+    .sass('resources/sass/admin/leagues.scss', 'public/css/admin')
+    .sass('resources/sass/admin/teams.scss', 'public/css/admin')
+

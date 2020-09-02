@@ -1,0 +1,23 @@
+.league-name {
+  width: 100%;
+  text-align: center;
+  background-color: #263544;
+  padding: 10px 20px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.player-wrapper {
+  padding: 10px 15px;
+}
+
+.player-wrapper.add {
+  text-align: center;
+  background-color: #45ce80;
+}
+
+.player-wrapper.add a {
+  color: #fff;
+}
+

@@ -1,4 +1,13 @@
 {
+    "/js/admin/articles.js": "/js/admin/articles.js",
+    "/js/admin/leagues.js": "/js/admin/leagues.js",
+    "/js/admin/matchesForm.js": "/js/admin/matchesForm.js",
+    "/js/admin/teams.js": "/js/admin/teams.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/admin/layout.css": "/css/admin/layout.css",
+    "/css/admin/home.css": "/css/admin/home.css",
+    "/css/admin/leagues.css": "/css/admin/leagues.css",
+    "/css/admin/teams.css": "/css/admin/teams.css",
+    "/js/index.js": "/js/index.js"
 }

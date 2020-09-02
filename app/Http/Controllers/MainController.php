@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -14,7 +15,7 @@ class MainController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -24,7 +25,15 @@ class MainController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('main', ['user' => $user]);
+        $articles = Article::all();
+        $articlesSort = $articles -> sortByDesc('created_at') ->take(3);
+        return view('page.home', ['articles' => $articlesSort]);
+    }
+
+    public function articles()
+    {
+        $articles = Article::all();
+        $articlesSort = $articles -> sortByDesc('created_at');
+        return view('page.articles', ['articles' => $articlesSort]);
     }
 }

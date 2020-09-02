@@ -1,0 +1,83 @@
+@extends('layouts.admin')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @if(session()->get('success'))
+                    <div class="alert alert-success mb-4">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <div class="content-header">
+                    <div class="content-title">
+                        <div class="icon-wrapper">
+                            <i class="icofont-newspaper"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="title">Artykuły</p>
+                            <p class="sub-title">lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                        </div>
+                    </div>
+                    <div class="content-add">
+                        <a href="/dodaj-artykul">
+                            <i class="icofont-plus mr-2"></i> dodaj artykuł
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-wrapper">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <td>Tytuł</td>
+                        <td>Data</td>
+                        <td>Status</td>
+                        <td colspan = 2>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($articles as $article)
+                            <tr>
+                                <td>{{$article->name}}</td>
+                                <td>{{$article->updated_at}}</td>
+                                <td>Widoczny</td>
+                                <td>
+                                    <a href="{{ route('artykuly.edit',$article->id)}}" class="btn btn-primary">Edytuj</a>
+                                </td>
+                                <td>
+                                    <form action="{{ route('artykuly.destroy', $article->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Usuń</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination-wrapper">
+                {{ $articles->links() }}
+            </div>
+        </div>
+        </div>
+        <ul>
+
+        </ul>
+</div>
+@endsection
+

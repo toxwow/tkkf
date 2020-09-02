@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('content')
 <div class="container">
@@ -12,16 +12,34 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Imię</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            </div>
+                        </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="form-group row">
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">Nazwisko</label>
+
+                            <div class="col-md-6">
+                                <input id="surname" type="text" class="form-control" name="surname" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">Numer telefonu:</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control" name="phone" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="team" class="col-md-4 col-form-label text-md-right">Nazwa drużyny:</label>
+
+                            <div class="col-md-6">
+                                <input id="team" type="text" class="form-control " name="team" required autofocus>
                             </div>
                         </div>
 

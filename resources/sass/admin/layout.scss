@@ -1,0 +1,171 @@
+body{
+    background: #f2f7fb;
+}
+.layout-admin{
+    .left-panel{
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0; left: 0;
+        background-color: #263544;
+        overflow: hidden;
+
+        .header{
+            min-height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+            a{
+                color: #fff;
+            }
+        }
+        .items-menu{
+            margin-top: 20px;
+            ul{
+                list-style: none;
+                margin: 0;
+                padding-left: 0px;
+
+                li{
+                    a{
+                        text-decoration: none;
+                        color: #b7c0cd;
+                        display: inline-block;
+                        padding: 15px 20px;
+                        width: 100%;
+                        position: relative;
+                    &.active{
+                        position: relative;
+                        color: #fff;
+                        background-color: #1d2531;
+                        border-left: 4px solid #42a5f5;
+                    }
+
+                    &:hover{
+                        color: #fff;
+                    }
+
+                    }
+                }
+            }
+        }
+    }
+    nav.navbar{
+        z-index: 2;
+        position: fixed;
+        min-height: 70px;
+        right: 0;
+        width: calc(100% - 200px);
+        box-shadow: 0 2px 4px 0 rgba(43,43,43,0.1);
+        background-color: #fff;
+
+        .nav-item {
+            margin: 0 20px;
+            &.icon{
+                display: flex;
+                align-items: center;
+                font-size: 22px;
+                color: #263544;
+                position: relative;
+                &.alarm::before{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top:4px;
+                    background-color: #FF5370;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                }
+            }
+            a.nav-link{
+                color: #333;
+            }
+        }
+    }
+    main{
+        padding-top: 100px;
+        width: calc(100% - 200px);
+        margin-right: 0;
+        margin-left: auto;
+    }
+    .content-header{
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .content-title{
+            display: flex;
+            align-items: center;
+
+            .icon-wrapper{
+                background-color: #4099ff;
+                box-shadow: 0 2px 12px -3px rgba(0,0,0,0.5);
+                text-align: center;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                width: 50px;
+                margin-right: 20px;
+                i{
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+            .text-wrapper{
+                p.title{
+                    margin-bottom: 0;
+                    font-size: 18px;
+                }
+
+                p.sub-title{
+                    margin-bottom: 0;
+
+                    font-size: 14px;
+                }
+            }
+        }
+        .content-add a{
+            text-decoration: none;
+            background-color: #2ed8b6;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #fff;
+        }
+    }
+    .table{
+        margin:0;
+    }
+    .table th, .table td{
+        padding: 10px 25px;
+    }
+    .table-wrapper{
+        padding: 15px 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(43,43,43,0.1), 0 11px 6px -7px rgba(43,43,43,0.1);
+    }
+
+    .card-box{
+        margin-top: 25px;
+        padding: 15px 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(43,43,43,0.1), 0 11px 6px -7px rgba(43,43,43,0.1);
+    }
+
+    .pagination-wrapper{
+        margin: 15px 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+}
+

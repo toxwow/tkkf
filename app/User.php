@@ -10,13 +10,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function team()
+    {
+        return $this->hasOne('App\Team');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'surname', 'email', 'password', 'role', 'phone', 'team_id'
     ];
 
     /**
@@ -36,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin() {
+        return $this->role === 'admin';
+    }
+
+    public function isUser() {
+        return $this->role === 'user';
+    }
+
+    public function isCapitan() {
+        return $this->role === 'capitan';
+    }
 }
