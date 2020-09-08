@@ -49915,15 +49915,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/home/articles/article.scss":
+/*!***************************************************!*\
+  !*** ./resources/sass/home/articles/article.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/home/articles/articles-block.scss":
+/*!**********************************************************!*\
+  !*** ./resources/sass/home/articles/articles-block.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/home/articles/articles.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/home/articles/articles.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/home/index.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/home/index.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/home/league-info.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/home/league-info.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
-  \*******************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home/index.scss ./resources/sass/home/league-info.scss ./resources/sass/home/articles/articles.scss ./resources/sass/home/articles/article.scss ./resources/sass/home/articles/articles-block.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/html/tkkf/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/index.scss */"./resources/sass/home/index.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/league-info.scss */"./resources/sass/home/league-info.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles.scss */"./resources/sass/home/articles/articles.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/article.scss */"./resources/sass/home/articles/article.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles-block.scss */"./resources/sass/home/articles/articles-block.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/layout.scss */"./resources/sass/admin/layout.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/home.scss */"./resources/sass/admin/home.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/leagues.scss */"./resources/sass/admin/leagues.scss");

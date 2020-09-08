@@ -70,7 +70,7 @@
                                 <p class="mb-0">Zawodnicy</p>
                         </div>
                     </div>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive-lg">
                         <tbody>
                             <th>#</th>
                             <th></th>

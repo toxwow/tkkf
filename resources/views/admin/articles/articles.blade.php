@@ -52,13 +52,12 @@
                     <tbody>
                         @foreach($articles as $article)
                             <tr>
-                                <td>{{$article->name}}</td>
+                                <td>{{$article->title}}</td>
                                 <td>{{$article->updated_at}}</td>
                                 <td>Widoczny</td>
-                                <td>
-                                    <a href="{{ route('artykuly.edit',$article->id)}}" class="btn btn-primary">Edytuj</a>
-                                </td>
-                                <td>
+                                <td class="d-flex">
+                                    <a href="{{ route('artykuly.edit',$article->id)}}" class="btn btn-primary mr-3">Edytuj</a>
+
                                     <form action="{{ route('artykuly.destroy', $article->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')

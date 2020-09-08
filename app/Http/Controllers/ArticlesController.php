@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
@@ -77,14 +77,20 @@ class ArticlesController extends Controller
         if (Auth::user()->isAdmin()) {
             $request->validate([
                 'category' => 'required',
-                'name' => 'required',
+                'photo' => 'required',
+                'title' => 'required',
+                'subtitle' => 'required',
                 'content' => 'required',
             ]);
+            $photoImage =  $request->file('photo');
 
+            Storage::putFile('public/images/articles', $request->file('photo'));
 
             $article = new Article([
+                'photo' => $photoImage->hashName(),
                 'category' => $request->get('category'),
-                'name' => $request->get('name'),
+                'title' => $request->get('title'),
+                'subtitle' => $request->get('subtitle'),
                 'content' => $request->get('content'),
                 'author' => $request->get('author')
             ]);
@@ -138,16 +144,29 @@ class ArticlesController extends Controller
         if (Auth::user()->isAdmin()) {
             $request->validate([
                 'category' => 'required',
-                'name' => 'required',
+                'title' => 'required',
+                'subtitle' => 'required',
                 'content' => 'required'
             ]);
 
+            $photoImage = $request->file('photo');
+
             $article = Article::find($id);
             $article->category = $request->get('category');
-            $article->name = $request->get('name');
+            $article->title = $request->get('title');
+            $article->subtitle = $request->get('subtitle');
             $article->content = $request->get('content');
             $article->author = $request->get('author');
+
+            if(!empty($photoImage)){
+                Storage::delete('public/images/articles/'.$article->photo);
+                Storage::putFile('public/images/articles', $request->file('photo'));
+                $article->photo = $photoImage->hashName();
+            }
+
             $article->save();
+
+
 
             return redirect('/artykuly')->with('success', 'Artykuł zaktualizowany!');
         }

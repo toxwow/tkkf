@@ -19,16 +19,5 @@ class TeamSeeder extends Seeder
             'date' => 'Wtorek 19:30',
             'capitan' => 2,
         ]);
-
-        DB::table('teams')->insert([
-            'name' => 'Dzisiejsi',
-            'information' => 'Siema tutaj info o wczorajszych',
-            'league_id' => '1'
-        ]);
-        DB::table('teams')->insert([
-            'name' => 'Jutrzejsi',
-            'information' => 'Siema tutaj info o wczorajszych',
-            'league_id' => '1'
-        ]);
     }
 }

@@ -45,12 +45,12 @@
                     </li>
                     @endif
                     <li>
-                        <a href="{{route('liga.index')}}" class="{{ (request()->is('liga')) ? 'active' : '' }}"><i class="icofont-listing-number mr-2"></i> <span>Ligi</span></a>
+                        <a href="{{route('liga.index')}}" class="{{ (request()->is('liga')) ? 'active' : '' }}"><i class="icofont-listing-number mr-2"></i> <span>Tabela</span></a>
                     </li>
                     <li>
                         <a href="{{route('druzyna.index')}}" class="{{ (request()->is('druzyna')) ? 'active' : '' }}"><i class="icofont-users mr-2"></i>
                             @if($user -> isAdmin())
-                            <span>Drużyny</span>
+                            <span>Ligi i drużyny</span>
                             @elseif($user -> isCapitan())
                                 <span>Twoja drużyna</span>
                             @endif
@@ -64,6 +64,11 @@
                                 <span>Twoje mecze</span>
                             @endif</a>
                     </li>
+                    @if($user -> isAdmin())
+                        <li>
+                            <a href="{{route('uzytkownicy.index')}}" class="{{ (request()->is('uzytkownicy*'))  ? 'active' : '' }}"><i class="icofont-user mr-2"></i> <span>Użytkownicy</span></a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -84,16 +89,16 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item icon alarm">
-                                <i class="icofont-alarm"></i>
-                            </li>
+{{--                            <li class="nav-item icon alarm">--}}
+{{--                                <i class="icofont-alarm"></i>--}}
+{{--                            </li>--}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{asset('images/admin/user-icon.png')}}" class="mr-2" alt="">{{ Auth::user()->name }} <i class="icofont-caret-down"></i>
+                                    <img src="{{asset('images/admin/user-icon.png')}}" class="mr-2" alt="">{{ Auth::user()->name }} {{ Auth::user()->surname }} <i class="icofont-caret-down"></i>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('panel') }}">
+                                    <a class="dropdown-item" href="{{ route('uzytkownicy.show', $user->id) }}">
                                         Twój profil
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -1,0 +1,106 @@
+.articles-container {
+  display: flex;
+  margin-top: 8px;
+}
+
+.articles-container .first-article {
+  background-image: url("https://www.fivb.org/Vis2009/Images/GetImage.asmx?No=90959&type=Press&width=920&height=588&stretch=uniformtofill");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  position: relative;
+  height: 400px;
+}
+
+.articles-container .first-article .title-wrapper {
+  padding: 20px 20px;
+  background-color: rgba(20, 20, 20, 0.8);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.articles-container .first-article .title-wrapper .article-title {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.articles-container .first-article .title-wrapper .article-subtitle {
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-bottom: 0;
+  color: #dcdcdc;
+  line-height: 1.5rem;
+}
+
+.articles-container .rest-articles {
+  width: 50%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.articles-container .rest-articles .article-item {
+  text-decoration: none;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ececec;
+  transition: all 0.25s ease;
+}
+
+.articles-container .rest-articles .article-item .title-wrapper {
+  width: 70%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.articles-container .rest-articles .article-item .title-wrapper .article-category > p {
+  display: inline-block;
+  color: #fff;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #0b41ab;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.articles-container .rest-articles .article-item .title-wrapper .article-title {
+  color: #404558;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.articles-container .rest-articles .article-item .title-wrapper .article-date {
+  color: #8b8b8b;
+  font-size: 0.8rem;
+}
+
+.articles-container .rest-articles .article-item .img-wrapper {
+  height: 100%;
+  width: 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.articles-container .rest-articles .article-item:hover {
+  background: linear-gradient(to top, #0d142c 0%, #19254c 100%);
+  box-shadow: 0 0 35px 8px rgba(0, 0, 0, 0.13);
+  transform: scale(1.02);
+  border-bottom: 0;
+}
+
+.articles-container .rest-articles .article-item:hover .article-title {
+  color: #fff;
+}
+
+.articles-container .rest-articles .article-item:hover .article-date {
+  color: #fff;
+}
+

@@ -28,11 +28,16 @@
                             </ul>
                         </div><br />
                     @endif
-                    <form method="post" action="{{ route('artykuly.store') }}">
+                    <form method="post" action="{{ route('artykuly.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="author">Autor:</label>
                             <input type="text" class="form-control" name="author" value="{{$user->name}}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo">Zdjęcie</label>
+                            <input type="file" class="form-control" name="photo"/>
                         </div>
 
                         <div class="form-group">
@@ -41,8 +46,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Tytuł:</label>
-                            <input type="text" class="form-control" name="name"/>
+                            <label for="title">Tytuł:</label>
+                            <input type="text" class="form-control" name="title"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subtitle">Pod tytuł:</label>
+                            <input type="text" class="form-control" name="subtitle"/>
                         </div>
 
                         <div class="form-group">

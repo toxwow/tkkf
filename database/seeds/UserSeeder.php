@@ -12,18 +12,18 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Tomasz Tomżyński',
+            'name' => 'Tomasz',
+            'surname' => 'Tomżyński',
             'email' => 'admin',
             'role' => 'admin',
-            'team_id' => '',
             'password' => Hash::make('Mistrz1234!'),
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Krzysztof Zabawa',
+            'name' => 'Krzysztof',
+            'surname' => 'Zabawa',
             'email' => 'zabawa',
             'role' => 'capitan',
-            'team_id' => 1,
             'password' => Hash::make('Mistrz1234!'),
         ]);
     }

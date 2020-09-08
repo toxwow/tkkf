@@ -14,6 +14,12 @@
                         {{ session()->get('success') }}
                     </div>
                 @endif
+                <div class="alert alert-danger fade hide alert-custom" role="alert">
+                    Błąd usuwania ligi. Przed usunięciem ligi upewnij się, że nie znajdują się w niej drużyny.
+                    <button type="button" class="close alert-hide" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -26,18 +32,27 @@
                             <i class="icofont-users"></i>
                         </div>
                         <div class="text-wrapper">
-                            <p class="title">Drużyny</p>
-                            <p class="sub-title">lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                            <p class="title">Ligi i drużyny</p>
+                            <p class="sub-title">Panel do zarządzania ligami i drużynami</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <select type="email" class="form-control" id="selectLeague" aria-describedby="emailHelp" placeholder="Enter email">
-                            <option value="all">Wszystkie ligi</option>
-                            @foreach($leagues as $league)
-                                <option value="{{$league->id}}">{{$league->name}}</option>
-                            @endforeach
-                        </select>
+
+                    <div class="content-add d-flex align-items-center">
+                        <div class="form-group mb-0 mr-4">
+                            <select type="email" class="form-control" id="selectLeague" aria-describedby="emailHelp" placeholder="Enter email">
+                                <option value="all">Wszystkie ligi</option>
+                                @foreach($leagues as $league)
+                                    <option value="{{$league->id}}">{{$league->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <a href="{{route('liga.create')}}">
+                            <i class="icofont-plus mr-2"></i> dodaj ligę
+                        </a>
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -55,41 +70,91 @@
                             <div>
                                 {{$league->name}}
                             </div>
-                            <div class="dropdown">
-                                <button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                                    <i class="icofont-settings-alt"></i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{route('druzyna.create','league='.$league->id)}}">Dodaj drużyne do ligi</a>
-                                    <a class="dropdown-item" href="">
-                                        <form action="{{ route('liga.destroy', $league->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń ligę</button>
-                                        </form></a>
+                            <div class="d-flex">
+                                <a class="btn btn-success mr-2" href="{{route('druzyna.create','league='.$league->id)}}"><i class="icofont-plus"></i></a>
+                                <div class="dropdown">
+                                    <button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+                                        <i class="icofont-settings-alt"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="{{ route('liga.edit', $league->id)}}">Edytuj ligę</a>
+                                        @if(empty($league->team[0]))
+                                            <a class="dropdown-item" href="">
+                                                <form action="{{ route('liga.destroy', $league->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń ligę</button>
+                                                </form></a>
+                                        @else
+                                        <button class="dropdown-item btn-link alert-show" >Usuń ligę</button>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <table class="table table-striped table-responsive-lg">
+
+                    @foreach($league->team as $team)
+                        {{--modal--}}
+                        <div class="modal fade" id="modal-{{$team->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Kontakt {{$team->name}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @php $capitanTeam = $user->find($team->capitan);  @endphp
+                                        @if(empty($capitanTeam))
+                                            brak danych kontaktowych
+                                        @else
+                                        <div class="ml-3" style="color: #212529">
+                                            <p style="font-size: 1.2rem"><i class="icofont-address-book" style="color: #4099ff"></i> {{$capitanTeam->name}} {{$capitanTeam->surname}}</p>
+                                            <p style="font-size: 1.2rem"><i class="icofont-mobile-phone" style="color: #4099ff"></i> {{$capitanTeam->phone}}</p>
+                                            <p style="font-size: 1.2rem; margin-bottom: 0;"><i class="icofont-email" style="color: #4099ff"></i> {{$capitanTeam->email}}</p>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <table class="table table-striped">
-
-                    @foreach($league->team as $team)
+                        {{--end modal--}}
 
                         <tr>
                             <td scope="col">
                                 <div class="d-flex justify-content-between align-items-center" >
                                     <span style="font-size: 18px;">{{$team->name}}</span>
+
+
                                     <div class="d-flex align-items-center">
-                                        <span style="cursor: pointer" id="team-click-{{$team->id}}">Pokaż zawodników</span>
-                                        <a href="{{ route('druzyna.edit',$team->id)}}" class="btn btn-primary mx-3"><i class="icofont-ui-edit"></i></a>
-                                        <form action="{{ route('druzyna.destroy', $team->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger" type="submit"><i class="icofont-delete-alt"></i></button>
-                                        </form>
+
+                                        <button class="btn btn-primary " id="team-click-{{$team->id}}" data-toggle="tooltip" data-placement="top" title="Zawodnicy"><i class="icofont-users"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary mx-2"  data-toggle="modal" data-target="#modal-{{$team->id}}">
+                                            <i class="icofont-phone"></i>
+                                        </button>
+                                        <button class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+                                            <i class="icofont-settings-alt"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{{ route('druzyna.edit',$team->id)}}">Edytuj drużynę</a>
+                                            <a class="dropdown-item" href="">
+                                                <form action="{{ route('druzyna.destroy', $team->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń drużynę</button>
+                                                </form></a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mt-2" id="team-wrapper-{{$team->id}}" style="display: none;">
+
                                     @foreach($team->players as $key => $player)
                                         @if($key % 2 == 0)
                                         <div class="player-wrapper" style="background-color: rgba(0, 0, 0, 0.05)">
@@ -104,6 +169,9 @@
                                             <div class="d-flex">
                                                 @if($player->status === 'niezweryfikowany')
                                                     <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-dark mr-2">niezweryfikowany</a>
+                                                @endif
+                                                @if($player->status === 'odrzucony')
+                                                    <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-danger mr-2">odrzucony</a>
                                                 @endif
                                                 <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-primary mr-3"><i class="icofont-edit"></i></a>
                                                 <form action="{{ route('zawodnik.destroy', $player -> id)}}" method="post">

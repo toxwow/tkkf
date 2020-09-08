@@ -1,0 +1,117 @@
+body {
+  background-color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+body .navbar {
+  background-color: #0d142c;
+  padding: 10px 0;
+  position: relative;
+}
+
+body .navbar .navbar-brand {
+  margin-right: 30px;
+}
+
+body .navbar ul.navbar-nav li.nav-item > a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 0 0 45px;
+}
+
+body .navbar::after {
+  content: "";
+  width: 100%;
+  bottom: -8px;
+  left: 0;
+  position: absolute;
+  height: 8px;
+  background-color: #0b41ab;
+}
+
+body div.card-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  padding: 40px 60px;
+}
+
+body div.card-wrapper .title-card {
+  position: relative;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body div.card-wrapper .title-card p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #404558;
+  padding-left: 30px;
+  position: relative;
+}
+
+body div.card-wrapper .title-card p::after {
+  content: "";
+  width: 10px;
+  top: calc(50% - 5px);
+  left: 0;
+  height: 10px;
+  background-color: #0b41ab;
+  position: absolute;
+}
+
+body div.card-wrapper .title-card div.league-items > a {
+  text-decoration: none;
+  color: #c6c6c6;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-right: 20px;
+}
+
+body div.card-wrapper .title-card div.league-items > a.active {
+  color: #0b41ab;
+  position: relative;
+}
+
+body div.card-wrapper .title-card::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #e6eefc;
+  bottom: 0;
+  left: 0;
+}
+
+body h1.page-title {
+  margin-top: 80px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #404558;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+body h1.page-title:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #e6e6e6;
+  left: 0;
+  bottom: 0;
+}
+
+body h1.page-title:before {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  width: 30%;
+  height: 1px;
+  background-color: #0b41ab;
+  left: 0;
+  bottom: 0;
+}
+

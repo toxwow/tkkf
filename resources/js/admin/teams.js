@@ -10,26 +10,21 @@ $('#selectLeague').on('change', function() {
 
 $( "[id^='team-click-']" ).click(function() {
     var test = ($(this).parent().parent());
-    if(test.next().css('display') ===  'none'){
-        console.log('1');
+    $(test.next()).slideToggle('slow');
 
-        $(test.next()).slideToggle('slow');
-        if($(this).text() == 'Schowaj zawodników'){
-            $(this).text('Pokaż zawodników');
-        } else {
-            $(this).text('Schowaj zawodników');
-        }
-    }
-    else{
-        test.next().css('display', 'none');
-        $(this).text('Pokaż zawodników');
-    }
+});
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
+$(".alert-show").click(function() {
+    console.log('test');
+    $(".alert").addClass("show fade");
+});
 
-
-
-
-
+$(".alert-hide").click(function() {
+    console.log('test1');
+    $(".alert").removeClass("show");
 });
 

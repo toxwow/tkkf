@@ -19,17 +19,10 @@
                             <i class="icofont-newspaper"></i>
                         </div>
                         <div class="text-wrapper">
-                            <p class="title">Ligi</p>
+                            <p class="title">Tabela</p>
                             <p class="sub-title">lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                         </div>
                     </div>
-                    @if($user -> isAdmin())
-                    <div class="content-add">
-                        <a href="{{route('liga.create')}}">
-                            <i class="icofont-plus mr-2"></i> dodaj ligę
-                        </a>
-                    </div>
-                    @endif
                 </div>
             </div>
             <div class="col-12">
@@ -52,26 +45,9 @@
                         <div class="league-name">
                             <div class="d-flex align-items-center justify-content-between" >
                                 {{$leagues->find($id_league)->name}}
-                                @if($user -> isAdmin())
-                                <div class="dropdown">
-                                    <button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                                        <i class="icofont-settings-alt"></i>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{{ route('liga.edit',$id_league)}}">Edytuj nazwę</a>
-                                        <a class="dropdown-item" href="#">
-                                            <form action="{{ route('liga.destroy', $id_league)}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                    <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń ligę</button>
-                                            </form>
-                                        </a>
-                                    </div>
-                                </div>
-                                @endif
                             </div>
                         </div>
-                        <table class="table table-striped">
+                        <table class="table table-striped table-responsive-lg">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>

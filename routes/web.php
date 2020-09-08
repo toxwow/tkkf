@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index')->name('main');
-Route::get('/wiadomosci', 'MainController@articles')->name('articles');
+Route::get('/artykuły', 'MainController@articles')->name('articles');
+Route::get('/artykuł/{id}', 'MainController@singleArticle')->name('article');
 
 Auth::routes();
 
@@ -28,4 +29,5 @@ Route::resource('liga', 'LeagueController');
 Route::resource('druzyna', 'TeamController');
 Route::resource('zawodnik', 'PlayerController');
 Route::resource('mecze', 'MatchController');
+Route::resource('uzytkownicy', 'UserController');
 

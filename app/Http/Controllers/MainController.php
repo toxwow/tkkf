@@ -27,13 +27,29 @@ class MainController extends Controller
     {
         $articles = Article::all();
         $articlesSort = $articles -> sortByDesc('created_at') ->take(3);
-        return view('page.home', ['articles' => $articlesSort]);
+        return view('home.home', ['articles' => $articlesSort]);
     }
 
     public function articles()
     {
         $articles = Article::all();
         $articlesSort = $articles -> sortByDesc('created_at');
-        return view('page.articles', ['articles' => $articlesSort]);
+        return view('home.articles.articles', ['articles' => $articlesSort]);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public  function singleArticle($id){
+
+        $article = Article::find($id);
+        $articlesAll = Article::all();
+        $articlesSort = $articlesAll -> sortByDesc('created_at') ->take(4);
+        return view('home.articles.article', ['article' => $article, 'articlesAll' => $articlesSort]);
     }
 }

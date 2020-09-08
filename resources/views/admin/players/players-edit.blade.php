@@ -3,20 +3,35 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-12 mb-3">
+                <div class="content-header">
+                    <div class="content-title">
+                        <div class="icon-wrapper">
+                            <i class="icofont-user"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="title">Edytuj zawodnika</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12">
-                <a href="{{route('panel')}}">panel</a>
-                <a href="{{route('zawodnik.index')}}">zawodnicy</a>
-                <h2>Dodaj zawodnika</h2>
-                <div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div><br />
-                    @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
                     <form method="post" action="{{ route('zawodnik.update', $player->id) }}">
                         @method('PATCH')
                         @csrf
@@ -48,19 +63,6 @@
                                         <option value="{{$team->id}}" selected>{{$team->name}}</option>
                                     @else
                                         <option value="{{$team->id}}">{{$team->name}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="user">Przypisz użytkownika:</label>
-                            <select  class="form-control" name="user">
-                                <option value="">Brak w bazie</option>
-                                @foreach($users as $user)
-                                    @if($player->user_id === $user->id)
-                                        <option value="{{$user->id}}" selected>{{$user->name}}</option>
-                                    @else
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
                                     @endif
                                 @endforeach
                             </select>

@@ -1,0 +1,140 @@
+section.article-page{
+    a{
+        text-decoration: none;
+
+        .wrapper-first-article{
+            margin-top: 40px;
+            box-shadow: rgba(9, 28, 46, 0.08) 0px 0.25rem 2.5rem 0px;
+            display: flex;
+            background-color: #fff;
+            transition: all 0.25s ease;
+
+            .img-wrapper{
+                width: 60%;
+                min-height: 300px;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .content-wrapper{
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                padding: 20px 40px;
+                justify-content: space-between;
+
+                div.top{
+                    margin-bottom: 20px;
+                    .category{
+                        display: inline-block;
+                        color: #fff;
+                        padding: 2px 5px;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        background-color: #0b41ab;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                    }
+                    .title{
+                        font-size: 1.6rem;
+                        color: #404558;
+                        margin-bottom: 15px;
+                        font-weight: 600;
+                    }
+
+                    .subtitle{
+                        color: #565d76;
+                        font-size: 1.1rem;
+                        line-height: 1.6rem;
+                        text-align: justify;
+                    }
+                }
+                div.bottom{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: rgb(141, 151, 166);
+                    padding-top: 10px;
+                    border-top: 1px solid #e6e6e6;
+
+                    p{
+                        margin-bottom: 0;
+                    }
+
+
+                }
+            }
+
+            &:hover{
+                background-color: #0b41ab;
+
+                .category{
+                    color: #0b41ab !important;
+                    background-color: #fff !important;
+                }
+                h4, h5, p{
+                    color: #fff !important;
+                }
+
+            }
+        }
+
+        .wrapper-rest-article{
+            box-shadow: rgba(9, 28, 46, 0.08) 0px 0.25rem 2.5rem 0px;
+            height: 100%;
+            transition: all 0.25s ease;
+
+            .img-wrapper{
+                height: 200px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+            }
+
+            .content-wrapper{
+                padding: 20px 30px;
+
+                .category{
+                    display: inline-block;
+                    color: #fff;
+                    padding: 2px 5px;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    background-color: #0b41ab;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                }
+
+                .title{
+                    font-size: 1.3rem;
+                    color: #404558;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                }
+
+                .subtitle{
+                    color: #565d76;
+                    font-size: 0.8rem;
+                    line-height: 1.6rem;
+                    text-align: justify;
+                    margin-bottom: 30px;
+                }
+
+                .info{
+                    border-top: 1px solid #e6e6e6;
+                    padding-top: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    color: rgb(141, 151, 166);
+                }
+
+            }
+
+            &:hover{
+                transform: scale(1.02);
+                box-shadow: rgba(9, 28, 46, 0.12) 0px 0.25rem 2.5rem 0px;
+            }
+        }
+    }
+}

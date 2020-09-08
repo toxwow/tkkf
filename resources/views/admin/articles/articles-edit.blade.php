@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12 mb-5">
+            <div class="col-12 mb-3">
                 <div class="content-header">
                     <div class="content-title">
                         <div class="icon-wrapper">
@@ -29,7 +29,7 @@
                                     </ul>
                                 </div><br />
                             @endif
-                                <form method="post" action="{{ route('artykuly.update', $article->id) }}">
+                                <form method="post" action="{{ route('artykuly.update', $article->id) }}" enctype="multipart/form-data">
                                     @method('PATCH')
                                     @csrf
                                 @csrf
@@ -44,8 +44,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Tytuł:</label>
-                                    <input type="text" class="form-control" name="name"  value="{{$article->name}}"/>
+                                    <label for="photo">Zmień zdjęcie</label>
+                                    <input type="file" class="form-control" name="photo"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="title">Tytuł:</label>
+                                    <input type="text" class="form-control" name="title"  value="{{$article->title}}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subtitle">Podtytuł:</label>
+                                    <input type="text" class="form-control" name="subtitle"  value="{{$article->subtitle}}"/>
                                 </div>
 
                                 <div class="form-group">

@@ -26,20 +26,35 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-12 mb-3">
+                <div class="content-header">
+                    <div class="content-title">
+                        <div class="icon-wrapper">
+                            <i class="icofont-score-board"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <p class="title">Dodaj mecz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12">
-                <a href="{{route('panel')}}">panel</a>
-                <a href="{{route('mecze.index')}}">mecze</a>
-                <h2>Edytuj mecz: </h2>
-                <div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div><br />
-                    @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
                         <form method="post" action="{{ route('mecze.update', $match->id) }}">
                             @method('PATCH')
                         @csrf

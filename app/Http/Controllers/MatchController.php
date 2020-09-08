@@ -6,6 +6,7 @@ use App\League;
 use App\Match;
 use App\MatchDetail;
 use App\Team;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,14 @@ class MatchController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $hasTeam = DB::table('teams')->where('capitan', $user->id)->get();
+        if(!($user->isAdmin()) && empty($hasTeam[0])){
+            return view('admin.matches.matches-user', ['user' => $user, 'msg' => 'Nie masz drużyny']);
+        }
+        if(!($user->isAdmin()) && $hasTeam[0]->league_id == ''){
+            return view('admin.matches.matches-user', ['user' => $user, 'msg' => 'Twoja drużyna nie jest przypisana do ligi']);
+        }
+
         $test =  DB::table('teams')->where('teams.capitan', '=', $user->id)
             ->select('matches.id', (DB::raw("matches.home_team_id AS home_team")), (DB::raw("matches.enemy_team_id AS enemy_team")), 'matches.date', 'matches.status', 'matches.home_team_score', 'matches.enemy_team_score')
             ->join('matches', 'matches.enemy_team_id', '=', 'teams.id');
@@ -46,7 +55,9 @@ class MatchController extends Controller
             return view('admin.matches.matches', ['user' => $user, 'leagues' => $leagues, 'teams'  => $teams] );
         }
         else if($user -> isCapitan()){
-            return view('admin.matches.matches-capitan', ['user' => $user, 'leagues' => $leagues, 'teams'  => $teams, 'matches' => $meczeCapitan, 'selectTeam' => $selectTeam] );
+            $today = Carbon::now();
+
+            return view('admin.matches.matches-capitan', ['user' => $user, 'leagues' => $leagues, 'teams'  => $teams, 'matches' => $meczeCapitan, 'selectTeam' => $selectTeam, 'today'=>$today] );
         }
 
         else{
@@ -85,6 +96,7 @@ class MatchController extends Controller
         $user = Auth::user();
         if($user ->isAdmin()){
             $request->validate([
+                'league'=>'required',
             ]);
 
 

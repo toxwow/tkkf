@@ -5,10 +5,17 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
+    }
 
     public function team()
     {

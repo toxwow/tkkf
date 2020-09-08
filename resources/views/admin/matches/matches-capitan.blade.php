@@ -1,9 +1,5 @@
 @extends('layouts.admin')
 @push('scripts')
-    <script>
-        var leagues =  {!! json_encode($leagues) !!}
-        var teams =  {!! json_encode($teams->toArray()) !!}
-    </script>
 {{--    <script src="{{ asset('js/index.js') }}" defer></script>--}}
 
 @endpush
@@ -36,7 +32,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="table-wrapper">
-                    <table class="table table-striped">
+
+                    <table class="table table-striped table-responsive-lg">
                         <thead>
                             <tr>
                                 <td>Drużyna gospodarzy</td>
@@ -48,10 +45,10 @@
                         </thead>
                         @foreach($matches as $match)
                             <tr>
-                                <td>{{$teams->find($match->home_team)->name}}</td>
+                                <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
                                 <td>
                                     @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
-                                        @if($match->home_team === $selectTeam[0]->id)
+                                        @if($match->home_team === $selectTeam[0]->id && ($today > $match->date))
                                             <a href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
                                         @else
                                         Czekam na wynik
@@ -64,7 +61,7 @@
                                         @endif
                                     @endif
                                 </td>
-                                <td>{{$teams->find($match->enemy_team)->name}}</td>
+                                <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
                                 <td>{{$match->date}}</td>
                                 <td>{{$match->status}}</td>
                             </tr>

@@ -146,7 +146,7 @@ class LeagueController extends Controller
                 'name' => $request->get('name'),
             ]);
             $league->save();
-            return redirect('/liga')->with('success', 'Nowa liga dodana!');
+            return redirect('/druzyna')->with('success', 'Nowa liga dodana!');
         }
         else{
             abort(403, "Access denied");
@@ -201,7 +201,7 @@ class LeagueController extends Controller
             $league->name = $request->get('name');
             $league->save();
 
-            return redirect('/liga')->with('success', 'Liga zaktualizowana!');
+            return redirect('/druzyna')->with('success', 'Liga zaktualizowana!');
         }
         else{
             abort(403, "Access denied");

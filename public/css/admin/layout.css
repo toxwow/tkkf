@@ -170,6 +170,47 @@ body {
   box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);
 }
 
+.layout-admin .card-box p.title {
+  font-size: 1.1rem;
+  padding-bottom: 5px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.layout-admin .card-box p.title::after {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+}
+
+.layout-admin .card-box p.title::before {
+  width: 100px;
+  height: 1px;
+  z-index: 2;
+  background-color: #4199fe;
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+}
+
+.layout-admin .card-box div.content {
+  margin: 20px 0 5px;
+}
+
+.layout-admin .card-box div.content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.layout-admin .card-box div.content p span {
+  color: #0758b8;
+}
+
 .layout-admin .pagination-wrapper {
   margin: 15px 0;
   display: flex;

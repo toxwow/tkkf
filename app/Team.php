@@ -12,8 +12,7 @@ class Team extends Model
     {
         return $this->belongsTo('App\League');
     }
-
-
+    
     public function players()
     {
         return $this->hasMany('App\Player');
