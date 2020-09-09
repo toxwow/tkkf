@@ -4,3 +4,129 @@ section.league-info {
   margin-top: -40px;
 }
 
+section.league-info .timetable-teams,
+section.league-info .table-teams {
+  margin-top: 40px;
+}
+
+section.league-info .timetable-teams p,
+section.league-info .table-teams p {
+  color: #404558;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+section.league-info .timetable-teams .timetable-wrapper,
+section.league-info .table-teams .timetable-wrapper {
+  height: 360px;
+  width: 100%;
+  border: 1px solid #e6eefc;
+  background-color: #fff;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content,
+section.league-info .table-teams .timetable-wrapper .match-content {
+  background-color: #fff;
+  border-bottom: 1px solid #e6eefc;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  border-left: 8px solid #f3f7ff;
+  border-right: 8px solid #f3f7ff;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 0.25s ease;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .home-team,
+section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team,
+section.league-info .table-teams .timetable-wrapper .match-content .home-team,
+section.league-info .table-teams .timetable-wrapper .match-content .enemy-team {
+  display: flex;
+  align-items: center;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .home-team img,
+section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team img,
+section.league-info .table-teams .timetable-wrapper .match-content .home-team img,
+section.league-info .table-teams .timetable-wrapper .match-content .enemy-team img {
+  height: 50px;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .home-team p.team-name,
+section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team p.team-name,
+section.league-info .table-teams .timetable-wrapper .match-content .home-team p.team-name,
+section.league-info .table-teams .timetable-wrapper .match-content .enemy-team p.team-name {
+  margin: 0 15px;
+  color: #404558;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result,
+section.league-info .table-teams .timetable-wrapper .match-content .result {
+  text-align: center;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.date,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.date {
+  margin-bottom: 0;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.time,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.time {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.score,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.score {
+  background-color: #f3f7ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 10px 20px;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.score.home-win,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.score.home-win {
+  position: relative;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.score.home-win::after,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.score.home-win::after {
+  content: "";
+  background-color: #0b41ab;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.score.enemy-win,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.score.enemy-win {
+  position: relative;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .result p.score.enemy-win::after,
+section.league-info .table-teams .timetable-wrapper .match-content .result p.score.enemy-win::after {
+  content: "";
+  background-color: #0b41ab;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content:hover,
+section.league-info .table-teams .timetable-wrapper .match-content:hover {
+  background-color: #fbfcff;
+  border-left: 8px solid #0b41ab;
+  border-right: 8px solid #0b41ab;
+}
+

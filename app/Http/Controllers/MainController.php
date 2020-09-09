@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\League;
 use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -26,8 +28,10 @@ class MainController extends Controller
     public function index()
     {
         $articles = Article::all();
-        $articlesSort = $articles -> sortByDesc('created_at') ->take(3);
-        return view('home.home', ['articles' => $articlesSort]);
+        $articlesSort = $articles -> sortByDesc('created_at') ->take(4);
+        $leagues = League::all() -> sortBy('name');
+        $timetable = League::with('matches.detail')->get();
+        return view('home.home', ['articles' => $articlesSort, 'leagues'=>$leagues, 'timetable'=>$timetable]);
     }
 
     public function articles()

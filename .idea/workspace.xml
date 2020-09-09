@@ -5,56 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99a1741b-ff38-4363-9c9e-2dbcb8cbe60e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/users-add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/users-edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo-tkkf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/map.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeagueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeagueController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MatchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MatchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_13_184821_create_articles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_13_184821_create_articles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin/teams.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin/teams.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin/teams.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin/teams.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/teams.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/teams.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/admin/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin/layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/admin/teams.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin/teams.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/articles-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/articles-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/articles-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/articles-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/articles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/articles.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/leagues/leagues.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/leagues/leagues.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/matches-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/matches-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/matches-capitan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/matches-capitan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/matches-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/matches-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home/articles-block.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home/articles-block.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home/league-info.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home/league-info.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/home/articles/articles-block.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/home/articles/articles-block.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/home/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/home/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/home/league-info.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/home/league-info.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/matches/matches.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/matches/matches.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/players/players-add-capitan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/players/players-add-capitan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/players/players-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/players/players-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/players/players-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/players/players-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/teamCapitan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/teamCapitan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/teams-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/teams-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/teams-edit-capitan.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/teams-edit-capitan.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/teams-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/teams-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/teams.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/teams.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/components/articles-block.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/articles-block.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/components/league-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/components/league-info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,19 +166,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public/storage/images/players" />
+      <recent name="$PROJECT_DIR$/storage/app/public/images" />
+      <recent name="$PROJECT_DIR$/resources/views/page" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/sass/home/articles" />
       <recent name="$PROJECT_DIR$/resources/views/home/articles" />
       <recent name="$PROJECT_DIR$/public/storage/images" />
       <recent name="$PROJECT_DIR$/resources/sass/home" />
       <recent name="$PROJECT_DIR$/resources/views/home/components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/storage/images/players" />
-      <recent name="$PROJECT_DIR$/storage/app/public/images" />
-      <recent name="$PROJECT_DIR$/resources/views/page" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/articles" />
     </key>
   </component>
   <component name="RunManager">
@@ -263,6 +230,8 @@
       <workItem from="1599500013607" duration="5713000" />
       <workItem from="1599510088992" duration="3886000" />
       <workItem from="1599564317708" duration="14598000" />
+      <workItem from="1599630107726" duration="7611000" />
+      <workItem from="1599654300407" duration="1249000" />
     </task>
     <servers />
   </component>

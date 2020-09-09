@@ -4,7 +4,6 @@
 }
 
 .articles-container .first-article {
-  background-image: url("https://www.fivb.org/Vis2009/Images/GetImage.asmx?No=90959&type=Press&width=920&height=588&stretch=uniformtofill");
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;

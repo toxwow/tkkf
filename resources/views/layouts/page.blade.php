@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ Storage::url('images/logo-tkkf.png')}}" alt="">
+                    <img src="{{url('/images/logo-tkkf.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,11 +50,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Zaloguj się') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Zarejestruj się') }}</a>
                                 </li>
                             @endif
                         @else
@@ -86,8 +86,18 @@
 
         <main>
             @yield('content')
+            <footer class="">
+
+                <!-- Copyright -->
+                <div class="">© 2020
+                    <a href="https://tkkfkrakow.pl/"> TKKF Kraków.</a>
+                    All rights reserved.
+                </div>
+                <!-- Copyright -->
+            </footer>
 
         </main>
     </div>
+
 </body>
 </html>

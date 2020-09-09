@@ -30,6 +30,21 @@ body .navbar::after {
   background-color: #0b41ab;
 }
 
+body footer {
+  width: 100%;
+  margin-top: 50px;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #1e1e1e;
+}
+
+body footer div > a {
+  text-decoration: none;
+  color: #fff;
+}
+
 body div.card-wrapper {
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
