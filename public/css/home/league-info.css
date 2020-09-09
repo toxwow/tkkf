@@ -23,6 +23,14 @@ section.league-info .table-teams .timetable-wrapper {
   width: 100%;
   border: 1px solid #e6eefc;
   background-color: #fff;
+  overflow: hidden;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-ruller,
+section.league-info .table-teams .timetable-wrapper .match-ruller {
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
 }
 
 section.league-info .timetable-teams .timetable-wrapper .match-content,
@@ -128,5 +136,40 @@ section.league-info .table-teams .timetable-wrapper .match-content:hover {
   background-color: #fbfcff;
   border-left: 8px solid #0b41ab;
   border-right: 8px solid #0b41ab;
+}
+
+section.league-info .timetable-teams .navigation-wrapper,
+section.league-info .table-teams .navigation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+section.league-info .timetable-teams .navigation-wrapper div.nav,
+section.league-info .table-teams .navigation-wrapper div.nav {
+  flex: 1;
+  justify-content: center;
+  background-color: #fbfcff;
+  border: 1px solid #e6eefc;
+  border-top: 0;
+  padding: 20px 0;
+  transition: all 0.25s ease;
+}
+
+section.league-info .timetable-teams .navigation-wrapper div.nav i,
+section.league-info .table-teams .navigation-wrapper div.nav i {
+  font-size: 1.2rem;
+}
+
+section.league-info .timetable-teams .navigation-wrapper div.nav:hover,
+section.league-info .table-teams .navigation-wrapper div.nav:hover {
+  background-color: #0b41ab;
+  border: 1px solid #0b41ab;
+  border-top: 0;
+}
+
+section.league-info .timetable-teams .navigation-wrapper div.nav:hover i,
+section.league-info .table-teams .navigation-wrapper div.nav:hover i {
+  color: #fff;
 }
 

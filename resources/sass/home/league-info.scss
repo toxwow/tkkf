@@ -18,6 +18,13 @@ section.league-info{
             width: 100%;
             border: 1px solid #e6eefc;
             background-color: #fff;
+            overflow: hidden;
+
+            .match-ruller{
+                position: relative;
+                top:0;
+                transition: all 0.5s ease;
+            }
 
             .match-content{
                 background-color: #fff;
@@ -96,7 +103,35 @@ section.league-info{
                     border-right: 8px solid #0b41ab;
                 }
             }
+        }
+        .navigation-wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
 
+            div.nav{
+                flex: 1;
+                justify-content: center;
+                background-color: #fbfcff;
+                border: 1px solid #e6eefc;
+                border-top: 0;
+                padding: 20px 0;
+                transition: all 0.25s ease;
+
+                i{
+                    font-size: 1.2rem;
+                }
+
+                &:hover{
+                    background-color: #0b41ab;
+                    border: 1px solid #0b41ab;
+                    border-top: 0;
+
+                    i{
+                        color: #fff;
+                    }
+                }
+            }
         }
     }
 
