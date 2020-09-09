@@ -7,5 +7,6 @@
 
     @include('home.components.articles-block')
     @include('home.components.league-info')
+    <div style="height: 500px;"></div>
 
 @endsection
