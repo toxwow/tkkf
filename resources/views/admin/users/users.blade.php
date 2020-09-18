@@ -2,7 +2,7 @@
 @push('scripts')
     <script src="{{ asset('js/admin/leagues.js') }}" defer></script>
 @endpush
-@push('scripts')
+@push('css')
     <link href="{{ asset('css/admin/leagues.css') }}" rel="stylesheet">
 @endpush
 @section('content')

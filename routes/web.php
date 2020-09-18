@@ -18,7 +18,7 @@ Route::get('/artykuły', 'MainController@articles')->name('articles');
 Route::get('/artykuł/{id}', 'MainController@singleArticle')->name('article');
 Route::get('/sezon-2019-2020', 'MainController@pastSeason')->name('seasonPast');
 Route::get('/sezon', 'MainController@season')->name('season');
-Route::get('/druzyna/{id}', 'MainController@team')->name('team');
+Route::get('/druzyny/{id}', 'MainController@team')->name('team');
 
 Auth::routes();
 
