@@ -64,6 +64,7 @@ body div.card-wrapper .title-card p {
   font-size: 1.3rem;
   font-weight: 600;
   color: #404558;
+  margin-bottom: 0;
   padding-left: 30px;
   position: relative;
 }
@@ -142,6 +143,14 @@ body .page-title-wrapper h1.page-title:before {
   body div.card-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  body .page-title-wrapper {
+    flex-direction: column;
+  }
+
+  body .page-title-wrapper > div {
+    margin-top: 50px;
   }
 }
 

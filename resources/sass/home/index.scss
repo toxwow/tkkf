@@ -63,6 +63,7 @@ body{
                 font-size: 1.3rem;
                 font-weight: 600;
                 color: #404558;
+                margin-bottom: 0;
                 padding-left: 30px;
                 position: relative;
 
@@ -148,6 +149,14 @@ body{
     body div.card-wrapper{
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    body .page-title-wrapper{
+        flex-direction: column;
+
+        & > div{
+            margin-top: 50px;
+        }
     }
 
 }
