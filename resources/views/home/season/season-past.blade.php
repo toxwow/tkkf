@@ -26,7 +26,8 @@
                 </div>
             </div>
             <div class="col-12">
-                <table class="table" id="league-1" >
+                <div class="table-responsive">
+                    <table class="table" id="league-1" >
                             <thead>
                                 <th>#</th>
                                 <th>Drużyna</th>
@@ -329,7 +330,9 @@
                                 </td>
                             </tr>
                         </table>
-                <table class="table" id="league-2" style="display: none">
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="league-2" style="display: none">
                     <thead>
                     <th>#</th>
                     <th>Drużyna</th>
@@ -632,7 +635,9 @@
                         </td>
                     </tr>
                 </table>
-                <table class="table" id="league-3" style="display: none">
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="league-3" style="display: none">
                     <thead>
                     <th>#</th>
                     <th>Drużyna</th>
@@ -906,7 +911,9 @@
                         </td>
                     </tr>
                 </table>
-                <table class="table" id="league-4" style="display: none">
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="league-4" style="display: none">
                     <thead>
                     <th>#</th>
                     <th>Drużyna</th>
@@ -1180,7 +1187,9 @@
                         </td>
                     </tr>
                 </table>
-                <table class="table" id="league-5" style="display: none">
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="league-5" style="display: none">
                     <thead>
                     <th>#</th>
                     <th>Drużyna</th>
@@ -1483,7 +1492,9 @@
                         </td>
                     </tr>
                 </table>
-                <table class="table" id="league-6" style="display: none">
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="league-6" style="display: none">
                     <thead>
                     <th>#</th>
                     <th>Drużyna</th>
@@ -1729,6 +1740,7 @@
                     </tr>
 
                 </table>
+                </div>
 
             </div>
         </div>

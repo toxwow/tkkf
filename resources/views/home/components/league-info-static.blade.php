@@ -16,58 +16,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-7">
-                            <div class="timetable-teams">
-                                <p class="name-col">Terminarz</p>
-                                        <div class="timetable-wrapper" id="league-1">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w I lidze</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timetable-wrapper" id="league-2">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w II lidze</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timetable-wrapper" id="league-3">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w III lidze</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timetable-wrapper" id="league-4">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w IV lidze</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timetable-wrapper" id="league-5">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w V lidze</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timetable-wrapper" id="league-6">
-                                            <div class="match-ruller">
-                                                <div class="match-content empty">
-                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w lidze kobiet</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                <div class="navigation-wrapper">
-                                    <div class="up nav"><i class="icofont-rounded-up"></i></div>
-                                    <div class="down nav"><i class="icofont-rounded-down"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-5">
+
+                        <div class="col-12 col-lg-5 order-lg-2">
                             <div class="table-teams">
                                 <p class="name-col">Tabela</p>
                                     <div class="table-teams-wrapper" id="league-1">
@@ -1115,6 +1065,57 @@
                                 </div>
                             </div>
                          </div>
+                        <div class="col-12 col-lg-7 order-lg-1">
+                            <div class="timetable-teams">
+                                <p class="name-col">Terminarz</p>
+                                <div class="timetable-wrapper" id="league-1">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w I lidze</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timetable-wrapper" id="league-2">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w II lidze</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timetable-wrapper" id="league-3">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w III lidze</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timetable-wrapper" id="league-4">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w IV lidze</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timetable-wrapper" id="league-5">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w V lidze</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timetable-wrapper" id="league-6">
+                                    <div class="match-ruller">
+                                        <div class="match-content empty">
+                                            <p><i class="icofont-search-user"></i>Brak aktualnych meczy w lidze kobiet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="navigation-wrapper">
+                                    <div class="up nav"><i class="icofont-rounded-up"></i></div>
+                                    <div class="down nav"><i class="icofont-rounded-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

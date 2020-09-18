@@ -26,6 +26,7 @@
             </div>
             <div class="col-12">
                 @foreach($mecze as $id_league => $liga)
+                    <div class="table-responsive">
                     @if($id_league != '')
                         @if($loop->first)<table class="table" id="league-{{$id_league }}" >@else
                                 <table class="table" id="league-{{$id_league }}" style="display: none" >
@@ -76,6 +77,7 @@
                             @endforeach
                         </table>
                     @endif
+                    </table>
                 @endforeach
 
             </div>

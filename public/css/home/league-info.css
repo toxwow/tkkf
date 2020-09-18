@@ -252,3 +252,19 @@ section.league-info .table-teams .navigation-wrapper div.nav:hover i {
   color: #fff;
 }
 
+@media (max-width: 991.98px) {
+  body div.card-wrapper .title-card {
+    flex-direction: column;
+  }
+
+  section.league-info .league-items {
+    margin: 0;
+  }
+
+  section.league-info .timetable-teams .table-teams-wrapper,
+  section.league-info .table-teams .table-teams-wrapper {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+

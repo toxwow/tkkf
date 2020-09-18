@@ -30,7 +30,7 @@
                 </div>
                 @foreach($articles as $article)
                     @if ($loop->first) @continue @endif
-                    <div class="col-4 my-4">
+                    <div class="col-12 col-md-6 col-lg-4 my-5">
                         <a href="{{route('article', $article->id)}}">
                             <div class="wrapper-rest-article">
                                 <div class="img-wrapper" style="background-image: url('{{Storage::url('images/articles/'.$article->photo)}}')"></div>

@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-7">
+                        <div class="col-12 col-md-7">
                             <div class="timetable-teams">
                                 <p class="name-col">Terminarz</p>
                                 @foreach($timetable as $league)
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-lg-5">
                             <div class="table-teams">
                                 <p class="name-col">Tabela</p>
                                 @foreach($mecze as $id_league => $liga)

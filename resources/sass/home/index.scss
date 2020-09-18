@@ -1,6 +1,7 @@
 body{
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
 
     .navbar{
         background-color: #0d142c;
@@ -8,8 +9,9 @@ body{
         position: relative;
 
         .navbar-brand{
-          margin-right: 30px;
+          margin: 0 30px;
         }
+
 
         ul.navbar-nav{
             li.nav-item > a{
@@ -135,5 +137,16 @@ body{
             }
         }
     }
+}
+
+@media (max-width: 575.98px) { }
+
+@media (max-width: 767.98px) {  }
+
+@media (max-width: 991.98px) {
+
+
 
 }
+
+@media (max-width: 1199.98px) { }

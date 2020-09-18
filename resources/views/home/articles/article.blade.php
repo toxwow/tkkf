@@ -5,7 +5,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-7 mx-auto">
+            <div class="col-12 col-lg-7  mx-auto">
                 <div class="single-article-content">
                     <div class="breadcrumbs"><a href="{{route('articles')}}">&bull; Artykuły</a></div>
                     <div class="img-wrapper" style="background-image: url('{{Storage::url('images/articles/'.$article->photo)}}')"></div>
@@ -31,7 +31,7 @@
             </div>
                 @foreach($articlesAll as $articleAll)
                     @if ($articleAll->id == $article->id) @continue @endif
-                        <div class="col-4 my-4">
+                        <div class="col-12 col-md-6 col-lg-4 my-4">
                             <a href="{{route('article', $articleAll->id)}}" style="text-decoration: none">
                                 <div class="wrapper-rest-article">
                                     <div class="img-wrapper" style="background-image: url('{{Storage::url('images/articles/'.$articleAll->photo)}}')"></div>

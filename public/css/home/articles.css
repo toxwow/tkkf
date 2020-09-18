@@ -141,3 +141,17 @@ section.article-page a .wrapper-rest-article:hover {
   box-shadow: rgba(9, 28, 46, 0.12) 0px 0.25rem 2.5rem 0px;
 }
 
+@media (max-width: 991.98px) {
+  section.article-page a .wrapper-first-article {
+    flex-direction: column;
+  }
+
+  section.article-page a .wrapper-first-article .img-wrapper {
+    width: 100%;
+  }
+
+  section.article-page a .wrapper-first-article .content-wrapper {
+    width: 100%;
+  }
+}
+

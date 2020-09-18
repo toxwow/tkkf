@@ -5,7 +5,6 @@
     overflow: hidden;
     position: relative;
     .navigation-panel{
-        position: absolute;
         width: 100%;
         top: 8px;
         height: 100%;
@@ -69,7 +68,7 @@
         .article-item{
             text-decoration: none !important;
             position: relative;
-            z-index: 2;
+            z-index: 5;
             text-align: center;
             color: #fff;
 
