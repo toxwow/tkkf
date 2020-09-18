@@ -12,4 +12,14 @@ class Match extends Model
     {
         return $this->hasMany('App\MatchDetail');
     }
+
+    public function teamHome()
+    {
+        return $this->belongsTo('App\Team', 'home_team_id');
+    }
+
+    public function teamEnemy()
+    {
+        return $this->belongsTo('App\Team', 'enemy_team_id');
+    }
 }

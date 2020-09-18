@@ -73,7 +73,7 @@
                                     {{$matches->home_team_score}} : {{$matches->enemy_team_score}}
                                 @endif
                             </td>
-                            <td>{{$teams->find($matches->home_team_id)->name}}</td>
+                            <td>{{$teams->find($matches->enemy_team_id)->name}}</td>
 
                             <td>{{$matches->date}}</td>
                             <td>{{$matches->status}}</td>

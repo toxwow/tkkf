@@ -13,6 +13,7 @@ section.article-page{
                 width: 60%;
                 min-height: 300px;
                 background-size: cover;
+                background-position: center;
                 background-repeat: no-repeat;
             }
 
@@ -121,14 +122,16 @@ section.article-page{
                     margin-bottom: 30px;
                 }
 
-                .info{
-                    border-top: 1px solid #e6e6e6;
-                    padding-top: 10px;
-                    display: flex;
-                    justify-content: space-between;
-                    color: rgb(141, 151, 166);
-                }
 
+            }
+
+            .info{
+                border-top: 1px solid #e6e6e6;
+                padding-top: 10px;
+                margin: 0 30px 20px;
+                display: flex;
+                justify-content: space-between;
+                color: rgb(141, 151, 166);
             }
 
             &:hover{

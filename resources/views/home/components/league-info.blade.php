@@ -6,11 +6,11 @@
                     <div class="title-card">
                         <p>Informacje o lidze</p>
                         <div class="league-items">
-                            @foreach($leagues as $league)
-                                @if($loop->first)
-                                    <a href="" class="active" id="league-{{$league->id}}">{{$league->name}}</a>
-                                @else
-                                    <a href="" id="league-{{$league->id}}">{{$league->name}}</a>
+                            @foreach($timetable as $league)
+                                    @if(empty($league->matches->first()))
+                                        @continue
+                                    @else
+                                    <a style="cursor: pointer" id="league-{{$league->id}}">{{$league->name}}</a>
                                 @endif
                             @endforeach
                         </div>
@@ -20,89 +20,48 @@
                         <div class="col-7">
                             <div class="timetable-teams">
                                 <p class="name-col">Terminarz</p>
-                                <div class="timetable-wrapper">
-                                    <div class="match-ruller">
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="date">05.07</p>
-                                                <p class="time">20:30</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="score home-win">2 : 0</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="score enemy-win">1 : 0</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
+                                @foreach($timetable as $league)
+                                    @if(empty($league->matches->first()))
+
+                                    @else
+                                        <div class="timetable-wrapper" id="league-{{$league->id}}">
+                                            <div class="match-ruller">
+                                                @foreach($league->matches as $match)
+
+                                                    <div class="match-content">
+                                                        <div class="home-team">
+                                                            <p class="team-name">{{$match->teamHome->name}}</p>
+                                                            @if($match->teamHome->logo == null)
+                                                                <img src="https://static.hltv.org/images/team/logo/3487" alt="">
+                                                            @else
+
+                                                            @endif
+                                                        </div>
+                                                        <div class="result">
+                                                            @if($match->status === 'zaakceptowany')
+                                                                @if($match->home_team_score > $match->enemy_team_score)
+                                                                    <p class="score home-win">{{$match->home_team_score}} : {{$match->enemy_team_score}}</p>
+                                                                @else
+                                                                    <p class="score enemy-win">{{$match->home_team_score}} : {{$match->enemy_team_score}}</p>
+                                                                @endif
+                                                            @else
+                                                                <p class="date">{{date('d.m',strtotime($match->date))}}</p>
+                                                            @endif
+                                                        </div>
+                                                        <div class="enemy-team">
+                                                            @if($match->teamHome->logo == null)
+                                                                <img src="https://static.hltv.org/images/team/logo/3487" alt="">
+                                                            @else
+
+                                                            @endif
+                                                            <p class="team-name">{{$match->teamEnemy->name}}</p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="score enemy-win">3 : 0</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="score enemy-win">3 : 0</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="match-content">
-                                            <div class="home-team">
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Legia_Warszawa.svg/1347px-Legia_Warszawa.svg.png" alt="">
-                                                <p class="team-name">Wczorajsi</p>
-                                            </div>
-                                            <div class="result">
-                                                <p class="score enemy-win">3 : 0</p>
-                                            </div>
-                                            <div class="enemy-team">
-                                                <p class="team-name">Wczorajsi</p>
-                                                <img src="https://seeklogo.com/images/G/GKS_Piast_Gliwice-logo-46CF21A094-seeklogo.com.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endif
+                                @endforeach
                                 <div class="navigation-wrapper">
                                     <div class="up nav"><i class="icofont-rounded-up"></i></div>
                                     <div class="down nav"><i class="icofont-rounded-down"></i></div>
@@ -112,9 +71,45 @@
                         <div class="col-5">
                             <div class="table-teams">
                                 <p class="name-col">Tabela</p>
-                            </div>
+                                @foreach($mecze as $id_league => $liga)
+                                    @if($id_league != '')
+                                    <div class="table-teams-wrapper" id="league-{{$id_league}}">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Drużyna</th>
+                                                <th scope="col"><b>Pkt</b></th>
+                                                <th scope="col">W</th>
+                                                <th scope="col">P</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @php $lp = 0 @endphp
+                                            @foreach($liga as $team_id => $team)
 
-                        </div>
+                                                <tr>
+                                                    <td>
+                                                        {{$lp = $lp + 1}}
+                                                    </td>
+                                                    <td style="font-weight: 600">
+                                                        {{$teams->find($team_id)->name}}
+                                                    </td>
+                                                    <td>
+                                                        <b>{{$team['sum_points_match']}}</b>
+                                                    </td>
+                                                    <td>{{$team['win_total']}}</td>
+                                                    <td>{{$team['lose_total']}}</td>
+
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>

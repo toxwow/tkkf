@@ -8,12 +8,18 @@
     "/css/home/index.css": "/css/home/index.css",
     "/css/home/league-info.css": "/css/home/league-info.css",
     "/css/home/articles.css": "/css/home/articles.css",
+    "/css/home/teams/team.css": "/css/home/teams/team.css",
     "/css/home/article.css": "/css/home/article.css",
     "/css/home/articles-block.css": "/css/home/articles-block.css",
+    "/css/home/articles-block-new.css": "/css/home/articles-block-new.css",
+    "/css/home/season/season.css": "/css/home/season/season.css",
     "/css/admin/layout.css": "/css/admin/layout.css",
     "/css/admin/home.css": "/css/admin/home.css",
     "/css/admin/leagues.css": "/css/admin/leagues.css",
     "/css/admin/teams.css": "/css/admin/teams.css",
+    "/js/home/articles-block-new.js": "/js/home/articles-block-new.js",
     "/js/home/index.js": "/js/home/index.js",
+    "/js/home/season/season.js": "/js/home/season/season.js",
+    "/js/home/team.js": "/js/home/team.js",
     "/js/index.js": "/js/index.js"
 }

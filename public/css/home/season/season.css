@@ -1,0 +1,50 @@
+.season {
+  padding: 40px 0;
+}
+
+.season .dropdown-item.active,
+.season .dropdown-item:active {
+  background-color: #0b41ab;
+}
+
+.season .btn-light {
+  color: #212529;
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+
+.season .table {
+  margin-top: 20px;
+}
+
+.season .table thead th {
+  padding: 5px 20px;
+  border-top: 0;
+  background-color: #d2d2d2;
+  border-bottom: 0;
+}
+
+.season .table tbody tr td {
+  margin: 10px 0;
+  padding: 15px 20px;
+  background-color: #f0f0f0;
+}
+
+.season .table tbody tr td a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.season .table tbody tr:nth-child(even) > td {
+  background-color: #fff;
+}
+
+.season .table tbody tr:hover td {
+  background-color: #0b41ab;
+  color: #fff;
+}
+
+.season .table tbody tr:hover td a {
+  color: #ffffff;
+}
+

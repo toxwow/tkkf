@@ -4,6 +4,10 @@ section.league-info {
   margin-top: -40px;
 }
 
+section.league-info .league-items {
+  margin-right: 40px;
+}
+
 section.league-info .timetable-teams,
 section.league-info .table-teams {
   margin-top: 40px;
@@ -15,6 +19,48 @@ section.league-info .table-teams p {
   margin-bottom: 20px;
   font-weight: 600;
   font-size: 1.05rem;
+}
+
+section.league-info .timetable-teams .table-teams-wrapper,
+section.league-info .table-teams .table-teams-wrapper {
+  height: 420px;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid #e6eefc;
+  background-color: #fff;
+}
+
+section.league-info .timetable-teams .table-teams-wrapper .table,
+section.league-info .table-teams .table-teams-wrapper .table {
+  margin-bottom: 0;
+}
+
+section.league-info .timetable-teams .table-teams-wrapper .table thead > tr > th,
+section.league-info .table-teams .table-teams-wrapper .table thead > tr > th {
+  border-top: 0;
+  color: #0b41ab;
+  background-color: #fbfcff;
+  font-weight: normal;
+}
+
+section.league-info .timetable-teams .table-teams-wrapper .table tr td,
+section.league-info .table-teams .table-teams-wrapper .table tr td {
+  color: #404558;
+  font-size: 14px;
+}
+
+section.league-info .timetable-teams .table-teams-wrapper .table tr:nth-child(2) > td,
+section.league-info .timetable-teams .table-teams-wrapper .table tr:nth-child(1) > td,
+section.league-info .table-teams .table-teams-wrapper .table tr:nth-child(2) > td,
+section.league-info .table-teams .table-teams-wrapper .table tr:nth-child(1) > td {
+  background-color: rgba(92, 207, 7, 0.05);
+}
+
+section.league-info .timetable-teams .table-teams-wrapper .table tr:nth-last-child(2) > td,
+section.league-info .timetable-teams .table-teams-wrapper .table tr:nth-last-child(1) > td,
+section.league-info .table-teams .table-teams-wrapper .table tr:nth-last-child(2) > td,
+section.league-info .table-teams .table-teams-wrapper .table tr:nth-last-child(1) > td {
+  background-color: rgba(216, 36, 36, 0.05);
 }
 
 section.league-info .timetable-teams .timetable-wrapper,
@@ -47,11 +93,35 @@ section.league-info .table-teams .timetable-wrapper .match-content {
   transition: all 0.25s ease;
 }
 
+section.league-info .timetable-teams .timetable-wrapper .match-content.empty,
+section.league-info .table-teams .timetable-wrapper .match-content.empty {
+  flex-direction: column;
+  align-items: center;
+  height: 360px;
+  width: 100%;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content.empty p,
+section.league-info .table-teams .timetable-wrapper .match-content.empty p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content.empty p i,
+section.league-info .table-teams .timetable-wrapper .match-content.empty p i {
+  display: block;
+  margin-bottom: 10px;
+  color: #0b41ab;
+  font-size: 2.4rem;
+}
+
 section.league-info .timetable-teams .timetable-wrapper .match-content .home-team,
 section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team,
 section.league-info .table-teams .timetable-wrapper .match-content .home-team,
 section.league-info .table-teams .timetable-wrapper .match-content .enemy-team {
   display: flex;
+  justify-content: flex-end;
+  flex: 1;
   align-items: center;
 }
 
@@ -72,8 +142,14 @@ section.league-info .table-teams .timetable-wrapper .match-content .enemy-team p
   font-weight: 600;
 }
 
+section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team,
+section.league-info .table-teams .timetable-wrapper .match-content .enemy-team {
+  justify-content: flex-start;
+}
+
 section.league-info .timetable-teams .timetable-wrapper .match-content .result,
 section.league-info .table-teams .timetable-wrapper .match-content .result {
+  flex: 1;
   text-align: center;
 }
 
@@ -94,6 +170,7 @@ section.league-info .timetable-teams .timetable-wrapper .match-content .result p
 section.league-info .table-teams .timetable-wrapper .match-content .result p.score {
   background-color: #f3f7ff;
   font-size: 1.1rem;
+  display: inline-block;
   font-weight: bold;
   margin-bottom: 0;
   padding: 10px 20px;
@@ -142,6 +219,7 @@ section.league-info .timetable-teams .navigation-wrapper,
 section.league-info .table-teams .navigation-wrapper {
   display: flex;
   align-items: center;
+  height: 60px;
   justify-content: space-around;
 }
 
@@ -152,7 +230,8 @@ section.league-info .table-teams .navigation-wrapper div.nav {
   background-color: #fbfcff;
   border: 1px solid #e6eefc;
   border-top: 0;
-  padding: 20px 0;
+  align-items: center;
+  height: 100%;
   transition: all 0.25s ease;
 }
 

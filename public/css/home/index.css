@@ -100,26 +100,33 @@ body div.card-wrapper .title-card::after {
   left: 0;
 }
 
-body h1.page-title {
+body .page-title-wrapper {
   margin-top: 80px;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #404558;
-  position: relative;
-  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }
 
-body h1.page-title:after {
+body .page-title-wrapper h1.page-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  color: #404558;
+  position: relative;
+}
+
+body .page-title-wrapper h1.page-title:after {
   content: "";
   position: absolute;
   width: 100%;
   height: 1px;
   background-color: #e6e6e6;
   left: 0;
-  bottom: 0;
+  bottom: -20px;
 }
 
-body h1.page-title:before {
+body .page-title-wrapper h1.page-title:before {
   content: "";
   z-index: 2;
   position: absolute;
@@ -127,6 +134,6 @@ body h1.page-title:before {
   height: 1px;
   background-color: #0b41ab;
   left: 0;
-  bottom: 0;
+  bottom: -20px;
 }
 

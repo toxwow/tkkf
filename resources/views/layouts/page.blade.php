@@ -39,10 +39,10 @@
                             <a href="{{route('articles')}}" class="nav-link">Artykuły</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Drużyny</a>
+                            <a href="{{route('season')}}" class="nav-link">Sezon 2020/2021</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Ligi</a>
+                            <a href="{{route('seasonPast')}}" class="nav-link">Sezon 2019/2020</a>
                         </li>
                     </ul>
 

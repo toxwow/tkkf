@@ -6,7 +6,7 @@
     <section class="article-page">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 page-title-wrapper">
                     <h1 class="page-title">Artykuły i Wiadomości</h1>
                 </div>
                 <div class="col-12">
@@ -34,10 +34,12 @@
                         <a href="{{route('article', $article->id)}}">
                             <div class="wrapper-rest-article">
                                 <div class="img-wrapper" style="background-image: url('{{Storage::url('images/articles/'.$article->photo)}}')"></div>
-                                <div class="content-wrapper">
-                                    <div class="category">{{$article->category}}</div>
-                                    <div class="title">{{$article->title}}</div>
-                                    <div class="subtitle">{{$article->subtitle}}</div>
+                                <div class="d-flex flex-column justify-content-between" style="height: calc(100% - 200px);">
+                                    <div class="content-wrapper">
+                                        <div class="category">{{$article->category}}</div>
+                                        <div class="title">{{$article->title}}</div>
+                                        <div class="subtitle">{{$article->subtitle}}</div>
+                                    </div>
                                     <div class="info">
                                         <div class="date">{{$article->created_at->format('d.m.Y')}}</div>
                                         <div class="author">{{$article->author}}</div>

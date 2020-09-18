@@ -1,0 +1,49 @@
+.season{
+    padding: 40px 0;
+
+    .dropdown-item.active, .dropdown-item:active {
+        background-color: #0b41ab;
+    }
+
+    .btn-light {
+        color: #212529;
+        background-color: #f0f0f0;
+        border-color: #f0f0f0;
+    }
+
+    .table{
+        margin-top: 20px;
+        thead th{
+            padding: 5px 20px;
+            border-top: 0;
+            background-color: #d2d2d2;
+            border-bottom: 0;
+        }
+        tbody tr {
+            td{
+                margin: 10px 0;
+                padding: 15px 20px;
+                background-color: #f0f0f0;
+                a{
+                    text-decoration: none;
+                    color: #212529;
+                }
+            }
+
+            &:nth-child(even) > td{
+                background-color: #fff;
+            }
+
+            &:hover{
+                td{
+                    background-color: #0b41ab;
+                    color: #fff;
+
+                    a{
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

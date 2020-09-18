@@ -1,0 +1,234 @@
+section.team{
+    margin-top: 8px;
+    .wrapper-team-info{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 300px;
+        position: relative;
+
+        .team-info{
+            position: absolute;
+            width: 80%;
+            z-index: 5;
+            right: 0;
+            padding: 20px 40px;
+            bottom: -100px;
+            background-color: white;
+            box-shadow: -23px 17px 31px -16px rgba(0,0,0,0.25);
+            .head-info{
+                display: flex;
+                align-items: center;
+                .logo > img{
+                    width: 50px;
+                }
+                .team{
+                    margin-left: 20px;
+                    p{
+                        margin-bottom: 0;
+                        &.name{
+                            font-family: 'Oswald', sans-serif;;
+                            font-weight: 500;
+                            font-size: 1.8rem;
+                        }
+                        &.league{
+                            font-family: 'Oswald', sans-serif;;
+                            font-size: 0.95rem;
+                            color: #aaaaaa;
+                            margin-top: -5px;
+                        }
+                    }
+                }
+            }
+
+            .rest-info{
+                margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+
+                .info{
+                    flex: 1 0 33%;
+                    .label{
+                        font-family: 'Oswald', sans-serif;;
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        font-size: 0.9rem;
+                        color: #aaaaaa;
+                        margin-bottom: -3px;
+                    }
+                    .content{
+                        font-size: 1.2rem;
+                        font-family: 'Oswald', sans-serif;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+    .team-menu-wrapper{
+        margin-top: 150px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        &::after{
+            content: '';
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background-color: #d4d4d4;
+        }
+
+
+        .item{
+            padding: 15px 0;
+            font-size: 1.05rem;
+            cursor: pointer;
+
+            &.active{
+                color: #0d142c;
+                font-weight: 600;
+                position: relative;
+
+                &:after{
+                    content: '';
+                    bottom: 0;
+                    position: absolute;
+                    width: 150%;
+                    left: -25%;
+                    height: 1px;
+                    z-index: 2;
+                    background-color: #0b41ab;
+                }
+            }
+        }
+    }
+    .collapse-item{
+        margin: 30px 0;
+
+        &.players-wrapper{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .card-player{
+                margin: 10px;
+                position: relative;
+                flex: 0 0 calc(25% - 20px);
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                border-radius: 5px;
+                padding: 30px 20px;
+                box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.37);
+                transition: all 0.15s ease;
+            &:after{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                content: '';
+                background-color: #c4c4c4;
+                border-radius: 5px 5px 0 0px;
+
+            }
+                &:hover{
+                    transform: scale(1.025);
+                    &::after{
+                        background-color: #0b41ab;
+                    }
+                }
+                .img-wrapper{
+                    width: 120px;
+                    height: 120px;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    border-radius: 50%;
+                }
+
+                .info-wrapper{
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    font-family: 'Oswald', sans-serif;
+
+                    .name{
+                        font-weight: 300;
+                        font-size: 1.1rem;
+                    }
+                    .birth{
+                        font-weight: 200;
+                    }
+                }
+            }
+        }
+        &.last-matches-wrapper, &.timetable-wrapper{
+            .card-match{
+                text-align: center;
+                flex: 1;
+                margin: 25px 0;
+                padding: 10px 0;
+                border-top: 1px solid #d4d4d4;
+                border-bottom: 1px solid #d4d4d4;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                &:hover{
+                    background-color: #f8f8f8;
+                    border-top: 1px solid #0b41ab;
+                    border-bottom: 1px solid #0b41ab;
+                }
+
+                .team{
+                    text-align: center;
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+
+                    img{
+                        height: 25px;
+                    }
+                }
+                .score{
+                    text-align: center;
+                    flex: 1;
+                    .versus{
+                        font-family: 'Oswald', sans-serif;
+                    }
+                    span{
+                        background-color: #0b41ab;
+                        padding: 3px 8px;
+                        font-weight: 600;
+                        color: #fff;
+                    }
+
+                    .detail{
+                        display: flex;
+                        color: #aaaaaa;
+                        margin-top: 5px;
+                        justify-content: center;
+                    }
+                }
+                .date{
+                    text-align: center;
+                    flex: 1;
+                    font-weight: 600;
+                    i{
+                        margin-right: 10px;
+                        color: #0b41ab;
+                    }
+                }
+            }
+        }
+    }
+}

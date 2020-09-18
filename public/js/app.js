@@ -49926,6 +49926,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/home/articles/articles-block-new.scss":
+/*!**************************************************************!*\
+  !*** ./resources/sass/home/articles/articles-block-new.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/home/articles/articles-block.scss":
 /*!**********************************************************!*\
   !*** ./resources/sass/home/articles/articles-block.scss ***!
@@ -49970,10 +49981,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/home/season/season.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/home/season/season.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/home/teams/team.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/home/teams/team.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home/index.scss ./resources/sass/home/league-info.scss ./resources/sass/home/articles/articles.scss ./resources/sass/home/articles/article.scss ./resources/sass/home/articles/articles-block.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home/index.scss ./resources/sass/home/league-info.scss ./resources/sass/home/articles/articles.scss ./resources/sass/home/teams/team.scss ./resources/sass/home/articles/article.scss ./resources/sass/home/articles/articles-block.scss ./resources/sass/home/articles/articles-block-new.scss ./resources/sass/home/season/season.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49982,8 +50015,11 @@ __webpack_require__(/*! /var/www/html/tkkf/resources/sass/app.scss */"./resource
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/index.scss */"./resources/sass/home/index.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/league-info.scss */"./resources/sass/home/league-info.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles.scss */"./resources/sass/home/articles/articles.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/teams/team.scss */"./resources/sass/home/teams/team.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/article.scss */"./resources/sass/home/articles/article.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles-block.scss */"./resources/sass/home/articles/articles-block.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles-block-new.scss */"./resources/sass/home/articles/articles-block-new.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/season/season.scss */"./resources/sass/home/season/season.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/layout.scss */"./resources/sass/admin/layout.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/home.scss */"./resources/sass/admin/home.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/leagues.scss */"./resources/sass/admin/leagues.scss");
