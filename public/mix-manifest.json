@@ -6,6 +6,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/home/index.css": "/css/home/index.css",
+    "/css/home/contact.css": "/css/home/contact.css",
     "/css/home/league-info.css": "/css/home/league-info.css",
     "/css/home/articles.css": "/css/home/articles.css",
     "/css/home/teams/team.css": "/css/home/teams/team.css",

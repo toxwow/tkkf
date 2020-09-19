@@ -1,0 +1,11 @@
+section.contact p.description {
+  text-align: justify;
+  color: #565d76;
+}
+
+section.contact p.description i {
+  color: #0b41ab;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+

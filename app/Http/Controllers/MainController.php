@@ -145,6 +145,10 @@ class MainController extends Controller
         return view('home.articles.article', ['article' => $article, 'articlesAll' => $articlesSort]);
     }
 
+    public function contact(){
+        return view('home.contact');
+    }
+
     public function pastSeason(){
         return view('home.season.season-past');
     }

@@ -18,7 +18,17 @@ body .navbar ul.navbar-nav li.nav-item > a {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  padding: 0 0 0 45px;
+  opacity: 0.5;
+  margin: 0 0 0 45px;
+  transition: all 0.25s ease;
+}
+
+body .navbar ul.navbar-nav li.nav-item > a.active {
+  opacity: 1;
+}
+
+body .navbar ul.navbar-nav li.nav-item > a:hover {
+  opacity: 0.8;
 }
 
 body .navbar::after {
@@ -137,6 +147,21 @@ body .page-title-wrapper h1.page-title:before {
   background-color: #0b41ab;
   left: 0;
   bottom: -20px;
+}
+
+@media (max-width: 767.98px) {
+  .navbar-toggler {
+    margin: 0 30px;
+  }
+
+  body .navbar ul.navbar-nav li.nav-item > a {
+    padding: 10px 45px;
+    margin-left: 10px;
+  }
+
+  .navbar-nav {
+    margin: 20px 0 0;
+  }
 }
 
 @media (max-width: 991.98px) {

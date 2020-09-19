@@ -18,7 +18,17 @@ body{
                 text-decoration: none;
                 color: #fff;
                 text-transform: uppercase;
-                padding: 0 0 0 45px;
+                opacity: 0.5;
+                margin: 0 0 0 45px;
+                transition: all 0.25s ease;
+
+                &.active{
+                    opacity: 1;
+                }
+
+                &:hover{
+                    opacity: 0.8;
+                }
             }
         }
 
@@ -140,9 +150,24 @@ body{
     }
 }
 
+
+
 @media (max-width: 575.98px) { }
 
-@media (max-width: 767.98px) {  }
+@media (max-width: 767.98px) {
+    .navbar-toggler{
+        margin: 0 30px;
+    }
+
+    body .navbar ul.navbar-nav li.nav-item > a{
+        padding: 10px 45px;
+        margin-left: 10px;
+    }
+
+    .navbar-nav{
+        margin: 20px 0 0;
+    }
+}
 
 @media (max-width: 991.98px) {
 

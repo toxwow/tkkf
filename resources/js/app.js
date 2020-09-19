@@ -29,3 +29,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+var line = ($('nav').outerHeight(true) +  $('footer').outerHeight(true));
+$('main').css('min-height', 'calc(100vh - '+line+'px)');
+console.log(line);

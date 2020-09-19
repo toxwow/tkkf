@@ -49743,6 +49743,9 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+var line = $('nav').outerHeight(true) + $('footer').outerHeight(true);
+$('main').css('min-height', 'calc(100vh - ' + line + 'px)');
+console.log(line);
 
 /***/ }),
 
@@ -49959,6 +49962,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/home/contact.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/home/contact.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/home/index.scss":
 /*!****************************************!*\
   !*** ./resources/sass/home/index.scss ***!
@@ -50004,15 +50018,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home/index.scss ./resources/sass/home/league-info.scss ./resources/sass/home/articles/articles.scss ./resources/sass/home/teams/team.scss ./resources/sass/home/articles/article.scss ./resources/sass/home/articles/articles-block.scss ./resources/sass/home/articles/articles-block-new.scss ./resources/sass/home/season/season.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home/index.scss ./resources/sass/home/contact.scss ./resources/sass/home/league-info.scss ./resources/sass/home/articles/articles.scss ./resources/sass/home/teams/team.scss ./resources/sass/home/articles/article.scss ./resources/sass/home/articles/articles-block.scss ./resources/sass/home/articles/articles-block-new.scss ./resources/sass/home/season/season.scss ./resources/sass/admin/layout.scss ./resources/sass/admin/home.scss ./resources/sass/admin/leagues.scss ./resources/sass/admin/teams.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/html/tkkf/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/index.scss */"./resources/sass/home/index.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/contact.scss */"./resources/sass/home/contact.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/league-info.scss */"./resources/sass/home/league-info.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles.scss */"./resources/sass/home/articles/articles.scss");
 __webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/teams/team.scss */"./resources/sass/home/teams/team.scss");

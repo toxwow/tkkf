@@ -39,13 +39,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{route('articles')}}" class="nav-link">Artykuły</a>
+                            <a href="{{route('articles')}}" class="nav-link {{ (request()->is('artykuły*')) || (request()->is('artykuł*'))  ? 'active' : '' }}"><i class="icofont-ui-note mr-2"></i> Artykuły</a>
+                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{route('season')}}" class="nav-link">Sezon 2020/2021</a>--}}
+{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i> Wyniki</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('season')}}" class="nav-link">Sezon 2020/2021</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('seasonPast')}}" class="nav-link">Sezon 2019/2020</a>
+                            <a href="{{route('contact')}}" class="nav-link {{ (request()->is('kontakt'))  ? 'active' : '' }}"> <i class="icofont-ui-contact-list mr-2"></i>Kontakt</a>
                         </li>
                     </ul>
 
@@ -53,14 +56,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Zaloguj się') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Zarejestruj się') }}</a>
-                                </li>
-                            @endif
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Zaloguj się') }}</a>--}}
+{{--                            </li>--}}
+{{--                            @if (Route::has('register'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Zarejestruj się') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -90,17 +93,18 @@
 
         <main>
             @yield('content')
-            <footer class="">
 
-                <!-- Copyright -->
-                <div class="">© 2020
-                    <a href="https://tkkfkrakow.pl/"> TKKF Kraków.</a>
-                    All rights reserved.
-                </div>
-                <!-- Copyright -->
-            </footer>
 
         </main>
+        <footer class="">
+
+            <!-- Copyright -->
+            <div class="">© 2020
+                <a href="https://tkkfkrakow.pl/"> TKKF Kraków.</a>
+                All rights reserved.
+            </div>
+            <!-- Copyright -->
+        </footer>
     </div>
 
 </body>
