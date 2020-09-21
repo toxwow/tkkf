@@ -24,14 +24,13 @@
                     </select>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 all-tables">
+                <div class="table-responsive">
                 @foreach($mecze as $id_league => $liga)
-                    <div class="table-responsive">
-                    @if($id_league != '')
-                        @if($loop->first)<table class="table" id="league-{{$id_league }}" >@else
-                                <table class="table" id="league-{{$id_league }}" style="display: none" >
-                                    @endif
 
+                    @if($id_league != '')
+
+                            <table class="table" id="league-{{$id_league }}">
                             <thead>
                             <th>#</th>
                             <th>Drużyna</th>
