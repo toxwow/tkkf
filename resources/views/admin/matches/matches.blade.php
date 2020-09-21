@@ -54,42 +54,42 @@
                         </div>
                     </div>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
-                        <th>Gospodarze</th>
-                        <th>wynik</th>
-                        <th>Goście</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th></th>
-                        </thead>
-                        @foreach($league->matches as $matches)
-                        <tr>
-                            <td>{{$teams->find($matches->home_team_id)->name}}</td>
-                            <td>
-                                @if($matches->status === 'nieodbyty')
-                                    czekam na wynik
-                                @else
-                                    {{$matches->home_team_score}} : {{$matches->enemy_team_score}}
-                                @endif
-                            </td>
-                            <td>{{$teams->find($matches->enemy_team_id)->name}}</td>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Gospodarze</th>
+                            <th>wynik</th>
+                            <th>Goście</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                            <th></th>
+                            </thead>
+                            @foreach($league->matches as $matches)
+                            <tr>
+                                <td>{{$teams->find($matches->home_team_id)->name}}</td>
+                                <td>
+                                    @if($matches->status === 'nieodbyty')
+                                        czekam na wynik
+                                    @else
+                                        {{$matches->home_team_score}} : {{$matches->enemy_team_score}}
+                                    @endif
+                                </td>
+                                <td>{{$teams->find($matches->enemy_team_id)->name}}</td>
 
-                            <td>{{$matches->date}}</td>
-                            <td>{{$matches->status}}</td>
-                            <td>
-                                <a href="{{ route('mecze.edit',$matches->id)}}" class="btn btn-primary">Edytuj</a>
-                                <form action="{{ route('mecze.destroy', $matches->id)}}" method="post" style="display: inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class=" btn btn-danger" type="submit">Usuń mecz</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-
-
-                    </table>
+                                <td>{{$matches->date}}</td>
+                                <td>{{$matches->status}}</td>
+                                <td>
+                                    <a href="{{ route('mecze.edit',$matches->id)}}" class="btn btn-primary">Edytuj</a>
+                                    <form action="{{ route('mecze.destroy', $matches->id)}}" method="post" style="display: inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class=" btn btn-danger" type="submit">Usuń mecz</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
 
                 </div>
                 @endforeach

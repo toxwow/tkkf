@@ -138,7 +138,7 @@ class TeamController extends Controller
             'capitan' => $request->get('capitan')
         ]);
         $team->save();
-        return redirect('/liga')->with('success', 'Drużyna dodana!');
+        return redirect('/druzyna')->with('success', 'Drużyna dodana!');
     }
 
     /**
@@ -278,7 +278,5 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
         $team->delete();
-
-        return redirect('/druzyna')->with('success', 'Drużyna usunięta!');
     }
 }

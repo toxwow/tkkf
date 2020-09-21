@@ -29,54 +29,67 @@
                         </div>
                     </div>
                     <div class="rest-info">
-                        <div class="info">
-                            <p class="label">Kapitan</p>
-                            <p class="content">{{$team['capitan']}}</p>
-                        </div>
-                        <div class="info">
-                            <p class="label">Telefon</p>
-                            <p class="content">
-                                @if(isset($team['phone']))
-                                    {{$team['phone']}}
-                                @else
-                                    brak
-                                @endif
-                            </p>
-                        </div>
-                        <div class="info">
-                            <p class="label">Adres email</p>
-                            <p class="content">{{$team['email']}}</p>
-                        </div>
-                        <div class="info">
-                            <p class="label">Adres hali</p>
-                            <p class="content">
-                                @if(isset($team['address']))
-                                    {{$team['address']}}
-                                    @else
-                                    brak
-                                @endif
-                            </p>
-                        </div>
-                        <div class="info">
-                            <p class="label">Dzień</p>
-                            <p class="content">
-                                @if(isset($team['date']))
-                                    {{$team['date']}}
-                                @else
-                                    brak
-                                @endif
-                            </p>
-                        </div>
-
-                        <div class="info">
-                            <p class="label">Godzina</p>
-                            <p class="content">
-                                @if(isset($team['time']))
-                                    {{$team['time']}}
-                                @else
-                                    brak
-                                @endif
-                            </p>
+                        <div class="row w-100">
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Kapitan</p>
+                                    <p class="content">{{$team['capitan']}}</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Telefon</p>
+                                    <p class="content">
+                                        @if(isset($team['phone']))
+                                            {{$team['phone']}}
+                                        @else
+                                            brak
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Adres email</p>
+                                    <p class="content">{{$team['email']}}</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Adres hali</p>
+                                    <p class="content">
+                                        @if(isset($team['address']))
+                                            {{$team['address']}}
+                                        @else
+                                            brak
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Dzień</p>
+                                    <p class="content">
+                                        @if(isset($team['date']))
+                                            {{$team['date']}}
+                                        @else
+                                            brak
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Godzina</p>
+                                    <p class="content">
+                                        @if(isset($team['time']))
+                                            {{$team['time']}}
+                                        @else
+                                            brak
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,8 +99,9 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-10 ml-auto">
+        <div class="col-12 ml-auto">
             <div class="team-menu-wrapper">
+                <div class="active-bg"></div>
                 <div class="item active" id="timetable">Terminarz</div>
                 <div class="item " id="last-matches">Ostatnie mecze</div>
                 <div class="item" id="players">Zawodnicy</div>
@@ -172,15 +186,20 @@
             </div>
             <div class="collapse-item players-wrapper"  style="display: none">
                 @if(isset($team['players']))
+
+                    <div class="row">
                     @foreach($team['players'] as $player)
-                        <div class="card-player">
-                            <div class="img-wrapper" style="background-image: url({{ Storage::url('images/players/'.$player['photo']) }})"></div>
-                            <div class="info-wrapper">
-                                <div class="name">{{$player['name']}} {{$player['surname']}}</div>
-                                <div class="birth">{{$player['birth']}}</div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card-player">
+                                <div class="img-wrapper" style="background-image: url({{ Storage::url('images/players/'.$player['photo']) }})"></div>
+                                <div class="info-wrapper">
+                                    <div class="name">{{$player['name']}} {{$player['surname']}}</div>
+                                    <div class="birth">{{$player['birth']}}</div>
+                                </div>
                             </div>
                         </div>
                     @endforeach
+                    </div>
                 @else
                     <div class="card-player" style="flex:1;">Brak zawodników</div>
                 @endif

@@ -1,7 +1,15 @@
 body{
     background: #f2f7fb;
 }
+
 .layout-admin{
+    .navbar-brand{
+        margin-right: 0;
+        img{
+            width: 80%;
+            margin: 0 10%;
+        }
+    }
     .left-panel{
         height: 100%;
         width: 200px;
@@ -101,6 +109,7 @@ body{
         .content-title{
             display: flex;
             align-items: center;
+            flex: 1;
 
             .icon-wrapper{
                 background-color: #4099ff;
@@ -110,8 +119,7 @@ body{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 50px;
-                width: 50px;
+                padding: 15px;
                 margin-right: 20px;
                 i{
                     font-size: 20px;
@@ -131,12 +139,18 @@ body{
                 }
             }
         }
-        .content-add a{
-            text-decoration: none;
-            background-color: #2ed8b6;
-            padding: 10px 20px;
-            border-radius: 25px;
-            color: #fff;
+        .content-add {
+            flex: 1;
+            text-align: end;
+            justify-content: flex-end;
+            a {
+
+                text-decoration: none;
+                background-color: #2ed8b6;
+                padding: 10px 20px;
+                border-radius: 25px;
+                color: #fff;
+            }
         }
     }
     .table{
@@ -205,6 +219,50 @@ body{
         justify-content: flex-end;
     }
 
+
+}
+
+
+@media (max-width: 575.98px) {
+
+}
+
+@media (max-width: 767.98px) {
+    .layout-admin .left-panel{
+        width: 60px;
+    }
+    .layout-admin nav.navbar{
+        width: calc(100% - 60px);
+    }
+    .layout-admin main{
+        width: calc(100% - 60px);
+    }
+    .layout-admin .content-header .content-add {
+        width: 100%;
+        margin-top: 30px;
+        text-align: start;
+    }
+    .layout-admin .content-header{
+        flex-direction: column;
+    }
+    .layout-admin .left-panel .items-menu ul li a > span{
+        display: none;
+    }
+    .layout-admin .left-panel .items-menu ul li a > i{
+        margin-right: 0px !important;
+    }
+    .layout-admin .left-panel .items-menu ul li a.active > i{
+        margin-left: -4px;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+
+
+}
+
+@media (max-width: 1199.98px) {
 
 }
 

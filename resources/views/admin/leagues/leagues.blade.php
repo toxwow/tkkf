@@ -47,6 +47,7 @@
                                 {{$leagues->find($id_league)->name}}
                             </div>
                         </div>
+                        <div class="table-responsive">
                         <table class="table table-striped table-responsive-lg">
                             <thead>
                             <tr>
@@ -93,6 +94,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        </div>
                         </div>
                     @endif
                     @endforeach

@@ -3,7 +3,7 @@ section.team {
 }
 
 section.team .wrapper-team-info {
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   height: 300px;
@@ -12,11 +12,12 @@ section.team .wrapper-team-info {
 
 section.team .wrapper-team-info .team-info {
   position: absolute;
-  width: 80%;
+  width: 90%;
   z-index: 5;
-  right: 0;
+  right: 5%;
+  border-radius: 0 0px 10px 10px;
   padding: 20px 40px;
-  bottom: -100px;
+  bottom: -150px;
   background-color: white;
   box-shadow: -23px 17px 31px -16px rgba(0, 0, 0, 0.25);
 }
@@ -59,10 +60,6 @@ section.team .wrapper-team-info .team-info .rest-info {
   justify-content: space-between;
 }
 
-section.team .wrapper-team-info .team-info .rest-info .info {
-  flex: 1 0 33%;
-}
-
 section.team .wrapper-team-info .team-info .rest-info .info .label {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
@@ -79,44 +76,37 @@ section.team .wrapper-team-info .team-info .rest-info .info .content {
 }
 
 section.team .team-menu-wrapper {
-  margin-top: 150px;
+  margin-top: 180px;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-around;
   position: relative;
+  border-radius: 5px;
+  background-color: #0941ab14;
 }
 
-section.team .team-menu-wrapper::after {
-  content: "";
-  bottom: 0;
-  width: 100%;
-  height: 1px;
+section.team .team-menu-wrapper .active-bg {
+  background-color: #0b41ab;
   position: absolute;
-  background-color: #d4d4d4;
+  height: 100%;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  top: 0;
 }
 
 section.team .team-menu-wrapper .item {
-  padding: 15px 0;
+  z-index: 1;
+  padding: 15px 20px;
   font-size: 1.05rem;
   cursor: pointer;
+  text-align: center;
 }
 
 section.team .team-menu-wrapper .item.active {
-  color: #0d142c;
   font-weight: 600;
   position: relative;
-}
-
-section.team .team-menu-wrapper .item.active:after {
-  content: "";
-  bottom: 0;
-  position: absolute;
-  width: 150%;
-  left: -25%;
-  height: 1px;
-  z-index: 2;
-  background-color: #0b41ab;
+  color: #fff;
 }
 
 section.team .collapse-item {
@@ -124,7 +114,9 @@ section.team .collapse-item {
 }
 
 section.team .collapse-item.players-wrapper {
-  display: flex;
+  background-color: rgba(222, 222, 222, 0.08);
+  border: 1px solid rgba(10, 52, 139, 0.08);
+  padding: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -132,7 +124,6 @@ section.team .collapse-item.players-wrapper {
 section.team .collapse-item.players-wrapper .card-player {
   margin: 10px;
   position: relative;
-  flex: 0 0 calc(25% - 20px);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -186,24 +177,30 @@ section.team .collapse-item.players-wrapper .card-player .info-wrapper .birth {
   font-weight: 200;
 }
 
+section.team .collapse-item.last-matches-wrapper,
+section.team .collapse-item.timetable-wrapper {
+  background-color: rgba(222, 222, 222, 0.08);
+  border: 1px solid rgba(10, 52, 139, 0.08);
+  padding: 10px;
+}
+
 section.team .collapse-item.last-matches-wrapper .card-match,
 section.team .collapse-item.timetable-wrapper .card-match {
   text-align: center;
   flex: 1;
-  margin: 25px 0;
-  padding: 10px 0;
-  border-top: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
+  padding: 20px 0;
+  margin: 5px 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-left: 10px solid #cdcdcd;
+  transition: all 0.25s ease;
 }
 
 section.team .collapse-item.last-matches-wrapper .card-match:hover,
 section.team .collapse-item.timetable-wrapper .card-match:hover {
-  background-color: #f8f8f8;
-  border-top: 1px solid #0b41ab;
-  border-bottom: 1px solid #0b41ab;
+  background-color: #fff;
+  border-color: #0b41ab;
 }
 
 section.team .collapse-item.last-matches-wrapper .card-match .team,
@@ -261,5 +258,38 @@ section.team .collapse-item.last-matches-wrapper .card-match .date i,
 section.team .collapse-item.timetable-wrapper .card-match .date i {
   margin-right: 10px;
   color: #0b41ab;
+}
+
+@media (max-width: 575.98px) {
+  section.team .team-menu-wrapper .item {
+    font-size: 0.75rem;
+  }
+
+  section.team .collapse-item.last-matches-wrapper .card-match,
+  section.team .collapse-item.timetable-wrapper .card-match {
+    border-left: 0px;
+  }
+
+  section.team .collapse-item.last-matches-wrapper .card-match .date,
+  section.team .collapse-item.timetable-wrapper .card-match .date {
+    display: none;
+  }
+
+  section.team .collapse-item.last-matches-wrapper .card-match .score .detail,
+  section.team .collapse-item.timetable-wrapper .card-match .score .detail {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  section.team .wrapper-team-info .team-info {
+    width: 70%;
+    right: 15%;
+    bottom: -280px;
+  }
+
+  section.team .team-menu-wrapper {
+    margin-top: 330px;
+  }
 }
 

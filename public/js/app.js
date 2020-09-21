@@ -49745,7 +49745,6 @@ var app = new Vue({
 });
 var line = $('nav').outerHeight(true) + $('footer').outerHeight(true);
 $('main').css('min-height', 'calc(100vh - ' + line + 'px)');
-console.log(line);
 
 /***/ }),
 

@@ -1,5 +1,11 @@
 @extends('layouts.admin')
+@push('scripts')
 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js" defer></script>
+    <script src="{{ asset('js/admin/articles.js') }}" defer></script>
+
+@endpush
 @section('content')
     <div class="container">
         <div class="row">
@@ -38,7 +44,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="table-wrapper">
+            <div class="table-wrapper table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -49,7 +55,7 @@
                         <td colspan = 2>Actions</td>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="" id="listArticles">
                         @foreach($articles as $article)
                             <tr>
                                 <td>{{$article->title}}</td>
@@ -58,11 +64,8 @@
                                 <td class="d-flex">
                                     <a href="{{ route('artykuly.edit',$article->id)}}" class="btn btn-primary mr-3">Edytuj</a>
 
-                                    <form action="{{ route('artykuly.destroy', $article->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Usuń</button>
-                                    </form>
+                                    @csrf
+                                    <button class="btn btn-danger deleteArticle" data-id="{{ $article->id }}">Usuń</button>
                                 </td>
                             </tr>
                         @endforeach

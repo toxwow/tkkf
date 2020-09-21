@@ -81,76 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/articles.js":
-/*!****************************************!*\
-  !*** ./resources/js/admin/articles.js ***!
-  \****************************************/
+/***/ "./resources/js/admin/admin.js":
+/*!*************************************!*\
+  !*** ./resources/js/admin/admin.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-new Sortable(listArticles, {
-  animation: 150,
-  ghostClass: 'blue-background-class',
-  onEnd: function onEnd(
-  /**Event*/
-  evt) {
-    var itemEl = evt.item; // dragged HTMLElement
 
-    console.log(evt.oldIndex);
-  }
-});
-$(".deleteArticle").click(function () {
-  var id = $(this).data("id");
-  console.log(id);
-  var token = $("input[name='_token']").attr("value");
-  Swal.fire({
-    title: 'Czy jesteś pewny aby usunąć artykuł?',
-    text: "Zmiany nie będą mogły zostać cofnięte!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Tak, usuń artykuł',
-    cancelButtonText: 'Nie usuwaj'
-  }).then(function (result) {
-    if (result.isConfirmed) {
-      $.ajax({
-        url: "artykuly/" + id,
-        type: 'POST',
-        data: {
-          "id": id,
-          '_method': 'DELETE',
-          "_token": token
-        },
-        success: function success() {
-          Swal.fire({
-            title: 'Artykuł został usunięty',
-            icon: 'success',
-            onClose: function onClose() {
-              location.reload();
-            }
-          });
-        }
-      });
-    }
-  });
-});
 
 /***/ }),
 
-/***/ 2:
-/*!**********************************************!*\
-  !*** multi ./resources/js/admin/articles.js ***!
-  \**********************************************/
+/***/ 5:
+/*!*******************************************!*\
+  !*** multi ./resources/js/admin/admin.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/articles.js */"./resources/js/admin/articles.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
 /***/ })

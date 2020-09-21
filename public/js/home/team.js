@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,9 +94,23 @@
 /***/ (function(module, exports) {
 
 var collapse;
-$('.team-menu-wrapper').children().click(function () {
+var positionActive = $('.item').position();
+var widthActive = $('.item').outerWidth(true);
+$('.active-bg').css('left', positionActive.left + 'px');
+$('.active-bg').css('width', widthActive + 'px');
+$(window).on('resize', function () {
+  var positionActive = $('.item').position();
+  var widthActive = $('.item').outerWidth(true);
+  $('.active-bg').css('left', positionActive.left + 'px');
+  $('.active-bg').css('width', widthActive + 'px');
+});
+$('.item').click(function () {
   $('.team-menu-wrapper').children().removeClass('active');
   $(this).addClass('active');
+  var positionActive = $(this).position();
+  var widthActive = $(this).outerWidth(true);
+  $('.active-bg').css('left', positionActive.left + 'px');
+  $('.active-bg').css('width', widthActive + 'px');
   collapse = this.id + '-wrapper';
   $('.collapse-item').hide();
   $('.' + collapse).show();
@@ -104,7 +118,7 @@ $('.team-menu-wrapper').children().click(function () {
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!***********************************************!*\
   !*** multi ./resources/js/home/teams/team.js ***!
   \***********************************************/

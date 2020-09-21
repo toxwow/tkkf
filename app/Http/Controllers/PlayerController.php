@@ -248,6 +248,5 @@ class PlayerController extends Controller
         $player->delete();
 //        Storage::delete('public/images/players/'.$player->photo);
 
-        return redirect('/druzyna')->with('success', 'Zawodnik usunięty prawidłowo!');
     }
 }

@@ -79,14 +79,10 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="{{ route('liga.edit', $league->id)}}">Edytuj ligę</a>
                                         @if(empty($league->team[0]))
-                                            <a class="dropdown-item" href="">
-                                                <form action="{{ route('liga.destroy', $league->id)}}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń ligę</button>
-                                                </form></a>
+                                            @csrf
+                                            <a class="dropdown-item deleteLeague" style="cursor: pointer" data-id="{{ $league->id }}">Usuń ligę</a>
                                         @else
-                                        <button class="dropdown-item btn-link alert-show" >Usuń ligę</button>
+                                            <a class="dropdown-item deleteLeagueErorr" style="cursor: pointer" data-id="{{ $league->id }}">Usuń ligę</a>
                                         @endif
                                     </div>
                                 </div>
@@ -94,104 +90,104 @@
 
                         </div>
                     </div>
-                    <table class="table table-striped table-responsive-lg">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
 
-                    @foreach($league->team as $team)
-                        {{--modal--}}
-                        <div class="modal fade" id="modal-{{$team->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Kontakt {{$team->name}}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        @php $capitanTeam = $user->find($team->capitan);  @endphp
-                                        @if(empty($capitanTeam))
-                                            brak danych kontaktowych
-                                        @else
-                                        <div class="ml-3" style="color: #212529">
-                                            <p style="font-size: 1.2rem"><i class="icofont-address-book" style="color: #4099ff"></i> {{$capitanTeam->name}} {{$capitanTeam->surname}}</p>
-                                            <p style="font-size: 1.2rem"><i class="icofont-mobile-phone" style="color: #4099ff"></i> {{$capitanTeam->phone}}</p>
-                                            <p style="font-size: 1.2rem; margin-bottom: 0;"><i class="icofont-email" style="color: #4099ff"></i> {{$capitanTeam->email}}</p>
+                        @foreach($league->team as $team)
+                            {{--modal--}}
+                            <div class="modal fade" id="modal-{{$team->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Kontakt {{$team->name}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
-                                        @endif
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                                        <div class="modal-body">
+                                            @php $capitanTeam = $user->find($team->capitan);  @endphp
+                                            @if(empty($capitanTeam))
+                                                brak danych kontaktowych
+                                            @else
+                                            <div class="ml-3" style="color: #212529">
+                                                <p style="font-size: 1.2rem"><i class="icofont-address-book" style="color: #4099ff"></i> {{$capitanTeam->name}} {{$capitanTeam->surname}}</p>
+                                                <p style="font-size: 1.2rem"><i class="icofont-mobile-phone" style="color: #4099ff"></i> {{$capitanTeam->phone}}</p>
+                                                <p style="font-size: 1.2rem; margin-bottom: 0;"><i class="icofont-email" style="color: #4099ff"></i> {{$capitanTeam->email}}</p>
+                                            </div>
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {{--end modal--}}
+                            {{--end modal--}}
 
-                        <tr>
-                            <td scope="col">
-                                <div class="d-flex justify-content-between align-items-center" >
-                                    <span style="font-size: 18px;">{{$team->name}}</span>
+                            <tr>
+                                <td scope="col">
+                                    <div class="d-flex justify-content-between align-items-center" >
+                                        <span style="font-size: 18px;">{{$team->name}}</span>
 
 
-                                    <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center">
 
-                                        <button class="btn btn-primary " id="team-click-{{$team->id}}" data-toggle="tooltip" data-placement="top" title="Zawodnicy"><i class="icofont-users"></i></button>
-                                        <button type="button" class="btn btn-outline-secondary mx-2"  data-toggle="modal" data-target="#modal-{{$team->id}}">
-                                            <i class="icofont-phone"></i>
-                                        </button>
-                                        <button class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                                            <i class="icofont-settings-alt"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{ route('druzyna.edit',$team->id)}}">Edytuj drużynę</a>
-                                            <a class="dropdown-item" href="">
-                                                <form action="{{ route('druzyna.destroy', $team->id)}}" method="post">
+                                            <button class="btn btn-primary " id="team-click-{{$team->id}}"><i class="icofont-users"></i></button>
+                                            <button type="button" class="btn btn-outline-secondary mx-2"  data-toggle="modal" data-target="#modal-{{$team->id}}">
+                                                <i class="icofont-phone"></i>
+                                            </button>
+                                            <button class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+                                                <i class="icofont-settings-alt"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{ route('druzyna.edit',$team->id)}}">Edytuj drużynę</a>
+                                                @if(empty($team->players[0]))
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button class="dropdown-item" style="text-align: left; display: contents;" type="submit">Usuń drużynę</button>
-                                                </form></a>
+                                                    <a class="dropdown-item deleteTeam"  style="cursor: pointer" data-id="{{ $team->id }}" >Usuń drużynę</a>
+
+                                                @else
+                                                    <a class="dropdown-item deleteTeamError"  style="cursor: pointer" >Usuń drużynę</a>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mt-2" id="team-wrapper-{{$team->id}}" style="display: none;">
+                                    <div class="mt-2" id="team-wrapper-{{$team->id}}" style="display: none;">
 
-                                    @foreach($team->players as $key => $player)
-                                        @if($key % 2 == 0)
-                                        <div class="player-wrapper" style="background-color: rgba(0, 0, 0, 0.05)">
-                                        @else
-                                        <div class="player-wrapper" style="background-color: rgba(0, 0, 0, 0.10)">
-                                        @endif
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                {{$key+1}}. {{$player->name}} {{$player->surname}}
+                                        @foreach($team->players as $key => $player)
+                                            @if($key % 2 == 0)
+                                            <div class="player-wrapper" style="background-color: rgba(0, 0, 0, 0.05)">
+                                            @else
+                                            <div class="player-wrapper" style="background-color: rgba(0, 0, 0, 0.10)">
+                                            @endif
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    {{$key+1}}. {{$player->name}} {{$player->surname}}
 
-                                            </div>
-                                            <div class="d-flex">
-                                                @if($player->status === 'niezweryfikowany')
-                                                    <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-dark mr-2">niezweryfikowany</a>
-                                                @endif
-                                                @if($player->status === 'odrzucony')
-                                                    <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-danger mr-2">odrzucony</a>
-                                                @endif
-                                                <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-primary mr-3"><i class="icofont-edit"></i></a>
-                                                <form action="{{ route('zawodnik.destroy', $player -> id)}}" method="post">
+                                                </div>
+                                                <div class="d-flex">
+                                                    @if($player->status === 'niezweryfikowany')
+                                                        <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-dark mr-2">niezweryfikowany</a>
+                                                    @endif
+                                                    @if($player->status === 'odrzucony')
+                                                        <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-danger mr-2">odrzucony</a>
+                                                    @endif
+                                                    <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-primary mr-3"><i class="icofont-edit"></i></a>
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit"><i class="icofont-delete-alt"></i></button>
-                                                </form>
+                                                    <a class="btn btn-danger deletePlayer" data-id="{{ $player->id }}"><i class="icofont-delete-alt"></i></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        </div>
-                                    @endforeach
-                                        <div class="player-wrapper add">
-                                            <a href="{{route('zawodnik.create', 'team='.$team->id)}}">dodaj zawodnika {{$team -> name}}</a>
-                                        </div>
-                                </div>
-                            </td>
-                        </tr>
+                                            </div>
+                                        @endforeach
+                                            <div class="player-wrapper add">
+                                                <a href="{{route('zawodnik.create', 'team='.$team->id)}}">dodaj zawodnika {{$team -> name}}</a>
+                                            </div>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    @endforeach
-                    </table>
+                        @endforeach
+                        </table>
+                    </div>
                 </div>
                 @endforeach
                     <div class="table-wrapper mb-4 leagueTable" id="league-empty" >
@@ -203,25 +199,27 @@
                                 </div>
                             </div>
                         </div>
-                <table class="table table-striped">
-                @foreach($emptyTeams as $teams)
-                        <tr>
-                        <td scope="col">
-                            <div class="d-flex justify-content-between align-items-center" >
-                                <span style="font-size: 18px;">{{$teams->name}}</span>
-                                <div class="d-flex align-items-center">
-                                    <a href="{{ route('druzyna.edit',$teams->id)}}" class="btn btn-primary mx-3"><i class="icofont-ui-edit"></i></a>
-                                    <form action="{{ route('druzyna.destroy', $teams->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit"><i class="icofont-delete-alt"></i></button>
-                                    </form>
+                <div class="table-resposnive">
+                    <table class="table table-striped">
+                    @foreach($emptyTeams as $teams)
+                            <tr>
+                            <td scope="col">
+                                <div class="d-flex justify-content-between align-items-center" >
+                                    <span style="font-size: 18px;">{{$teams->name}}</span>
+                                    <div class="d-flex align-items-center">
+                                        <a href="{{ route('druzyna.edit',$teams->id)}}" class="btn btn-primary mx-3"><i class="icofont-ui-edit"></i></a>
+                                        <form action="{{ route('druzyna.destroy', $teams->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit"><i class="icofont-delete-alt"></i></button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        </tr>
-                @endforeach
-                </table>
+                            </td>
+                            </tr>
+                    @endforeach
+                    </table>
+                </div>
             </div>
         </div>
     </div>
