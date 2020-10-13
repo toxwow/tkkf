@@ -336,6 +336,7 @@ class MainController extends Controller
             $matchFuture[$key]['enemy_team_logo'] = Team::find($match->enemy_team_id)->logo;
             $matchFuture[$key]['date'] = $match->date;
             $matchFuture[$key]['address'] = Team::find($match->home_team_id)->address;
+            $matchFuture[$key]['address2'] = Team::find($match->home_team_id)->time;
         }
 
 

@@ -78,6 +78,18 @@
                                     </p>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="info">
+                                    <p class="label">Informacje</p>
+                                    <p class="content">
+                                        @if(isset($team['information']))
+                                            {{$team['information']}}
+                                        @else
+                                            brak informacji
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,7 +132,7 @@
                                 <a href="{{route('team',$match['enemy_team_id'])}}" style="text-decoration: none; color: #212529">{{$match['enemy_team']}}</a>
                             </div>
                             <div class="date"><i class="icofont-ui-calendar"></i> {{$match['date']}}</div>
-                            <div class="date"><i class="icofont-location-pin"></i> {{$match['address']}}</div>
+                            <div class="date"><i class="icofont-location-pin"></i> {{$match['address']}} <br> <span style="font-weight: normal; font-size: 0.85rem"> {{$match['address2']}} </span></div>
 
                         </div>
                     @endforeach
