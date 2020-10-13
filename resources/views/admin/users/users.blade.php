@@ -42,8 +42,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="table-wrapper">
-                    <table class="table table-striped table-responsive">
+                <div class="table-wrapper  table-responsive">
+                    <table class="table table-striped">
                         <thead>
                             <th>#</th>
                             <th>Imię i nazwisko</th>

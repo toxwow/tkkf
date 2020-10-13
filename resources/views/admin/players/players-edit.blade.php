@@ -46,10 +46,6 @@
                             <input type="text" class="form-control" name="surname" value="{{$player->surname}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="photo">Zdjęcie nie chodzi</label>
-                            <input type="file" disabled class="form-control" name="photo" id="photo"/>
-                        </div>
-                        <div class="form-group">
                             <label for="birth">Data urodzenia</label>
                             <input type="date" class="form-control" name="birth" value="{{$player->birth}}"/>
                         </div>

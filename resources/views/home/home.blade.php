@@ -11,7 +11,7 @@
 
 {{--    @include('home.components.articles-block')--}}
     @include('home.components.articles-block-new')
-{{--    @include('home.components.league-info')--}}
-    @include('home.components.league-info-static')
+    @include('home.components.league-info')
+{{--    @include('home.components.league-info-static')--}}
 
 @endsection

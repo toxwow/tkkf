@@ -41,34 +41,44 @@
                             <label for="name">Nazwa druzyny:</label>
                             <input type="text" class="form-control" name="name" value="{{$team->name}}"/>
                         </div>
-                        <div class="form-group">
-                            <label for="information">Informacje:</label>
-                            <input type="text" class="form-control" name="information" value="{{$team->information}}"/>
-                        </div>
 
                         <div class="form-group">
 
                             <label for="league_id">Liga:</label>
-                            @if($matchStatus)
                                 <select class="form-control" name="league_id" id="league_id">
-                            @else
-                                <select class="form-control" disabled name="league_id" id="league_id">
-                            @endif
                                 @foreach($league as $value)
                                     @if($value->id === $team->leauge_id)
                                     <option selected value="{{$value->id}}">{{$value->name}} </option>
                                     @else
                                             <option selected value="{{$value->id}}">{{$value->name}} </option>
-
                                         @endif
                                 @endforeach
                                 <option value="">Nieprzypisana drużyna</option>
                             </select>
                             @if(!$matchStatus)
-                             <small class="form-text text-muted">Nie możesz zmienić ligi dopóki drużyna rozegrała mecz. Usuń wszystkie jej mecze i spróbuj ponownie</small>
+                             <small class="form-text text-muted">Nie zmieniaj ligi dopóki drużyna rozegrała mecz. Usuń wszystkie jej mecze i spróbuj ponownie</small>
                             @endif
 
                         </div>
+                        <div class="form-group">
+                            <label for="shifts">Liczba przełożonych meczy:</label>
+                            <input type="number" class="form-control" name="shifts" value="{{$team->shifts}}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Adres:</label>
+                            <input type="text" class="form-control" name="address" value="{{$team->address}}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Dzień i godzina hali:</label>
+                            <input type="text" class="form-control" name="time" value="{{$team->time}}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="information">Dodatkowe informacje:</label>
+                            <textarea type="text" class="form-control" name="information">{{$team->information}}</textarea>
+                        </div>
+
                         <div class="form-group">
                             <label for="capitan">Kapitan:</label>
                             <select class="form-control" name="capitan" id="capitan">

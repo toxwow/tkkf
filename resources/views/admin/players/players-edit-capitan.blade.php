@@ -10,7 +10,7 @@
                             <i class="icofont-user"></i>
                         </div>
                         <div class="text-wrapper">
-                            <p class="title">Dodaj użytkownika</p>
+                            <p class="title">Edytuj zawodnika</p>
                         </div>
                     </div>
                 </div>
@@ -32,37 +32,32 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
-                    <form method="post" action="{{ route('uzytkownicy.store') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('zawodnik.update', $player->id) }}" enctype="multipart/form-data">
+                        @method('PATCH')
                         @csrf
 
 
                         <div class="form-group">
                             <label for="name">Imię:</label>
-                            <input type="text" class="form-control" name="name"/>
+                            <input type="text" class="form-control" name="name" disabled value="{{$player->name}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="surname">Nazwisko</label>
-                            <input type="text" class="form-control" name="surname"/>
+                            <label for="surname">Naziwsko</label>
+                            <input type="text" class="form-control" name="surname" disabled value="{{$player->surname}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" class="form-control" name="email"/>
+                            <label for="birth">Data urodzenia</label>
+                            <input type="date" class="form-control" name="birth"  disabled value="{{$player->birth}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="phone" class="form-control" name="phone"/>
+                            <label for="photo">Zdjęcie</label>
+                            <input type="file" class="form-control" name="photo"/>
                         </div>
-                        <div class="form-group">
-                            <label for="role">Uprawnienia</label>
-                            <select  class="form-control" name="role">
-                                <option value="admin">Admin</option>
-                                <option selected value="capitan">Kapitan</option>
-                                <option value="user">Użytkownik</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Dodaj użytkownika</button>
-                    </form>
 
+
+
+                        <button type="submit" class="btn btn-primary">Edytuj zawodnika</button>
+                    </form>
                 </div>
             </div>
         </div>

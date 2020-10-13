@@ -27,10 +27,11 @@
                                         <div class="timetable-wrapper" id="league-{{$league->id}}">
                                             <div class="match-ruller">
                                                 @foreach($league->matches as $match)
+                                                    @if($match->status === 'nieodbyty')
 
                                                     <div class="match-content">
                                                         <div class="home-team">
-                                                            <p class="team-name">{{$match->teamHome->name}}</p>
+                                                            <p class="team-name"><a href="{{route('team',$match->teamHome->id)}}">{{$match->teamHome->name}}</a></p>
                                                             @if($match->teamHome->logo == null)
                                                                 <img src="https://static.hltv.org/images/team/logo/3487" alt="">
                                                             @else
@@ -38,15 +39,7 @@
                                                             @endif
                                                         </div>
                                                         <div class="result">
-                                                            @if($match->status === 'zaakceptowany')
-                                                                @if($match->home_team_score > $match->enemy_team_score)
-                                                                    <p class="score home-win">{{$match->home_team_score}} : {{$match->enemy_team_score}}</p>
-                                                                @else
-                                                                    <p class="score enemy-win">{{$match->home_team_score}} : {{$match->enemy_team_score}}</p>
-                                                                @endif
-                                                            @else
                                                                 <p class="date">{{date('d.m',strtotime($match->date))}}</p>
-                                                            @endif
                                                         </div>
                                                         <div class="enemy-team">
                                                             @if($match->teamHome->logo == null)
@@ -54,9 +47,10 @@
                                                             @else
 
                                                             @endif
-                                                            <p class="team-name">{{$match->teamEnemy->name}}</p>
+                                                            <p class="team-name"><a href="{{route('team',$match->teamEnemy->id)}}">{{$match->teamEnemy->name}}</a></p>
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>
@@ -93,7 +87,7 @@
                                                         {{$lp = $lp + 1}}
                                                     </td>
                                                     <td style="font-weight: 600">
-                                                        {{$teams->find($team_id)->name}}
+                                                        <a href="{{route('team', $team_id)}}">{{$teams->find($team_id)->name}}</a>
                                                     </td>
                                                     <td>
                                                         <b>{{$team['sum_points_match']}}</b>

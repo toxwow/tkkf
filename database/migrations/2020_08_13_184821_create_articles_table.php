@@ -21,6 +21,8 @@ class CreateArticlesTable extends Migration
             $table->string('subtitle');
             $table->text('content');
             $table->string('author');
+            $table->boolean('important');
+            $table->string('status');
             $table->timestamps();
         });
     }

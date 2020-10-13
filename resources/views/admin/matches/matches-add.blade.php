@@ -101,6 +101,7 @@
                                         <select  class="form-control" name="status" onchange="changeStatus()" id="statusID">
                                             <option value="nieodbyty">Nieodbyty</option>
                                             <option value="zaakceptowany">Zakończony</option>
+                                            <option value="przelozony">Przełożony</option>
                                         </select>
                                     </div>
                                 </div>

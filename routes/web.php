@@ -20,7 +20,7 @@ Route::get('/sezon-2019-2020', 'MainController@pastSeason')->name('seasonPast');
 Route::get('/sezon', 'MainController@season')->name('season');
 Route::get('/kontakt', 'MainController@contact')->name('contact');
 Route::get('/druzyny/{id}', 'MainController@team')->name('team');
-
+Route::get('/zawodnicy', 'PlayerController@allPlayers')->name('allPlayers');
 Auth::routes();
 
 Route::get('/panel', 'HomeController@index')->name('panel');
@@ -32,6 +32,7 @@ Route::resource('artykuly', 'ArticlesController');
 Route::resource('liga', 'LeagueController');
 Route::resource('druzyna', 'TeamController');
 Route::resource('zawodnik', 'PlayerController');
+
 Route::resource('mecze', 'MatchController');
 Route::resource('uzytkownicy', 'UserController');
 

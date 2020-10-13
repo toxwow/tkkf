@@ -45,10 +45,10 @@
                 <div class="d-flex align-items-center justify-content-around d">
                     <div class="card-box mr-2 flex-fill">
                         <div class="text-center"><i class="icofont-info-circle mr-2" style="color: #4099ff"></i>
-                            @if($team['information'] == '')
+                            @if($team['address'] == '')
                             uzupełnij dane
                             @else
-                                {{$team['information']}}
+                                {{$team['address']}}
                             @endif
                         </div>
                     </div>
@@ -57,6 +57,17 @@
 
                             @if($team['date'] == '')
                                 uzupełnij dane
+                            @else
+                                {{$team['date']}}
+                            @endif
+
+                        </div>
+                    </div>
+                    <div class="card-box ml-2 flex-fill">
+                        <div class="text-center"><i class="icofont-clock-time mr-2" style="color: #4099ff"></i>
+
+                            @if($team['date'] == '')
+                                mecze do przełożenia: {{$team['shifts']}}
                             @else
                                 {{$team['date']}}
                             @endif
@@ -81,7 +92,14 @@
                     @foreach($team['players'] as $key => $player)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td><img src="{{ Storage::url('images/players/'.$player['photo']) }}" alt="" width="100px"></td>
+                            <td class="with-input">
+                                <div class="img-wrapper" style="background-image: url('{{Storage::url('images/players/'.$player['photo'])}}')">
+                                    <a class="mask-edit" href="{{route('zawodnik.edit', $player['id'])}}">
+                                        <i class="icofont-ui-image"></i>
+                                        edytuj zdjęcie</a>
+
+                                </div>
+
                             <td>{{$player['name']}}</td>
                             <td>{{$player['birth']}}</td>
                             <td>{{$player['status']}}</td>

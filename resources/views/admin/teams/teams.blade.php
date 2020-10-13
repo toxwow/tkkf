@@ -161,15 +161,13 @@
                                             @endif
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    {{$key+1}}. {{$player->name}} {{$player->surname}}
+                                                    {{$key+1}}. {{$player->name}} {{$player->surname}} {{$player->birth}}
 
                                                 </div>
                                                 <div class="d-flex">
                                                     @if($player->status === 'niezweryfikowany')
-                                                        <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-dark mr-2">niezweryfikowany</a>
-                                                    @endif
-                                                    @if($player->status === 'odrzucony')
-                                                        <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-danger mr-2">odrzucony</a>
+                                                        @csrf
+                                                        <a class="btn btn-dark mr-2" id="veryfyPlayer" data-id="{{ $player->id }}">zweryfikuj gracza</a>
                                                     @endif
                                                     <a href="{{ route('zawodnik.edit', $player -> id)}}" class="btn btn-primary mr-3"><i class="icofont-edit"></i></a>
                                                     @csrf

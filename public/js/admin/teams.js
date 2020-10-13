@@ -129,6 +129,30 @@ $(".deleteTeam").click(function () {
     }
   });
 });
+$("#veryfyPlayer").click(function () {
+  var id = $(this).data("id");
+  console.log(id);
+  var token = $("input[name='_token']").attr("value");
+  $.ajax({
+    url: "zawodnik/" + id,
+    type: 'POST',
+    data: {
+      "id": id,
+      '_method': 'PATCH',
+      "_token": token,
+      "status": "zweryfikowany"
+    },
+    success: function success() {
+      Swal.fire({
+        title: 'Zawodnik został zweryfikowany',
+        icon: 'success',
+        onClose: function onClose() {
+          location.reload();
+        }
+      });
+    }
+  });
+});
 $(".deletePlayer").click(function () {
   var id = $(this).data("id");
   console.log(id);

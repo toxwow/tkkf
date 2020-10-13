@@ -248,12 +248,14 @@ section.team{
 
 @media (max-width: 767.98px) {
     section.team .wrapper-team-info .team-info{
-        width: 70%;
-        right: 15%;
+        padding: 10px;
         bottom: -280px;
     }
     section.team .team-menu-wrapper{
         margin-top: 330px;
+    }
+    section.team .collapse-item.last-matches-wrapper .card-match .team img, section.team .collapse-item.timetable-wrapper .card-match .team img{
+        display: none;
     }
 }
 

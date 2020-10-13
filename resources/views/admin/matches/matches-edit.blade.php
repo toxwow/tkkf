@@ -4,7 +4,7 @@
     <script>
         var value = document.getElementById("statusID").value;
         var x = document.getElementById("myDIV");
-        if(value === 'nieodbyty'){
+        if(value === 'nieodbyty' || value === 'przelozony'){
             x.style.display = "none";
         }
         else if(value === 'zaakceptowany' || 'niezaakceptowany'){
@@ -152,11 +152,24 @@
                                         <select  class="form-control" name="status" onchange="changeStatus()" id="statusID">
                                             @if($match -> status === 'nieodbyty')
                                                 <option  selected value="nieodbyty">Nieodbyty</option>
-                                                <option value="zaakceptowany">Zakończony</option>
-                                            @else
-                                                <option  selected  value="niezaakceptowany">Niezaakceptowany</option>
                                                 <option  value="zaakceptowany">Zaakceptowany</option>
                                                 <option   value="nieodbyty">Nieodbyty</option>
+                                                <option   value="przelozony">Przełożony</option>
+                                            @elseif($match -> status === 'zaakceptowany')
+                                                <option    value="niezaakceptowany">Niezaakceptowany</option>
+                                                <option  selected value="zaakceptowany">Zaakceptowany</option>
+                                                <option   value="nieodbyty">Nieodbyty</option>
+                                                <option   value="przelozony">Przełożony</option>
+                                            @elseif($match -> status === 'nieodbyty')
+                                                <option    value="niezaakceptowany">Niezaakceptowany</option>
+                                                <option   value="zaakceptowany">Zaakceptowany</option>
+                                                <option  selected value="nieodbyty">Nieodbyty</option>
+                                                <option   value="przelozony">Przełożony</option>
+                                            @elseif($match -> status === 'przelozony')
+                                                <option    value="niezaakceptowany">Niezaakceptowany</option>
+                                                <option   value="zaakceptowany">Zaakceptowany</option>
+                                                <option   value="nieodbyty">Nieodbyty</option>
+                                                <option  selected value="przelozony">Przełożony</option>
                                             @endif
                                         </select>
                                     </div>

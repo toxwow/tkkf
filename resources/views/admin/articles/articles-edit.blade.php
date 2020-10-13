@@ -49,6 +49,32 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="status">Status:</label>
+                                    <select  class="form-control" name="status">
+                                        @if($article->status == 'widoczny')
+                                            <option value="widoczny" selected>Widoczny</option>
+                                            <option value="niewidoczny">Niewidoczny</option>
+                                        @else
+                                            <option value="widoczny">Widoczny</option>
+                                            <option value="niewidoczny" selected>Niewidoczny</option>
+                                        @endif
+
+                                    </select>
+                                </div>
+
+                                <div class="form-check my-4">
+                                    @if($article -> important)
+                                    <input class="form-check-input" type="checkbox" checked value="" id='checkboximporant' name="important">
+
+                                    @else
+                                    <input class="form-check-input" type="checkbox" value="" id='checkboximporant' name="important">
+                                    @endif
+                                    <label class="form-check-label" for="checkboximporant">
+                                        Ważny artykuł (na pierwszym miejscu)
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="title">Tytuł:</label>
                                     <input type="text" class="form-control" name="title"  value="{{$article->title}}"/>
                                 </div>

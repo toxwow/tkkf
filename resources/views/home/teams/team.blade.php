@@ -61,7 +61,7 @@
                                         @if(isset($team['address']))
                                             {{$team['address']}}
                                         @else
-                                            brak
+                                            brak adresu
                                         @endif
                                     </p>
                                 </div>
@@ -70,22 +70,10 @@
                                 <div class="info">
                                     <p class="label">Dzień</p>
                                     <p class="content">
-                                        @if(isset($team['date']))
-                                            {{$team['date']}}
-                                        @else
-                                            brak
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="info">
-                                    <p class="label">Godzina</p>
-                                    <p class="content">
                                         @if(isset($team['time']))
                                             {{$team['time']}}
                                         @else
-                                            brak
+                                            brak godziny
                                         @endif
                                     </p>
                                 </div>
@@ -112,7 +100,7 @@
                         <div class="card-match">
                             <div class="team">
 
-                                {{$match['home_team']}}
+                                <a href="{{route('team',$match['home_team_id'])}}" style="text-decoration: none; color: #212529">{{$match['home_team']}}</a>
                                 @if(empty($match['home_team_logo']))
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAJ1BMVEX////Ly8vIyMjR0dHd3d3o6Oj7+/vx8fHg4OD39/fa2trX19fr6+uWykArAAAFVElEQVR4nO2d6ZLiMAyESZyDJLz/8+4QyHBMgG7H0cHq+7lVS6ljW5JtyXM4BEEQBEEQ7MDQt82UqvpKldJ4bPtO26wyDG1zkVY9Mv/T1Pba9m2jO43VH2nPOqfW61h2bXqv7qYytdrGZnAC5S0iR1/TdWgYeVeRyY/GPtHyrhoHbdMhcvXNGkf7TmeLvlmjcZ8zTNv0nSUmy8N43KxvxqzH6asyAqv6qC1lnbGQvrPESVvMCsUG0KrEQivwJjFpK3piY4gwL3EoLW+WaGiinooP4EVioy1sofQSvEk0kt40ewn8kWgiES8YBVfQVnfYW2A9auvbWeCPRO0UdW+BlfY83c2L3tBNwtv9Bf5IVNwt9hICNeP+ICJQcxBl9CmuxO0HMrBEHYEiXuaqUCU9lVqEMyo7RUF9Ogm4QKi/Vyjva7Lm6HL7m4H8NE28uqppT31/ao/Undvy36VDIutH6/RwydvS547i3pQ0rzo9/wC9jIW3iZx9q9+fPpwTFdgxAutq3dN3nEDZhcgM4etjXU6i6FafGcJ3h7rU3kvU1TBD+DaOUScgkq6GsavcLwnGfCIWfkonKZ8so+4MbtPHtUOtaBFxZwj/8HliTYRCsXAx4jZ93vIQd1ZyGyj8qwPej5imYgERn6TQR8e/l5hCfJJCF7jEnP+Tve8EPoTQN8fjhZRCwpNCv4e7GimF8DcHT1aIZS2kED69AJ07oVDG0xDeHftB/ERLSCH+ycH7IkKhTMSHs2501RCzVCZrg8MX+sUJX7qvsgXUHPiLE1uxfZUtFLengX9QZgcMu1K4rBA/O5e56h7GBgQ9N8KXoZEKNxZz4bA4hCu13KDwBnzzZKGCLwdcoH4BXxZERuPU0RA7fKfLkDgu1TY1Dzxls9ok9Al8BJ1GQ6YYQNvWLJhLCzN9FxTMnYXLSUq12WgbmwNzi+/TkzJFVS7DPdVIZKiFDYa63rbR+8TBlcWZarTE4AQ6DBVk1Z6/ISRL/N0N4cCWlnobQrqu1Jkj5V89MdBgSdBl9Cp6SmeGnF5MRwdQfV6TlBc3Mxwz3wTxMUf7rP6Ki0Brc/T8PuCdb++Gvj0/t5fdPmTpWYyZrr7KSWlKqVp7J5FEW9EzpZuC7aVrhTsuzS3C0v165hbhgTodBLAYCYsKNOdlzhQVaDHUl+x8trllKhgsbAosGCyMCiTqt5wK5HufX2FVINWH9prapBedoTpnXws0mMksFHGlpq/RSrwraG83cc/2vNv6Q9eb8247r0C+YGOwqO2+jbzw5QO4Me+2vgJnNgSLlXdBLJKdd9eVvfOYVTLz7rqyHOMfyHKlrv4uSYa8ejIfIO5g8+766Vkl+zDBovYn78Dl3Y2nyfkL0XTuUh+Tdys9Y7kZPFhYPK1HwIfQTYR/5Pub7Mx1ZBcHz7u9LkO8ptlVEdcd+GsZLraCK6AC7d5JfKD4eyDmwIOF4UP7t8B5t8EKEgz84SGny5Bo59W2NBc4WHiN9/DlqNe0m3jxxGnajefdXne/eN7tdhmiebeDC6YXoK7UbdoN591ed79E3q1taS5w3u119wvn3W7Tbjjvdpt2H5oEom1oEARBEARBEARBEARBEARBkE+HHgYnD71baxB1pdqmZvL9daV4MZTXC264CcHtBXfpvzNnj6gr/cVrXSleDOX1ghv/S3peC9rwv6SnbWku319Xigp0+gc4mLpSr/Eed6Ve4z2ed2tbmgucd3uN93De7baAHa+c9Rrv8SYEr5WzeN6tbWkucLBwWzmLBgu3Gwv40R238R7Pu7UNzQYV6HZj0dUgbuN9EARBEARBEATB/8A/RPM4XilEn7EAAAAASUVORK5CYII=" alt="" style="margin-left: 10px;">
                                 @else
@@ -129,14 +117,16 @@
                                 @else
                                     {{$match['enemy_team_logo']}}
                                 @endif
-                                {{$match['enemy_team']}}
+                                <a href="{{route('team',$match['enemy_team_id'])}}" style="text-decoration: none; color: #212529">{{$match['enemy_team']}}</a>
                             </div>
                             <div class="date"><i class="icofont-ui-calendar"></i> {{$match['date']}}</div>
+                            <div class="date"><i class="icofont-location-pin"></i> {{$match['address']}}</div>
+
                         </div>
                     @endforeach
                 @else
                     <div class="card-match">
-                        Brak meczy
+                        Brak przyszłych meczy
                     </div>
                 @endif
             </div>
@@ -146,7 +136,7 @@
                     <div class="card-match">
                         <div class="team">
 
-                            {{$match['home_team']}}
+                            <a href="{{route('team',$match['home_team_id'])}}" style="text-decoration: none; color: #212529">{{$match['home_team']}}</a>
                             @if(empty($match['home_team_logo']))
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAJ1BMVEX////Ly8vIyMjR0dHd3d3o6Oj7+/vx8fHg4OD39/fa2trX19fr6+uWykArAAAFVElEQVR4nO2d6ZLiMAyESZyDJLz/8+4QyHBMgG7H0cHq+7lVS6ljW5JtyXM4BEEQBEEQ7MDQt82UqvpKldJ4bPtO26wyDG1zkVY9Mv/T1Pba9m2jO43VH2nPOqfW61h2bXqv7qYytdrGZnAC5S0iR1/TdWgYeVeRyY/GPtHyrhoHbdMhcvXNGkf7TmeLvlmjcZ8zTNv0nSUmy8N43KxvxqzH6asyAqv6qC1lnbGQvrPESVvMCsUG0KrEQivwJjFpK3piY4gwL3EoLW+WaGiinooP4EVioy1sofQSvEk0kt40ewn8kWgiES8YBVfQVnfYW2A9auvbWeCPRO0UdW+BlfY83c2L3tBNwtv9Bf5IVNwt9hICNeP+ICJQcxBl9CmuxO0HMrBEHYEiXuaqUCU9lVqEMyo7RUF9Ogm4QKi/Vyjva7Lm6HL7m4H8NE28uqppT31/ao/Undvy36VDIutH6/RwydvS547i3pQ0rzo9/wC9jIW3iZx9q9+fPpwTFdgxAutq3dN3nEDZhcgM4etjXU6i6FafGcJ3h7rU3kvU1TBD+DaOUScgkq6GsavcLwnGfCIWfkonKZ8so+4MbtPHtUOtaBFxZwj/8HliTYRCsXAx4jZ93vIQd1ZyGyj8qwPej5imYgERn6TQR8e/l5hCfJJCF7jEnP+Tve8EPoTQN8fjhZRCwpNCv4e7GimF8DcHT1aIZS2kED69AJ07oVDG0xDeHftB/ERLSCH+ycH7IkKhTMSHs2501RCzVCZrg8MX+sUJX7qvsgXUHPiLE1uxfZUtFLengX9QZgcMu1K4rBA/O5e56h7GBgQ9N8KXoZEKNxZz4bA4hCu13KDwBnzzZKGCLwdcoH4BXxZERuPU0RA7fKfLkDgu1TY1Dzxls9ok9Al8BJ1GQ6YYQNvWLJhLCzN9FxTMnYXLSUq12WgbmwNzi+/TkzJFVS7DPdVIZKiFDYa63rbR+8TBlcWZarTE4AQ6DBVk1Z6/ISRL/N0N4cCWlnobQrqu1Jkj5V89MdBgSdBl9Cp6SmeGnF5MRwdQfV6TlBc3Mxwz3wTxMUf7rP6Ki0Brc/T8PuCdb++Gvj0/t5fdPmTpWYyZrr7KSWlKqVp7J5FEW9EzpZuC7aVrhTsuzS3C0v165hbhgTodBLAYCYsKNOdlzhQVaDHUl+x8trllKhgsbAosGCyMCiTqt5wK5HufX2FVINWH9prapBedoTpnXws0mMksFHGlpq/RSrwraG83cc/2vNv6Q9eb8247r0C+YGOwqO2+jbzw5QO4Me+2vgJnNgSLlXdBLJKdd9eVvfOYVTLz7rqyHOMfyHKlrv4uSYa8ejIfIO5g8+766Vkl+zDBovYn78Dl3Y2nyfkL0XTuUh+Tdys9Y7kZPFhYPK1HwIfQTYR/5Pub7Mx1ZBcHz7u9LkO8ptlVEdcd+GsZLraCK6AC7d5JfKD4eyDmwIOF4UP7t8B5t8EKEgz84SGny5Bo59W2NBc4WHiN9/DlqNe0m3jxxGnajefdXne/eN7tdhmiebeDC6YXoK7UbdoN591ed79E3q1taS5w3u119wvn3W7Tbjjvdpt2H5oEom1oEARBEARBEARBEARBEARBkE+HHgYnD71baxB1pdqmZvL9daV4MZTXC264CcHtBXfpvzNnj6gr/cVrXSleDOX1ghv/S3peC9rwv6SnbWku319Xigp0+gc4mLpSr/Eed6Ve4z2ed2tbmgucd3uN93De7baAHa+c9Rrv8SYEr5WzeN6tbWkucLBwWzmLBgu3Gwv40R238R7Pu7UNzQYV6HZj0dUgbuN9EARBEARBEATB/8A/RPM4XilEn7EAAAAASUVORK5CYII=" alt="" style="margin-left: 10px;">
                             @else
@@ -173,14 +163,14 @@
                             @else
                                 {{$match['enemy_team_logo']}}
                             @endif
-                            {{$match['enemy_team']}}
+                            <a href="{{route('team',$match['enemy_team_id'])}}" style="text-decoration: none; color: #212529">{{$match['enemy_team']}}</a>
                         </div>
                         <div class="date"><i class="icofont-ui-calendar"></i> {{$match['date']}}</div>
                     </div>
                     @endforeach
                 @else
                     <div class="card-match">
-                        Brak meczy
+                        Brak ostatnich meczy
                     </div>
                 @endif
             </div>

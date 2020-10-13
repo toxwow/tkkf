@@ -21,7 +21,7 @@ class CreateMatchesTable extends Migration
             $table->foreign('home_team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->unsignedBigInteger('enemy_team_id')->index()->nullable();
             $table->foreign('enemy_team_id')->references('id')->on('teams')->onDelete('cascade');
-            $table->enum('status', ['zaakceptowany','niezaakceptowany' , 'nieodbyty'])->default('nieodbyty');
+            $table->enum('status', ['zaakceptowany','niezaakceptowany' , 'nieodbyty', 'przelozony'])->default('nieodbyty');
             $table->date('date');
             $table->tinyInteger('home_team_score')->nullable();
             $table->tinyInteger('enemy_team_score')->nullable();

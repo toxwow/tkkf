@@ -41,11 +41,11 @@
                         <li class="nav-item">
                             <a href="{{route('articles')}}" class="nav-link {{ (request()->is('artykuły*')) || (request()->is('artykuł*'))  ? 'active' : '' }}"><i class="icofont-ui-note mr-2"></i> Artykuły</a>
                         </li>
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('season')}}" class="nav-link">Sezon 2020/2021</a>--}}
-{{--                        </li>--}}
                         <li class="nav-item">
-                            <a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i> Wyniki</a>
+                            <a href="{{route('season')}}" class="nav-link {{ (request()->is('sezon'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i> Tabela 2020/2021</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon-*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i>  Poprzedni sezon </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link {{ (request()->is('kontakt'))  ? 'active' : '' }}"> <i class="icofont-ui-contact-list mr-2"></i>Kontakt</a>

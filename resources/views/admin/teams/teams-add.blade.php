@@ -34,11 +34,6 @@
                     <form method="post" action="{{ route('druzyna.store') }}">
                         @csrf
 
-
-                        <div class="form-group">
-                            <label for="name">Nazwa druzyny:</label>
-                            <input type="text" class="form-control" name="name"/>
-                        </div>
                         <div class="form-group">
                             <label for="league_id">Liga:</label>
                             <select class="form-control" name="league_id" id="league_id">
@@ -54,6 +49,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="name">Nazwa druzyny:</label>
+                            <input type="text" class="form-control" name="name"/>
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="capitan">Kapitan:</label>
                             <select class="form-control" name="capitan" id="capitan">
 
@@ -67,6 +68,20 @@
                                     <option id="addUserOption" value=" " class="addUser-option">Brak użytkownika? Dodaj go w panelu użytkownicy</option>
 
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Adres:</label>
+                            <input type="text" class="form-control" name="address"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Dzień i godzina hali:</label>
+                            <input type="text" class="form-control" name="time"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="information">Dodatkowe informacje:</label>
+                            <textarea type="text" class="form-control" name="information"></textarea>
                         </div>
 
 

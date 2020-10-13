@@ -81,46 +81,60 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/articles.js":
-/*!****************************************!*\
-  !*** ./resources/js/admin/articles.js ***!
-  \****************************************/
+/***/ "./resources/js/admin/shift.js":
+/*!*************************************!*\
+  !*** ./resources/js/admin/shift.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(".deleteArticle").click(function () {
-  var id = $(this).data("id");
-  console.log(id);
+$(".shiftButton").click(function () {
+  var match = $(this).data("match");
+  var team = $(this).data("team");
   var token = $("input[name='_token']").attr("value");
   Swal.fire({
-    title: 'Czy jesteś pewny aby usunąć artykuł?',
-    text: "Zmiany nie będą mogły zostać cofnięte!",
+    title: 'Czy jesteś pewny aby przełożyć mecz?',
+    text: "Zmiany nie będą mogły zostać cofnięte! Wszystkie mecze danej drużyny zostaną usunięte!",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Tak, usuń artykuł',
-    cancelButtonText: 'Nie usuwaj'
+    confirmButtonText: 'Tak, przełóż mecz',
+    cancelButtonText: 'Nie przegładaj'
   }).then(function (result) {
     if (result.isConfirmed) {
       $.ajax({
-        url: "artykuly/" + id,
+        url: "mecze/" + match,
         type: 'POST',
         data: {
-          "id": id,
-          '_method': 'DELETE',
-          "_token": token
+          "match": match,
+          '_method': 'PATCH',
+          "_token": token,
+          "status": "przelozony"
         },
         success: function success() {
-          Swal.fire({
-            title: 'Artykuł został usunięty',
-            icon: 'success',
-            onClose: function onClose() {}
+          $.ajax({
+            url: "druzyna/" + team,
+            type: 'POST',
+            data: {
+              "match": team,
+              '_method': 'PATCH',
+              "_token": token
+            },
+            success: function success() {
+              Swal.fire({
+                title: 'Mecz został przełożony',
+                icon: 'success',
+                onClose: function onClose() {
+                  location.reload();
+                }
+              });
+            }
           });
         }
       });
@@ -130,14 +144,14 @@ $(".deleteArticle").click(function () {
 
 /***/ }),
 
-/***/ 2:
-/*!**********************************************!*\
-  !*** multi ./resources/js/admin/articles.js ***!
-  \**********************************************/
+/***/ 8:
+/*!*******************************************!*\
+  !*** multi ./resources/js/admin/shift.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/articles.js */"./resources/js/admin/articles.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/shift.js */"./resources/js/admin/shift.js");
 
 
 /***/ })

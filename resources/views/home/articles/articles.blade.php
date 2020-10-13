@@ -9,6 +9,7 @@
                 <div class="col-12 page-title-wrapper">
                     <h1 class="page-title">Artykuły i Wiadomości</h1>
                 </div>
+                @if(!empty($articles->first()))
                 <div class="col-12">
                     <a href="{{route('article', $articles->first()->id)}}">
                     <div class="wrapper-first-article">
@@ -28,6 +29,7 @@
                     </div>
                     </a>
                 </div>
+                @endif
                 @foreach($articles as $article)
                     @if ($loop->first) @continue @endif
                     <div class="col-12 col-md-6 col-lg-4 my-5">

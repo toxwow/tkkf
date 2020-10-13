@@ -30,7 +30,9 @@ class MainController extends Controller
     public function index()
     {
         $articles = Article::all();
-        $articlesSort = $articles -> sortByDesc('created_at') ->take(4);
+        $articlesShow = $articles->where('status', '=', 'widoczny');
+        $articlesSortDate = $articlesShow -> sortByDesc('created_at');
+        $articlesSort = $articlesSortDate -> sortByDesc('important') ->take(4);
         $leagues = League::all() -> sortBy('name');
         $timetable = League::with('matches.teamHome', 'matches.teamEnemy')->get();
 
@@ -125,7 +127,8 @@ class MainController extends Controller
     public function articles()
     {
         $articles = Article::all();
-        $articlesSort = $articles -> sortByDesc('created_at');
+        $articlesSortDate = $articles -> sortByDesc('created_at');
+        $articlesSort = $articlesSortDate -> sortByDesc('important');
         return view('home.articles.articles', ['articles' => $articlesSort]);
     }
 
@@ -253,7 +256,7 @@ class MainController extends Controller
     public function team($id){
         $unionPlayer = DB::table('players')->where('team_id', '=', $id)->where('status', '=', 'zweryfikowany')->get();
         $teamDB = DB::table('teams')->where('teams.id', '=', $id)
-            ->select((DB::raw("teams.name AS team_name")), DB::raw("teams.id AS team_id"), "users.name", 'teams.league_id', "users.id", "users.surname", 'teams.date', 'teams.address', 'teams.information', 'users.phone', 'users.email' , 'teams.logo')
+            ->select((DB::raw("teams.name AS team_name")), DB::raw("teams.id AS team_id"), "users.name", 'teams.league_id', "users.id", "users.surname", 'teams.time', 'teams.address', 'teams.information', 'users.phone', 'users.email' , 'teams.logo')
             ->join('users', 'users.id', '=', 'teams.capitan')
             ->get();
         $teamTable = array();
@@ -268,7 +271,7 @@ class MainController extends Controller
             $teamTable['team_id'] = $team->team_id;
             $teamTable['team_logo'] = $team->logo;
             $teamTable['address'] = $team->address;
-            $teamTable['date'] = $team->date;
+            $teamTable['time'] = $team->time;
             $teamTable['information'] = $team->information;
             $teamTable['players'] = null;
 
@@ -293,7 +296,9 @@ class MainController extends Controller
         foreach ($matchPastDB as $key => $match){
             $matchPast[$key]['match_id'] = $match->id;
             $matchPast[$key]['home_team'] = Team::find($match->home_team_id)->name;
+            $matchPast[$key]['home_team_id'] = $match->home_team_id;
             $matchPast[$key]['enemy_team'] = Team::find($match->enemy_team_id)->name;
+            $matchPast[$key]['enemy_team_id'] = $match->enemy_team_id;
             $matchPast[$key]['home_team_logo'] = Team::find($match->home_team_id)->logo;
             $matchPast[$key]['enemy_team_logo'] = Team::find($match->enemy_team_id)->logo;
             $matchPast[$key]['home_team_score'] = $match->home_team_score;
@@ -324,10 +329,13 @@ class MainController extends Controller
         foreach ($matchFutureDB as $key => $match) {
             $matchFuture[$key]['match_id'] = $match->id;
             $matchFuture[$key]['home_team'] = Team::find($match->home_team_id)->name;
+            $matchFuture[$key]['home_team_id'] = $match->home_team_id;
             $matchFuture[$key]['enemy_team'] = Team::find($match->enemy_team_id)->name;
+            $matchFuture[$key]['enemy_team_id'] = $match->enemy_team_id;
             $matchFuture[$key]['home_team_logo'] = Team::find($match->home_team_id)->logo;
             $matchFuture[$key]['enemy_team_logo'] = Team::find($match->enemy_team_id)->logo;
             $matchFuture[$key]['date'] = $match->date;
+            $matchFuture[$key]['address'] = Team::find($match->home_team_id)->address;
         }
 
 

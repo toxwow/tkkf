@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @push('scripts')
 {{--    <script src="{{ asset('js/index.js') }}" defer></script>--}}
+<script src="{{ asset('js/admin/shift.js') }}" defer></script>
+
 
 @endpush
 @section('content')
@@ -41,6 +43,7 @@
                                 <td>Drużyna gości</td>
                                 <td>Data</td>
                                 <td>Status</td>
+                                <td></td>
                             </tr>
                         </thead>
                         @foreach($matches as $match)
@@ -48,8 +51,10 @@
                                 <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
                                 <td>
                                     @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
-                                        @if($match->home_team === $selectTeam[0]->id && ($today > $match->date))
+                                        @if($match->home_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty')
                                             <a href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
+                                        @elseif($match->status === 'przelozony')
+                                        Mecz przełożony
                                         @else
                                         Czekam na wynik
                                         @endif
@@ -64,6 +69,16 @@
                                 <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
                                 <td>{{$match->date}}</td>
                                 <td>{{$match->status}}</td>
+                                <td>
+                                    @if($selectTeam[0]->shifts<3 && $match->status != 'przelozony')
+                                    <a class="shiftButton btn btn-danger" data-match="{{ $match->id }}" data-team="{{ $selectTeam[0]->id }}">przełóż mecz</a>
+                                    @elseif($match->status = 'przelozony')
+                                        <button class="btn btn-success" disabled>Mecz został przełożony</button>
+                                    @else
+                                        <button class="btn btn-light" disabled>Wyczerpano limit przełożeń</button>
+
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </table>

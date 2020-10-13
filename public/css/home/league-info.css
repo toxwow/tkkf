@@ -43,8 +43,8 @@ section.league-info .table-teams .table-teams-wrapper .table thead > tr > th {
   font-weight: normal;
 }
 
-section.league-info .timetable-teams .table-teams-wrapper .table tr td,
-section.league-info .table-teams .table-teams-wrapper .table tr td {
+section.league-info .timetable-teams .table-teams-wrapper .table tr td a,
+section.league-info .table-teams .table-teams-wrapper .table tr td a {
   color: #404558;
   font-size: 14px;
 }
@@ -121,7 +121,7 @@ section.league-info .table-teams .timetable-wrapper .match-content .home-team,
 section.league-info .table-teams .timetable-wrapper .match-content .enemy-team {
   display: flex;
   justify-content: flex-end;
-  flex: 1;
+  flex: 2;
   align-items: center;
 }
 
@@ -129,7 +129,7 @@ section.league-info .timetable-teams .timetable-wrapper .match-content .home-tea
 section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team img,
 section.league-info .table-teams .timetable-wrapper .match-content .home-team img,
 section.league-info .table-teams .timetable-wrapper .match-content .enemy-team img {
-  height: 50px;
+  height: 25px;
 }
 
 section.league-info .timetable-teams .timetable-wrapper .match-content .home-team p.team-name,
@@ -137,8 +137,14 @@ section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-te
 section.league-info .table-teams .timetable-wrapper .match-content .home-team p.team-name,
 section.league-info .table-teams .timetable-wrapper .match-content .enemy-team p.team-name {
   margin: 0 15px;
+}
+
+section.league-info .timetable-teams .timetable-wrapper .match-content .home-team p.team-name a,
+section.league-info .timetable-teams .timetable-wrapper .match-content .enemy-team p.team-name a,
+section.league-info .table-teams .timetable-wrapper .match-content .home-team p.team-name a,
+section.league-info .table-teams .timetable-wrapper .match-content .enemy-team p.team-name a {
   color: #404558;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -157,7 +163,7 @@ section.league-info .timetable-teams .timetable-wrapper .match-content .result p
 section.league-info .table-teams .timetable-wrapper .match-content .result p.date {
   margin-bottom: 0;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 section.league-info .timetable-teams .timetable-wrapper .match-content .result p.time,
@@ -255,6 +261,10 @@ section.league-info .table-teams .navigation-wrapper div.nav:hover i {
 @media (max-width: 991.98px) {
   body div.card-wrapper .title-card {
     flex-direction: column;
+  }
+
+  section.league-info .timetable-teams .timetable-wrapper .match-content > div > img {
+    display: none;
   }
 
   section.league-info .league-items {

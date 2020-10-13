@@ -20,6 +20,13 @@ class PlayerController extends Controller
         $this->middleware('auth');
     }
 
+    public function allPlayers()
+    {
+        $players = Player::with('team.league')->get();
+        $user = Auth::user();
+        return view('admin.players.allPlayers', ['user' => $user, 'players' => $players]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -208,6 +215,9 @@ class PlayerController extends Controller
         if($user -> isAdmin()){
             return view('admin.players.players-edit', ['user' => $user, 'users' => $users, 'teams' => $teams, 'player' => $player]);
         }
+        if($user -> isCapitan()){
+            return view('admin.players.players-edit-capitan', ['user' => $user, 'users' => $users, 'teams' => $teams, 'player' => $player]);
+        }
         else{
             abort('403', 'access denied');
         }
@@ -223,14 +233,36 @@ class PlayerController extends Controller
     public function update(Request $request, $id)
     {
         $player = Player::find($id);
+        $user =Auth::user();
+
+
+        if($request->ajax()){
+                $player->status = $request->get('status');
+        }
+        else{
+
+            if($user->isCapitan()){
+                $photoImage =  $request->file('photo');
+                if($photoImage != null){
+                    if($player->photo != 'default-player.png'){
+                        Storage::delete('public/images/players/'.$player->photo);
+                    }
+                    Storage::putFile('public/images/players', $request->file('photo'));
+                    $player->photo = $photoImage->hashName();
+                }
+            }else{
+
         $player->name = $request->get('name');
         $player->surname = $request->get('surname');
         $player->status = $request->get('status');
         $player->birth = $request->get('birth');
         $player->team_id = $request->get('team');
         $player->user_id = $request->get('user');
+            }
+            $player->save();
+        }
 
-        $player->save();
+
 
         return redirect('/druzyna')->with('success', 'Dane zawodnika zaktualizowane!');
 
@@ -245,8 +277,11 @@ class PlayerController extends Controller
     public function destroy($id)
     {
         $player = Player::find($id);
+        if($player->photo != 'default-player.png'){
+            Storage::delete('public/images/players/'.$player->photo);
+        }
+
         $player->delete();
-//        Storage::delete('public/images/players/'.$player->photo);
 
     }
 }

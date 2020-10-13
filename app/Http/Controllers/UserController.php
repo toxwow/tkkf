@@ -102,7 +102,7 @@ class UserController extends Controller
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone')
             ]);
-            Mail::to($request->get('email'))->send(new CreateUserByAdmin($random_password, $email));
+//            Mail::to($request->get('email'))->send(new CreateUserByAdmin($random_password, $email));
             $newUser->save();
             return redirect('/uzytkownicy')->with('success', 'Użytkownik dodana!');
         }
@@ -168,8 +168,6 @@ class UserController extends Controller
             'name'=>'required',
             'surname'=>'required',
             'email'=>'required',
-            'new_password'=>'min:6',
-            'password_confirm'=> 'same:new_password'
         ]);
         $newUser = User::find($id);
         $newUser->name = $request->get('name');

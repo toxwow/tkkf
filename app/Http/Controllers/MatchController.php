@@ -44,7 +44,7 @@ class MatchController extends Controller
         ->union($test)->orderBy('date')->get();
 
         $selectTeam = DB::table('teams')->where('teams.capitan', '=', $user->id)
-                        ->select('teams.name', (DB::raw("leagues.name AS league")), 'teams.id')
+                        ->select('teams.name', (DB::raw("leagues.name AS league")), 'teams.id', 'teams.shifts')
                         ->join('leagues', 'leagues.id', '=', 'teams.league_id')
                         ->get();
 
@@ -206,114 +206,133 @@ class MatchController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $match = Match::find($id);
-        $user = Auth::user();
-        $match -> league_id = $request->get('league');
-        $match -> home_team_id = $request->get('teamHome');
-        $match -> enemy_team_id = $request->get('teamAway');
-        $match -> date = $request->get('date');
-        if($user -> isCapitan()){
-            $match -> status = 'niezaakceptowany';
+        if($request->ajax()){
+            $match->status = $request->get('status');
+            $match->save();
         }
-        else if ($user -> isAdmin()){
-            $match -> status = $request->get('status');
-        }
-        $match -> home_team_score = $request->get('teamHomeScore');
-        $match -> enemy_team_score = $request->get('teamAwayScore');
+        else {
+            $user = Auth::user();
+            $match->league_id = $request->get('league');
+            $match->home_team_id = $request->get('teamHome');
+            $match->enemy_team_id = $request->get('teamAway');
+            $match->date = $request->get('date');
+
+            if ($user->isCapitan()) {
+                $match->status = 'niezaakceptowany';
+            } else if ($user->isAdmin()) {
+                $match->status = $request->get('status');
+            }
+            $match->home_team_score = $request->get('teamHomeScore');
+            $match->enemy_team_score = $request->get('teamAwayScore');
 
 
-        if($request->get('enemyPointSet1') && $request->get('homePointSet1') != null ){
+            if ($request->get('enemyPointSet1') && $request->get('homePointSet1') != null) {
 
-            $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '1')->first();
-            if($matchDetailFind != null){
-                $matchDetail = MatchDetail::find($matchDetailFind->id);
-                $matchDetail -> home_points = $request->get('homePointSet1');
-                $matchDetail -> enemy_points = $request->get('enemyPointSet1');
-                $matchDetail->save();
-            }
-            else{
-                $matchDetail = new MatchDetail([
-                    'match_id' => $match->id,
-                    'set' => '1',
-                    'home_points' => $request->get('homePointSet1'),
-                    'enemy_points' => $request->get('enemyPointSet1'),
-                ]);
-                $matchDetail->save();
-            }
-        }
-        if($request->get('enemyPointSet2') && $request->get('homePointSet2') != null ){
-
-            $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '2')->first();
-            if($matchDetailFind != null){
-                $matchDetail = MatchDetail::find($matchDetailFind->id);
-                $matchDetail -> home_points = $request->get('homePointSet2');
-                $matchDetail -> enemy_points = $request->get('enemyPointSet2');
-                $matchDetail->save();
-            }
-            else{
-                $matchDetail = new MatchDetail([
-                    'match_id' => $match->id,
-                    'set' => '2',
-                    'home_points' => $request->get('homePointSet2'),
-                    'enemy_points' => $request->get('enemyPointSet2'),
-                ]);
-                $matchDetail->save();
-            }
-        }
-
-        if($request->get('enemyPointSet3') && $request->get('homePointSet3') != null ){
-            $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
-            if($matchDetailFind != null){
-                $matchDetail = MatchDetail::find($matchDetailFind->id);
-                $matchDetail -> home_points = $request->get('homePointSet3');
-                $matchDetail -> enemy_points = $request->get('enemyPointSet3');
-                $matchDetail->save();
-            }
-            else{
-                $matchDetail = new MatchDetail([
-                    'match_id' => $match->id,
-                    'set' => '3',
-                    'home_points' => $request->get('homePointSet3'),
-                    'enemy_points' => $request->get('enemyPointSet3'),
-                ]);
-                $matchDetail->save();
-            }
-
-        }
-        if(empty($request->get('enemyPointSet3')) && empty($request->get('homePointSet3')) ){
-            $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
-            if($matchDetailFind != null){
-                $matchDetail = MatchDetail::find($matchDetailFind->id);
-                $matchDetail->delete();
-            }
-        }
-
-        if($user->isAdmin()){
-            if($match->status === 'nieodbyty'){
-                $match -> home_team_score = '';
-                $match -> enemy_team_score = '';
-                $matchDetailFind1 = MatchDetail::where('match_id', $match->id)->where('set', '1')->first();
-                $matchDetailFind2 = MatchDetail::where('match_id', $match->id)->where('set', '2')->first();
-                $matchDetailFind3 = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
-                if($matchDetailFind1 != null){
-                    $matchDetail = MatchDetail::find($matchDetailFind1->id);
-                    $matchDetail->delete();
+                $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '1')->first();
+                if ($matchDetailFind != null) {
+                    $matchDetail = MatchDetail::find($matchDetailFind->id);
+                    $matchDetail->home_points = $request->get('homePointSet1');
+                    $matchDetail->enemy_points = $request->get('enemyPointSet1');
+                    $matchDetail->save();
+                } else {
+                    $matchDetail = new MatchDetail([
+                        'match_id' => $match->id,
+                        'set' => '1',
+                        'home_points' => $request->get('homePointSet1'),
+                        'enemy_points' => $request->get('enemyPointSet1'),
+                    ]);
+                    $matchDetail->save();
                 }
-                if($matchDetailFind2 != null){
-                    $matchDetail = MatchDetail::find($matchDetailFind2->id);
-                    $matchDetail->delete();
+            }
+            if ($request->get('enemyPointSet2') && $request->get('homePointSet2') != null) {
+
+                $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '2')->first();
+                if ($matchDetailFind != null) {
+                    $matchDetail = MatchDetail::find($matchDetailFind->id);
+                    $matchDetail->home_points = $request->get('homePointSet2');
+                    $matchDetail->enemy_points = $request->get('enemyPointSet2');
+                    $matchDetail->save();
+                } else {
+                    $matchDetail = new MatchDetail([
+                        'match_id' => $match->id,
+                        'set' => '2',
+                        'home_points' => $request->get('homePointSet2'),
+                        'enemy_points' => $request->get('enemyPointSet2'),
+                    ]);
+                    $matchDetail->save();
                 }
-                if($matchDetailFind3 != null){
-                    $matchDetail = MatchDetail::find($matchDetailFind3->id);
+            }
+
+            if ($request->get('enemyPointSet3') && $request->get('homePointSet3') != null) {
+                $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
+                if ($matchDetailFind != null) {
+                    $matchDetail = MatchDetail::find($matchDetailFind->id);
+                    $matchDetail->home_points = $request->get('homePointSet3');
+                    $matchDetail->enemy_points = $request->get('enemyPointSet3');
+                    $matchDetail->save();
+                } else {
+                    $matchDetail = new MatchDetail([
+                        'match_id' => $match->id,
+                        'set' => '3',
+                        'home_points' => $request->get('homePointSet3'),
+                        'enemy_points' => $request->get('enemyPointSet3'),
+                    ]);
+                    $matchDetail->save();
+                }
+
+            }
+            if (empty($request->get('enemyPointSet3')) && empty($request->get('homePointSet3'))) {
+                $matchDetailFind = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
+                if ($matchDetailFind != null) {
+                    $matchDetail = MatchDetail::find($matchDetailFind->id);
                     $matchDetail->delete();
                 }
             }
+
+            if ($user->isAdmin()) {
+                if ($match->status === 'nieodbyty') {
+                    $match->home_team_score = '';
+                    $match->enemy_team_score = '';
+                    $matchDetailFind1 = MatchDetail::where('match_id', $match->id)->where('set', '1')->first();
+                    $matchDetailFind2 = MatchDetail::where('match_id', $match->id)->where('set', '2')->first();
+                    $matchDetailFind3 = MatchDetail::where('match_id', $match->id)->where('set', '3')->first();
+                    if ($matchDetailFind1 != null) {
+                        $matchDetail = MatchDetail::find($matchDetailFind1->id);
+                        $matchDetail->delete();
+                    }
+                    if ($matchDetailFind2 != null) {
+                        $matchDetail = MatchDetail::find($matchDetailFind2->id);
+                        $matchDetail->delete();
+                    }
+                    if ($matchDetailFind3 != null) {
+                        $matchDetail = MatchDetail::find($matchDetailFind3->id);
+                        $matchDetail->delete();
+                    }
+                }
+            }
+
+
+            $match->save();
         }
 
-        $match->save();
         return redirect('/mecze')->with('success', 'Mecz zaktualizowany!');
 
 
+    }
+
+    /**
+     * .
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @param  int $home
+     * @param  int $enemy
+     * @return \Illuminate\Http\Response
+     */
+
+    public function shift($id, $home, $enemy){
     }
 
     /**

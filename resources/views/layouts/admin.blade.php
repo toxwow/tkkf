@@ -71,6 +71,12 @@
                         <li>
                             <a href="{{route('uzytkownicy.index')}}" class="{{ (request()->is('uzytkownicy*'))  ? 'active' : '' }}"><i class="icofont-user mr-2"></i> <span>Użytkownicy</span></a>
                         </li>
+                        <li>
+                            <a href="{{route('allPlayers')}}" ><i class="icofont-soccer mr-2"></i> <span>Zawodnicy</span></a>
+                        </li>
+                        <li>
+                            <a href="https://liga-tkkf.pl/poczta" ><i class="icofont-email mr-2"></i> <span>Poczta</span></a>
+                        </li>
                     @endif
                 </ul>
             </div>

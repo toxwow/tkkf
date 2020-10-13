@@ -41,6 +41,7 @@
                             <th>S.W.</th>
                             <th>S.P.</th>
                             <th>+/-</th>
+                            <th></th>
                             </thead>
                             @php $lp = 0 @endphp
                             @foreach($liga as $team_id => $team)
@@ -49,7 +50,7 @@
                                         {{$lp = $lp + 1}}
                                     </td>
                                     <td style="font-weight: 600">
-                                        <a href="{{route('team',$team_id)}}">{{$teams->find($team_id)->name}}</a>
+                                        {{$teams->find($team_id)->name}}
                                     </td>
                                     <td>
                                         {{$team['libcza_meczy']}}
@@ -71,6 +72,9 @@
                                     </td>
                                     <td>
                                         {{$team['sum_point_win'] - $team['sum_point_lose']}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('team',$team_id)}}"><i class="icofont-eye-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

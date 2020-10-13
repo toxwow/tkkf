@@ -18,7 +18,8 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('logo')->nullable();
             $table->string('address')->nullable();
-            $table->string('date')->nullable();
+            $table->string('time')->nullable();
+            $table->tinyInteger('shifts')->default(3);
             $table->string('information')->nullable();
             $table->unsignedBigInteger('capitan')->index()->nullable();
             $table->foreign('capitan')->references('id')->on('users');

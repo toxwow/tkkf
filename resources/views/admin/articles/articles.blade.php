@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 @push('scripts')
 
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js" defer></script>
     <script src="{{ asset('js/admin/articles.js') }}" defer></script>
 
 @endpush
@@ -55,12 +53,16 @@
                         <td colspan = 2>Actions</td>
                     </tr>
                     </thead>
-                    <tbody class="" id="listArticles">
+                    <tbody class="">
                         @foreach($articles as $article)
                             <tr>
-                                <td>{{$article->title}}</td>
+                                <td>
+                                    @if($article->important)
+                                        <i class="icofont-star"></i>
+                                    @endif
+                                        {{$article->title}}</td>
                                 <td>{{$article->updated_at}}</td>
-                                <td>Widoczny</td>
+                                <td>{{$article->status}}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('artykuly.edit',$article->id)}}" class="btn btn-primary mr-3">Edytuj</a>
 

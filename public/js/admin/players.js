@@ -81,63 +81,33 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/articles.js":
-/*!****************************************!*\
-  !*** ./resources/js/admin/articles.js ***!
-  \****************************************/
+/***/ "./resources/js/admin/players.js":
+/*!***************************************!*\
+  !*** ./resources/js/admin/players.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(".deleteArticle").click(function () {
-  var id = $(this).data("id");
-  console.log(id);
-  var token = $("input[name='_token']").attr("value");
-  Swal.fire({
-    title: 'Czy jesteś pewny aby usunąć artykuł?',
-    text: "Zmiany nie będą mogły zostać cofnięte!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Tak, usuń artykuł',
-    cancelButtonText: 'Nie usuwaj'
-  }).then(function (result) {
-    if (result.isConfirmed) {
-      $.ajax({
-        url: "artykuly/" + id,
-        type: 'POST',
-        data: {
-          "id": id,
-          '_method': 'DELETE',
-          "_token": token
-        },
-        success: function success() {
-          Swal.fire({
-            title: 'Artykuł został usunięty',
-            icon: 'success',
-            onClose: function onClose() {}
-          });
-        }
-      });
-    }
-  });
-});
+var options = {
+  valueNames: ['name', 'surname']
+};
+var hackerList = new List('all-users', options);
 
 /***/ }),
 
-/***/ 2:
-/*!**********************************************!*\
-  !*** multi ./resources/js/admin/articles.js ***!
-  \**********************************************/
+/***/ 7:
+/*!*********************************************!*\
+  !*** multi ./resources/js/admin/players.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/articles.js */"./resources/js/admin/articles.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/players.js */"./resources/js/admin/players.js");
 
 
 /***/ })

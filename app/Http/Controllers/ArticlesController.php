@@ -81,13 +81,20 @@ class ArticlesController extends Controller
                 'title' => 'required',
                 'subtitle' => 'required',
                 'content' => 'required',
+
             ]);
             $photoImage =  $request->file('photo');
 
             Storage::putFile('public/images/articles', $request->file('photo'));
-
+            if($request->has('important')){
+                $importantVal = true;
+            }else{
+                $importantVal = false;
+            }
             $article = new Article([
                 'photo' => $photoImage->hashName(),
+                'status' => $request->get('status'),
+                'important' => $importantVal,
                 'category' => $request->get('category'),
                 'title' => $request->get('title'),
                 'subtitle' => $request->get('subtitle'),
@@ -149,11 +156,19 @@ class ArticlesController extends Controller
                 'content' => 'required'
             ]);
 
+            if($request->has('important')){
+                $importantVal = true;
+            }else{
+                $importantVal = false;
+            }
+
             $photoImage = $request->file('photo');
 
             $article = Article::find($id);
             $article->category = $request->get('category');
             $article->title = $request->get('title');
+            $article->status = $request->get('status');
+            $article->important = $importantVal;
             $article->subtitle = $request->get('subtitle');
             $article->content = $request->get('content');
             $article->author = $request->get('author');

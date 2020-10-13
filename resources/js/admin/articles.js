@@ -1,11 +1,4 @@
-new Sortable(listArticles, {
-    animation: 150,
-    ghostClass: 'blue-background-class',
-    onEnd: function (/**Event*/ evt) {
-        var itemEl = evt.item; // dragged HTMLElement
-        console.log(evt.oldIndex);
-    },
-});
+
 $(".deleteArticle").click(function(){
     var id = $(this).data("id");
     console.log(id);
@@ -37,7 +30,7 @@ $(".deleteArticle").click(function(){
                             title: 'Artykuł został usunięty',
                             icon: 'success',
                             onClose: () => {
-                                location.reload();
+
                             }
                         }
                     )

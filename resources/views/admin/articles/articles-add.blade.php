@@ -41,6 +41,22 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select  class="form-control" name="status">
+                                <option value="widoczny">Widoczny</option>
+                                <option value="niewidoczny">Niewidoczny</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-check my-4">
+                            <input class="form-check-input" type="checkbox" value="" id='checkboximporant' name="important">
+                            <label class="form-check-label" for="checkboximporant">
+                                Ważny artykuł (na pierwszym miejscu)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
                             <label for="category">Kategoria:</label>
                             <input type="text" class="form-control" name="category"/>
                         </div>
