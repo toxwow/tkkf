@@ -7,11 +7,7 @@
                         <p>Informacje o lidze</p>
                         <div class="league-items">
                             @foreach($timetable as $league)
-                                    @if(empty($league->matches->first()))
-                                        @continue
-                                    @else
                                     <a style="cursor: pointer" id="league-{{$league->id}}">{{$league->name}}</a>
-                                @endif
                             @endforeach
                         </div>
                     </div>
@@ -22,7 +18,13 @@
                                 <p class="name-col">Terminarz</p>
                                 @foreach($timetable as $league)
                                     @if(empty($league->matches->first()))
-
+                                        <div class="timetable-wrapper" id="league-{{$league->id}}">
+                                            <div class="match-ruller">
+                                                <div class="match-content empty">
+                                                    <p><i class="icofont-search-user"></i>Brak aktualnych meczy w {{$league->name}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @else
                                         <div class="timetable-wrapper" id="league-{{$league->id}}">
                                             <div class="match-ruller">
