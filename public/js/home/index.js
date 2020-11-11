@@ -189,7 +189,7 @@ var maxPostion = 360 - 90 * countChild;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/index.js */"./resources/js/home/index.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/index.js */"./resources/js/home/index.js");
 
 
 /***/ })

@@ -107,7 +107,7 @@ var hackerList = new List('all-users', options);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/players.js */"./resources/js/admin/players.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/admin/players.js */"./resources/js/admin/players.js");
 
 
 /***/ })

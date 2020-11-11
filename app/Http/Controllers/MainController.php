@@ -152,6 +152,10 @@ class MainController extends Controller
         return view('home.contact');
     }
 
+    public function documents(){
+        return view('home.documents');
+    }
+
     public function pastSeason(){
         return view('home.season.season-past');
     }

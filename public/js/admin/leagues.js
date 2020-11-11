@@ -106,7 +106,7 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/leagues.js */"./resources/js/admin/leagues.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/admin/leagues.js */"./resources/js/admin/leagues.js");
 
 
 /***/ })

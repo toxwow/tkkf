@@ -125,7 +125,7 @@ $('.nav-arrow.right').click(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/articles-block-new.js */"./resources/js/home/articles-block-new.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/articles-block-new.js */"./resources/js/home/articles-block-new.js");
 
 
 /***/ })

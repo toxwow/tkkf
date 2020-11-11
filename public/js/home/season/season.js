@@ -109,7 +109,7 @@ $('.all-tables').children().children().first().show();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/season/season.js */"./resources/js/home/season/season.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/season/season.js */"./resources/js/home/season/season.js");
 
 
 /***/ })

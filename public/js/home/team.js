@@ -125,7 +125,7 @@ $('.item').click(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/teams/team.js */"./resources/js/home/teams/team.js");
+module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/teams/team.js */"./resources/js/home/teams/team.js");
 
 
 /***/ })

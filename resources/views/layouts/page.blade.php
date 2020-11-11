@@ -58,6 +58,9 @@
                             <a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon-*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i>  Poprzedni sezon </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('documents')}}" class="nav-link {{ (request()->is('dokumenty'))  ? 'active' : '' }}"> <i class="icofont-download mr-2"></i>  Dokumenty </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link {{ (request()->is('kontakt'))  ? 'active' : '' }}"> <i class="icofont-ui-contact-list mr-2"></i>Kontakt</a>
                         </li>
                     </ul>
