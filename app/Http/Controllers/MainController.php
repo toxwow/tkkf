@@ -121,7 +121,7 @@ class MainController extends Controller
         $teams = Team::all();
 
 
-        return view('home.home', ['articles' => $articlesSort, 'leagues'=>$leagues, 'timetable'=>$timetable->sortByDesc('created_at'), 'teams'=>$teams, 'mecze'=>$mecze]);
+        return view('home.home', ['articles' => $articlesSort, 'leagues'=>$leagues, 'timetable'=>$timetable->sortBy('created_at'), 'teams'=>$teams, 'mecze'=>$mecze]);
     }
 
     public function articles()
