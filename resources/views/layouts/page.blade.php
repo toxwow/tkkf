@@ -109,13 +109,27 @@
 
 
         </main>
+        <div class="sponsors">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <div class="mx-3">
+                            <img src="{{url('/images/sponsor1.jpg')}}" alt="">
+                        </div>
+                        <div class="mx-3">
+                            <img src="{{url('/images/sponsor2.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class="">
-
             <!-- Copyright -->
             <div class="">© 2020
                 <a href="https://tkkfkrakow.pl/"> TKKF Kraków.</a>
                 All rights reserved.
             </div>
+
             <!-- Copyright -->
         </footer>
     </div>

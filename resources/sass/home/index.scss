@@ -45,7 +45,6 @@ body{
 
     footer{
         width: 100%;
-        margin-top: 50px;
         color: #fff;
         height: 60px;
         line-height: 60px;
@@ -54,6 +53,13 @@ body{
         div > a{
             text-decoration: none;
             color: #fff;
+        }
+    }
+
+    div.sponsors{
+        margin: 30px 0;
+        div > img{
+            height: 90px;
         }
     }
 
