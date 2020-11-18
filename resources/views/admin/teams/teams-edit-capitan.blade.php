@@ -47,8 +47,8 @@
                                         <input type="text" class="form-control" name="address" value="{{$team->address}}" placeholder="osiedle Wysokie 6 - Kraków" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="date">Godzina i dzień meczu:</label>
-                                        <input type="text" class="form-control" name="date" value="{{$team->date}}" placeholder="Wtorek 19:30 - 21:30"/>
+                                        <label for="time">Godzina i dzień meczu:</label>
+                                        <input type="text" class="form-control" name="time" value="{{$team->time}}" placeholder="Wtorek 19:30 - 21:30"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="information">Dodatkowe informacje:</label>

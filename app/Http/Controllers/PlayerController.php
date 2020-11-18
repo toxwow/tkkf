@@ -159,7 +159,7 @@ class PlayerController extends Controller
                 $player = new Player([
                     'name' => $request->get('name'),
                     'surname' => $request->get('surname'),
-                    'status' => 'niezweryfikowany',
+                    'status' => 'zweryfikowany',
                     'photo' => 'default-player.png',
                     'birth' => $request->get('birth'),
                     'team_id' => $team['id'],
@@ -171,7 +171,7 @@ class PlayerController extends Controller
                 $player = new Player([
                     'name' => $request->get('name'),
                     'surname' => $request->get('surname'),
-                    'status' => 'niezweryfikowany',
+                    'status' => 'zweryfikowany',
                     'photo' => $photoImage->hashName(),
                     'birth' => $request->get('birth'),
                     'team_id' => $team['id'],
@@ -243,12 +243,16 @@ class PlayerController extends Controller
 
             if($user->isCapitan()){
                 $photoImage =  $request->file('photo');
+
                 if($photoImage != null){
                     if($player->photo != 'default-player.png'){
                         Storage::delete('public/images/players/'.$player->photo);
                     }
                     Storage::putFile('public/images/players', $request->file('photo'));
                     $player->photo = $photoImage->hashName();
+                }
+                if($request->get('birth') != null){
+                    $player->birth = $request->get('birth');
                 }
             }else{
 

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -182,14 +182,14 @@ var maxPostion = 360 - 90 * countChild;
 
 /***/ }),
 
-/***/ 9:
+/***/ 10:
 /*!******************************************!*\
   !*** multi ./resources/js/home/index.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/index.js */"./resources/js/home/index.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/index.js */"./resources/js/home/index.js");
 
 
 /***/ })

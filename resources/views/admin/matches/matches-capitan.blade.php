@@ -33,55 +33,181 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <div class="table-name">
+                    <div class="title  table-tabs table-action" style="cursor: pointer" id="reffil">Wyniki do wprowedzania <span class="badge badge-danger badge-pill" id="badgeReffil"></span></div>
+                    <div class="table-tabs table-action" style="cursor: pointer" id="future">Nieodbyte mecze <span class="badge badge-secondary badge-pill" id="badgeFuture"></span></div>
+                    <div class="table-tabs table-action" style="cursor: pointer" id="past">Odbyte mecze <span class="badge badge-info badge-pill" id="badgePast"></span></div>
+                </div>
                 <div class="table-wrapper">
-
-                    <table class="table table-striped table-responsive-lg">
-                        <thead>
+                    <div id="reffilMatch">
+                        <table class="table table-striped table-responsive-lg">
+                            <thead>
                             <tr>
                                 <td>Drużyna gospodarzy</td>
                                 <td>Wynik</td>
                                 <td>Drużyna gości</td>
                                 <td>Data</td>
                                 <td>Status</td>
-                                <td></td>
                             </tr>
-                        </thead>
-                        @foreach($matches as $match)
-                            <tr>
-                                <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
-                                <td>
-                                    @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
-                                        @if($match->home_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty')
-                                            <a href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
-                                        @elseif($match->status === 'przelozony')
-                                        Mecz przełożony
-                                        @else
-                                        Czekam na wynik
-                                        @endif
-                                    @else
-                                        {{$match->home_team_score}} : {{$match->enemy_team_score}}
-                                        @if($match->status == 'niezaakceptowany')
-                                            <br>
-                                            <a href="{{ route('mecze.edit', $match->id)}}"> Zmień wynik</a>
-                                        @endif
-                                    @endif
-                                </td>
-                                <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
-                                <td>{{$match->date}}</td>
-                                <td>{{$match->status}}</td>
-                                <td>
-                                    @if($selectTeam[0]->shifts<3 && $match->status != 'przelozony')
-                                    <a class="shiftButton btn btn-danger" data-match="{{ $match->id }}" data-team="{{ $selectTeam[0]->id }}">przełóż mecz</a>
-                                    @elseif($match->status = 'przelozony')
-                                        <button class="btn btn-success" disabled>Mecz został przełożony</button>
-                                    @else
-                                        <button class="btn btn-light" disabled>Wyczerpano limit przełożeń</button>
+                            </thead>
+                            @foreach($matches as $match)
+                                @if( ($today >= $match->date) && $match->status === 'nieodbyty' || $match->status === 'niezaakceptowany')
+                                <tr class="reffilRow">
+                                    <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
+                                    <td>
+                                        @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
+                                            @if($match->home_team === $selectTeam[0]->id && ($today >= $match->date) && $match->status === 'nieodbyty')
+                                                <a class="btn btn-danger" href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
 
-                                    @endif
-                                </td>
+                                            @else
+                                                Czekam na wynik
+                                            @endif
+                                        @else
+                                            {{$match->home_team_score}} : {{$match->enemy_team_score}}
+                                            @if($match->status == 'niezaakceptowany')
+                                                @if($match->home_team === $selectTeam[0]->id)
+                                                    <br>
+                                                    <a class="btn-link" href="{{ route('mecze.edit', $match->id)}}"> Zmień wynik</a>
+                                                @endif
+                                            @endif
+                                        @endif
+                                    </td>
+                                    <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
+                                    <td>{{$match->date}}</td>
+                                    <td width="20%">
+
+                                        @if($match->home_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                            Czekam na wprowadzenie wyniku
+                                        @elseif($match->enemy_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                            Czekam na wprowadzenie wyniku przez zespół przeciwny
+                                        @elseif($match->status === 'niezaakceptowany')
+                                            W trakcie weryfikacji...
+                                        @elseif( $match->status === 'zaakceptowany')
+                                            Wynik meczu zaakceptowany
+                                        @else($match->status === 'nieodbyty')
+                                            Czekam na mecz
+                                        @endif
+                                    </td>
+                                </tr>
+                            @else
+
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+                    <div id="futureMatch" style="display: none">
+                        <table class="table table-striped table-responsive-lg">
+                            <thead>
+                            <tr>
+                                <td>Drużyna gospodarzy</td>
+                                <td>Wynik</td>
+                                <td>Drużyna gości</td>
+                                <td>Data</td>
+                                <td>Status</td>
                             </tr>
-                        @endforeach
-                    </table>
+                            </thead>
+                            @foreach($matches as $match)
+                                @if( ($today < $match->date) && $match->status === 'nieodbyty')
+                                    <tr class="futureRow">
+                                        <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
+                                        <td>
+                                            @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
+                                                @if($match->home_team === $selectTeam[0]->id && ($today >= $match->date) && $match->status === 'nieodbyty')
+                                                    <a href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
+
+                                                @else
+                                                    Czekam na wynik
+                                                @endif
+                                            @else
+                                                {{$match->home_team_score}} : {{$match->enemy_team_score}}
+                                                @if($match->status == 'niezaakceptowany')
+                                                    @if($match->home_team === $selectTeam[0]->id)
+                                                        <br>
+                                                        <a href="{{ route('mecze.edit', $match->id)}}"> Zmień wynik</a>
+                                                    @endif
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
+                                        <td>{{$match->date}}</td>
+                                        <td width="20%">
+
+                                            @if($match->home_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                                Czekam na wprowadzenie wyniku
+                                            @elseif($match->enemy_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                                Czekam na wprowadzenie wyniku przez zespół przeciwny
+                                            @elseif($match->status === 'niezaakceptowany')
+                                                W trakcie weryfikacji...
+                                            @elseif( $match->status === 'zaakceptowany')
+                                                Wynik meczu zaakceptowany
+                                            @else($match->status === 'nieodbyty')
+                                                Czekam na mecz
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @else
+
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+                    <div id="pastMatch" style="display: none">
+                        <table class="table table-striped table-responsive-lg">
+                            <thead>
+                            <tr>
+                                <td>Drużyna gospodarzy</td>
+                                <td>Wynik</td>
+                                <td>Drużyna gości</td>
+                                <td>Data</td>
+                                <td>Status</td>
+                            </tr>
+                            </thead>
+                            @foreach($matches as $match)
+                                @if( $match->status === 'zaakceptowany')
+                                    <tr class="pastRow">
+                                        <td><a href="{{route('druzyna.show', $match->home_team)}}">{{$teams->find($match->home_team)->name}}</a></td>
+                                        <td>
+                                            @if(($match->home_team_score == '' && $match->enemy_team_score == ''))
+                                                @if($match->home_team === $selectTeam[0]->id && ($today >= $match->date) && $match->status === 'nieodbyty')
+                                                    <a href="{{ route('mecze.edit', $match->id)}}"> Wprowadź wynik</a>
+
+                                                @else
+                                                    Czekam na wynik
+                                                @endif
+                                            @else
+                                                {{$match->home_team_score}} : {{$match->enemy_team_score}}
+                                                @if($match->status == 'niezaakceptowany')
+                                                    @if($match->home_team === $selectTeam[0]->id)
+                                                        <br>
+                                                        <a href="{{ route('mecze.edit', $match->id)}}"> Zmień wynik</a>
+                                                    @endif
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td><a href="{{route('druzyna.show', $match->enemy_team)}}">{{$teams->find($match->enemy_team)->name}}</a></td>
+                                        <td>{{$match->date}}</td>
+                                        <td width="20%">
+
+                                            @if($match->home_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                                Czekam na wprowadzenie wyniku
+                                            @elseif($match->enemy_team === $selectTeam[0]->id && ($today > $match->date) && $match->status === 'nieodbyty' )
+                                                Czekam na wprowadzenie wyniku przez zespół przeciwny
+                                            @elseif($match->status === 'niezaakceptowany')
+                                                W trakcie weryfikacji...
+                                            @elseif( $match->status === 'zaakceptowany')
+                                                Wynik meczu zaakceptowany
+                                            @else($match->status === 'nieodbyty')
+                                                Czekam na mecz
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @else
+
+                                @endif
+                            @endforeach
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

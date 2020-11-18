@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,18 +98,18 @@ $('select').on('change', function () {
   $('table#' + this.value).show();
 });
 $('.all-tables').children().children().hide();
-$('.all-tables').children().children().first().show();
+$('.all-tables').children().children('#league-2').show();
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /*!**************************************************!*\
   !*** multi ./resources/js/home/season/season.js ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/season/season.js */"./resources/js/home/season/season.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/season/season.js */"./resources/js/home/season/season.js");
 
 
 /***/ })

@@ -3,5 +3,5 @@ $('select').on('change', function() {
     $('table#'+this.value).show();
 });
 $('.all-tables').children().children().hide();
-$('.all-tables').children().children().first().show();
+$('.all-tables').children().children('#league-2').show();
 

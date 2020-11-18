@@ -58,10 +58,10 @@
                             @foreach($players as  $player)
                                 <tr>
                                     <td class="name">{{$player->name}}</td>
-                                    <td  class="surname">{{$player->surname}}</td>
+                                    <td class="surname">{{$player->surname}}</td>
                                     <td class="date">{{$player->birth}}</td>
                                     <td class="team-name">{{$player->team->name}}</td>
-                                    <td colspan="league-name">{{$player->team->league->name}}</td>
+                                    <td class="league-name">{{$player->team->league->name}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

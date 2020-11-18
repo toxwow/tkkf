@@ -50023,21 +50023,21 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/index.scss */"./resources/sass/home/index.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/contact.scss */"./resources/sass/home/contact.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/league-info.scss */"./resources/sass/home/league-info.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/articles/articles.scss */"./resources/sass/home/articles/articles.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/teams/team.scss */"./resources/sass/home/teams/team.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/articles/article.scss */"./resources/sass/home/articles/article.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/articles/articles-block.scss */"./resources/sass/home/articles/articles-block.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/articles/articles-block-new.scss */"./resources/sass/home/articles/articles-block-new.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/home/season/season.scss */"./resources/sass/home/season/season.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/admin/layout.scss */"./resources/sass/admin/layout.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/admin/home.scss */"./resources/sass/admin/home.scss");
-__webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/admin/leagues.scss */"./resources/sass/admin/leagues.scss");
-module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/sass/admin/teams.scss */"./resources/sass/admin/teams.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/index.scss */"./resources/sass/home/index.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/contact.scss */"./resources/sass/home/contact.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/league-info.scss */"./resources/sass/home/league-info.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles.scss */"./resources/sass/home/articles/articles.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/teams/team.scss */"./resources/sass/home/teams/team.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/article.scss */"./resources/sass/home/articles/article.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles-block.scss */"./resources/sass/home/articles/articles-block.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/articles/articles-block-new.scss */"./resources/sass/home/articles/articles-block-new.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/home/season/season.scss */"./resources/sass/home/season/season.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/layout.scss */"./resources/sass/admin/layout.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/home.scss */"./resources/sass/admin/home.scss");
+__webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/leagues.scss */"./resources/sass/admin/leagues.scss");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/sass/admin/teams.scss */"./resources/sass/admin/teams.scss");
 
 
 /***/ })

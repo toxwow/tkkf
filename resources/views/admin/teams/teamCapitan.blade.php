@@ -66,50 +66,44 @@
                     <div class="card-box ml-2 flex-fill">
                         <div class="text-center"><i class="icofont-clock-time mr-2" style="color: #4099ff"></i>
 
-                            @if($team['date'] == '')
-                                mecze do przełożenia: {{$team['shifts']}}
+                            @if($team['information'] == '')
+                                brak dodatkowych informacji
                             @else
-                                {{$team['date']}}
+                                {{$team['information']}}
                             @endif
 
                         </div>
                     </div>
                 </div>
-                <div class="table-wrapper mt-5">
-                    <div class="league-name">
-                        <div class="text-center">
-                                <p class="mb-0">Zawodnicy</p>
-                        </div>
+
+                <div class="table-name">
+                    <div class="title">Zawodnicy</div>
+                    <div class="table-action"><a href="{{route('zawodnik.create')}}"> <i class="icofont-ui-add mr-3"></i> Dodaj zawodnika</a>
                     </div>
-                    <table class="table table-striped table-responsive-lg">
+                </div>
+                <div class="table-wrapper ">
+                    <table class="table table-responsive-lg">
                         <tbody>
                             <th>#</th>
                             <th></th>
                             <th>Imię i nazwisko</th>
                             <th>Data urodzenia</th>
-                            <th>Status</th>
+                            <th></th>
                         </tbody>
-                    @foreach($team['players'] as $key => $player)
+                    @foreach($team['players'] as $key=>$player)
                         <tr>
-                            <td>{{$key+1}}</td>
-                            <td class="with-input">
-                                <div class="img-wrapper" style="background-image: url('{{Storage::url('images/players/'.$player['photo'])}}')">
-                                    <a class="mask-edit" href="{{route('zawodnik.edit', $player['id'])}}">
-                                        <i class="icofont-ui-image"></i>
-                                        edytuj zdjęcie</a>
 
-                                </div>
-
-                            <td>{{$player['name']}}</td>
-                            <td>{{$player['birth']}}</td>
-                            <td>{{$player['status']}}</td>
+                            <td><span style="margin-right: 20px;">{{$key+1}}.</span></td>
+                            <td><div class="player-photo" style="background-image: url('{{Storage::url('images/players/'.$player['photo'])}}')"></div></td>
+                            <td width="50%">
+                                <span>{{$player['name']}}</span>
+                            </td>
+                            <td width="30%">{{$player['birth']}}</td>
+                            <td width="20%" style="text-align: right"><a class="btn btn-primary" href="{{route('zawodnik.edit', $player['id'])}}">edytuj</a></td>
                         </tr>
                     @endforeach
                     </table>
 
-                </div>
-                <div class="player-wrapper add">
-                    <a href="{{route('zawodnik.create')}}">dodaj zawodnika</a>
                 </div>
 
 {{--                @foreach($leagues as $league)--}}

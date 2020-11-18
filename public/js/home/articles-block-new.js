@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -118,14 +118,14 @@ $('.nav-arrow.right').click(function () {
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /*!*******************************************************!*\
   !*** multi ./resources/js/home/articles-block-new.js ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/home/articles-block-new.js */"./resources/js/home/articles-block-new.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/articles-block-new.js */"./resources/js/home/articles-block-new.js");
 
 
 /***/ })

@@ -81,33 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/players.js":
+/***/ "./resources/js/admin/matches.js":
 /*!***************************************!*\
-  !*** ./resources/js/admin/players.js ***!
+  !*** ./resources/js/admin/matches.js ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var options = {
-  valueNames: ['name', 'surname', 'league-name', 'team-name']
-};
-var hackerList = new List('all-users', options);
+
 
 /***/ }),
 
-/***/ 7:
+/***/ 9:
 /*!*********************************************!*\
-  !*** multi ./resources/js/admin/players.js ***!
+  !*** multi ./resources/js/admin/matches.js ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/players.js */"./resources/js/admin/players.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/matches.js */"./resources/js/admin/matches.js");
 
 
 /***/ })

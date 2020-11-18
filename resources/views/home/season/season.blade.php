@@ -13,13 +13,10 @@
         <div class="row">
             <div class="col-12 page-title-wrapper">
                 <h1 class="page-title">Sezon 2020/2021</h1>
-
                 <div>
                     <select class="selectpicker">
-                        @foreach($mecze as $id_league  => $liga)
-                            @if($id_league != '')
-                                <option value="league-{{$id_league}}" >{{$leaguesAll->find($id_league)->name}}</option>
-                            @endif
+                        @foreach($timetable as $league)
+                                <option value="league-{{$league->id}}" >{{$league->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -50,7 +47,7 @@
                                         {{$lp = $lp + 1}}
                                     </td>
                                     <td style="font-weight: 600">
-                                        {{$teams->find($team_id)->name}}
+                                        <a href="{{route('team', $team_id)}}">{{$teams->find($team_id)->name}}</a>
                                     </td>
                                     <td>
                                         {{$team['libcza_meczy']}}

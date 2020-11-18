@@ -39,8 +39,8 @@ class MainController extends Controller
         $mecze = array();
         $meczeSQLQ = DB::table('matches')
             ->select('matches.id', 'league_id', 'home_team_id', 'enemy_team_id',
-                (DB::raw("SUM(`home_team_score` > `enemy_team_score`) AS `home_win`")),
-                (DB::raw("SUM(`home_team_score` < `enemy_team_score`) AS `enemy_win`")),
+                (DB::raw("`home_team_score` AS `home_win`")),
+                (DB::raw("`enemy_team_score` AS `enemy_win`")),
                 (DB::raw("SUM(`home_points`) AS `home_sum_points`")),
                 (DB::raw("SUM(`enemy_points`) AS `enemy_sum_points`")))
             ->from('matches')->join('match_details', 'matches.id', '=', 'match_details.match_id')
@@ -84,6 +84,7 @@ class MainController extends Controller
 
                 }
                 else{
+
                     $mecze[$meczSQL->league_id][$meczSQL->enemy_team_id]['sum_points_match'] += 3;
 
                 }
@@ -161,6 +162,7 @@ class MainController extends Controller
     }
 
     public function season(){
+        $timetable = League::with('matches.teamHome', 'matches.teamEnemy')->get();
         $mecze = array();
         $meczeSQLQ = DB::table('matches')
             ->select('matches.id', 'league_id', 'home_team_id', 'enemy_team_id',
@@ -247,7 +249,7 @@ class MainController extends Controller
 
         $leaguesAll = League::all();
         $teams = Team::all();
-        return view('home.season.season', ['mecze'=> $mecze, 'leaguesAll' => $leaguesAll, 'teams'=>$teams]);
+        return view('home.season.season', ['mecze'=> $mecze, 'timetable'=>$timetable->sortBy('created_at'), 'leaguesAll' => $leaguesAll, 'teams'=>$teams]);
     }
 
     /**

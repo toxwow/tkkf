@@ -2,6 +2,7 @@
     "/js/admin/admin.js": "/js/admin/admin.js",
     "/js/admin/articles.js": "/js/admin/articles.js",
     "/js/admin/leagues.js": "/js/admin/leagues.js",
+    "/js/admin/matches.js": "/js/admin/matches.js",
     "/js/admin/matchesForm.js": "/js/admin/matchesForm.js",
     "/js/admin/players.js": "/js/admin/players.js",
     "/js/admin/shift.js": "/js/admin/shift.js",

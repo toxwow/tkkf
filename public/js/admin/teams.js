@@ -272,7 +272,7 @@ $(".alert-hide").click(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tomasztomzynski/Sites/zlecenia/tkkf/project/resources/js/admin/teams.js */"./resources/js/admin/teams.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/teams.js */"./resources/js/admin/teams.js");
 
 
 /***/ })

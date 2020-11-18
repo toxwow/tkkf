@@ -6,10 +6,6 @@
     <link href="{{ asset('css/admin/leagues.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-    <div class="col-sm-12">
-
-
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5">
@@ -20,7 +16,6 @@
                         </div>
                         <div class="text-wrapper">
                             <p class="title">Tabela</p>
-                            <p class="sub-title">lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                         </div>
                     </div>
                 </div>

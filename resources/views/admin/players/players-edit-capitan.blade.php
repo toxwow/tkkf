@@ -42,12 +42,16 @@
                             <input type="text" class="form-control" name="name" disabled value="{{$player->name}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="surname">Naziwsko</label>
+                            <label for="surname">Nazwisko</label>
                             <input type="text" class="form-control" name="surname" disabled value="{{$player->surname}}"/>
                         </div>
                         <div class="form-group">
                             <label for="birth">Data urodzenia</label>
+                            @if(empty($player->birth))
+                                <input type="date" class="form-control" name="birth"   value="{{$player->birth}}"/>
+                            @else
                             <input type="date" class="form-control" name="birth"  disabled value="{{$player->birth}}"/>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="photo">Zdjęcie</label>

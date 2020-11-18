@@ -312,8 +312,6 @@ class MatchController extends Controller
                     }
                 }
             }
-
-
             $match->save();
         }
 

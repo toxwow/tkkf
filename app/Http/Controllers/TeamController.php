@@ -43,11 +43,11 @@ class TeamController extends Controller
                 $team = array();
                 $teamDB = DB::table('teams')->where('capitan', $user->id)
                     ->join('leagues', 'teams.league_id', '=', 'leagues.id')
-                    ->select('teams.id', 'teams.name', 'teams.logo', 'teams.date', 'teams.shifts', 'teams.address', 'teams.information', 'teams.capitan', DB::raw('leagues.name as leauge_name') )
+                    ->select('teams.id', 'teams.name', 'teams.logo', 'teams.time', 'teams.shifts', 'teams.address', 'teams.information', 'teams.capitan', DB::raw('leagues.name as leauge_name') )
                     ->get();
                 if(empty($teamDB[0])){
                     $teamDB = DB::table('teams')->where('capitan', $user->id)
-                        ->select('teams.id', 'teams.name', 'teams.logo', 'teams.shifts', 'teams.address', 'teams.date', 'teams.information', 'teams.capitan')
+                        ->select('teams.id', 'teams.name', 'teams.logo', 'teams.shifts', 'teams.address', 'teams.time', 'teams.information', 'teams.capitan')
                         ->get();
                 }
                 $players = DB::table('players')->where('team_id', $teamDB[0]->id )->get();
@@ -62,7 +62,7 @@ class TeamController extends Controller
                         $team["league"] = 'brak ligi - czekaj na dopisanie';
                     }
                     $team["logo"] = $t->logo;
-                    $team["date"] = $t->date;
+                    $team["date"] = $t->time;
                     $team["address"] = $t->address;
                     $team["shifts"] = $t->shifts;
                     $team["information"] = $t->information;
@@ -158,7 +158,7 @@ class TeamController extends Controller
 
         $unionPlayer = DB::table('players')->where('team_id', '=', $id)->where('status', '=', 'zweryfikowany')->get();
         $teamDB = DB::table('teams')->where('teams.id', '=', $id)
-            ->select((DB::raw("teams.name AS team_name")), DB::raw("teams.id AS team_id"), "users.name", "teams.shifts", 'teams.league_id', "users.id", "users.surname", 'teams.date', 'teams.address', 'teams.information', 'users.phone', 'users.email' , 'teams.logo')
+            ->select((DB::raw("teams.name AS team_name")), DB::raw("teams.id AS team_id"), "users.name", "teams.shifts", 'teams.league_id', "users.id", "users.surname", 'teams.time', 'teams.address', 'teams.information', 'users.phone', 'users.email' , 'teams.logo')
             ->join('users', 'users.id', '=', 'teams.capitan')
             ->get();
         $teamTable = array();
@@ -173,7 +173,7 @@ class TeamController extends Controller
             $teamTable['team_id'] = $team->team_id;
             $teamTable['team_logo'] = $team->logo;
             $teamTable['address'] = $team->address;
-            $teamTable['date'] = $team->date;
+            $teamTable['date'] = $team->time;
             $teamTable['shifts'] = $team->shifts;
             $teamTable['information'] = $team->information;
             $teamTable['players'] = null;
@@ -255,14 +255,9 @@ class TeamController extends Controller
             if($request->ajax()){
                 $team->shifts = $team->shifts + 1;
             }
-            else if($team->date != $request->get('date') || $team->address != $request->get('address')){
-                $mailsTo = DB::table('teams')->where('league_id', '=', $team->league_id)
-                    ->join('users', 'teams.capitan' ,'=', 'users.id')
-                    ->select('users.email')
-                    ->get()->toArray();
-                foreach ($mailsTo as $mailTo){
-//                    Mail::to($mailTo->email)->send(new ChangeInformationTeam($team));
-                }
+            else if($team->time != $request->get('time') || $team->address != $request->get('address')){
+                $mailsTo = 'tomasz.tomzynski@gmail.com';
+                    Mail::to($mailsTo)->send(new ChangeInformationTeam($team));
             }
         }
 

@@ -3,6 +3,7 @@
     <script>
         var leagues =  {!! json_encode($leagues) !!}
         var teams =  {!! json_encode($teams->toArray()) !!}
+
     </script>
 {{--    <script src="{{ asset('js/index.js') }}" defer></script>--}}
 
@@ -45,6 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <input type="text" id="search" placeholder="  live search"></input>
                 @foreach($leagues as $league)
                 <div class="table-wrapper mb-3">
                     <div class="league-name">

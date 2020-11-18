@@ -75,6 +75,7 @@
                                             <tr>
                                                 <th scope="col"></th>
                                                 <th scope="col">Drużyna</th>
+                                                <th scope="col">L.M.</th>
                                                 <th scope="col"><b>Pkt</b></th>
                                                 <th scope="col">W</th>
                                                 <th scope="col">P</th>
@@ -90,6 +91,9 @@
                                                     </td>
                                                     <td style="font-weight: 600">
                                                         <a href="{{route('team', $team_id)}}">{{$teams->find($team_id)->name}}</a>
+                                                    </td>
+                                                    <td>
+                                                        {{$team['libcza_meczy']}}
                                                     </td>
                                                     <td>
                                                         <b>{{$team['sum_points_match']}}</b>

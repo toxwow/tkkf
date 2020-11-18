@@ -22,18 +22,21 @@ class LeagueController extends Controller
     public function index()
     {
 
+        $user = Auth::user();
+
 
         $mecze = array();
         $meczeSQLQ = DB::table('matches')
             ->select('matches.id', 'league_id', 'home_team_id', 'enemy_team_id',
-                (DB::raw("SUM(`home_team_score` > `enemy_team_score`) AS `home_win`")),
-                (DB::raw("SUM(`home_team_score` < `enemy_team_score`) AS `enemy_win`")),
+                (DB::raw("`home_team_score` AS `home_win`")),
+                (DB::raw("`enemy_team_score` AS `enemy_win`")),
                 (DB::raw("SUM(`home_points`) AS `home_sum_points`")),
                 (DB::raw("SUM(`enemy_points`) AS `enemy_sum_points`")))
             ->from('matches')->join('match_details', 'matches.id', '=', 'match_details.match_id')
             ->where('matches.status',  '=', 'zaakceptowany')
             ->groupBy('match_details.match_id')
             ->get();
+
 
         $druzyny = DB::table('teams')->get();
         foreach($druzyny as $druzyna){
@@ -108,8 +111,8 @@ class LeagueController extends Controller
 
         $leagues = League::all();
         $teams = Team::all();
-        $user = Auth::user();
-        return view('admin.leagues.leagues', ['user' => $user, 'leagues' => $leagues, 'teams' => $teams, 'mecze' => $mecze]);
+
+        return view('admin.leagues.leagues', ['user' => $user, 'leagues' => $leagues,  'teams' => $teams, 'mecze' => $mecze]);
     }
 
     /**
