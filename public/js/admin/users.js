@@ -81,35 +81,33 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/home/season/season.js":
-/*!********************************************!*\
-  !*** ./resources/js/home/season/season.js ***!
-  \********************************************/
+/***/ "./resources/js/admin/users.js":
+/*!*************************************!*\
+  !*** ./resources/js/admin/users.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('select').on('change', function () {
-  $('table.table').hide();
-  $('table#' + this.value).show();
-});
-$('.all-tables').children().children().hide();
-$('.all-tables').children().children('#league-2').show();
+var options = {
+  valueNames: ['name', 'email', 'team']
+};
+var hackerList = new List('all-users', options);
 
 /***/ }),
 
-/***/ 14:
-/*!**************************************************!*\
-  !*** multi ./resources/js/home/season/season.js ***!
-  \**************************************************/
+/***/ 10:
+/*!*******************************************!*\
+  !*** multi ./resources/js/admin/users.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/home/season/season.js */"./resources/js/home/season/season.js");
+module.exports = __webpack_require__(/*! /var/www/html/tkkf/resources/js/admin/users.js */"./resources/js/admin/users.js");
 
 
 /***/ })

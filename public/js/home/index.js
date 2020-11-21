@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -182,7 +182,7 @@ var maxPostion = 360 - 90 * countChild;
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /*!******************************************!*\
   !*** multi ./resources/js/home/index.js ***!
   \******************************************/

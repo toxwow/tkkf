@@ -7,6 +7,7 @@
     "/js/admin/players.js": "/js/admin/players.js",
     "/js/admin/shift.js": "/js/admin/shift.js",
     "/js/admin/teams.js": "/js/admin/teams.js",
+    "/js/admin/users.js": "/js/admin/users.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/home/index.css": "/css/home/index.css",

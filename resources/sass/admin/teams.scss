@@ -48,6 +48,24 @@
     border: 1px solid #e6eefc;
 }
 
+.settings {
+    margin: 20px 0;
+    .filter{
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid #d6d6d6;
+        margin: 0 0 0px 5px;
+        border-radius: 20px;
+        font-size: 12px;
+        background-color: #eaeaea;
+
+        &.active{
+            background-color: #3f99fe;
+            color: #fff;
+        }
+    }
+}
+
 .with-input{
     .img-wrapper{
         width: 50px;

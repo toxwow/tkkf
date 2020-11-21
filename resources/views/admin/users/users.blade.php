@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @push('scripts')
-    <script src="{{ asset('js/admin/leagues.js') }}" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+    <script src="{{ asset('js/admin/users.js') }}" defer></script>
 @endpush
 @push('css')
     <link href="{{ asset('css/admin/leagues.css') }}" rel="stylesheet">
@@ -42,25 +44,30 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="table-wrapper  table-responsive">
-                    <table class="table table-striped">
+                <div class="table-responsive" id="all-users" >
+                    <input class="search form-control my-4" placeholder="Wyszukaj użytkownika" />
+
+                    <table class="table table-dark table-striped">
                         <thead>
+                        <tr>
                             <th>#</th>
-                            <th>Imię i nazwisko</th>
-                            <th>E-mail</th>
+                            <th class="sort" data-sort="name">Imię i nazwisko</th>
+                            <th class="sort" data-sort="email">E-mail</th>
                             <th>Telefon</th>
-                            <th>Drużyna</th>
+                            <th class="sort" data-sort="team">Drużyna</th>
                             <th>Uprawnienia</th>
                             <th>Ostatnio widziany</th>
                             <th></th>
+                        </tr>
                         </thead>
+                        <tbody class="list">
                         @foreach($users as $key => $user1)
                             <tr>
                                 <td>{{$key}}</td>
-                                <td>{{$user1['name']}}</td>
-                                <td>{{$user1['email']}}</td>
+                                <td class="name">{{$user1['name']}}</td>
+                                <td class="email">{{$user1['email']}}</td>
                                 <td>{{$user1['phone']}}</td>
-                                <td>{{$user1['team']}}</td>
+                                <td class="team">{{$user1['team']}}</td>
                                 <td>{{$user1['role']}}</td>
                                 <td>
                                     @if($user1['online'])
@@ -74,6 +81,7 @@
                                 <td><a class="btn btn-primary" href="{{ route('uzytkownicy.edit', $key)}}"><i class="icofont-settings-alt"></i></a></td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                 </div>
 

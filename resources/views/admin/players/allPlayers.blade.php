@@ -42,9 +42,11 @@
             </div>
 
             <div class="col-12">
+
                 <div class="table-responsive" id="all-users">
                     <input class="search form-control my-4" placeholder="Wyszukaj zawodnika" />
-                    <table class="table table-striped">
+
+                    <table class="table table-dark table-striped" >
                         <thead>
                         <tr>
                             <th class="sort" data-sort="name">Imię</th>
