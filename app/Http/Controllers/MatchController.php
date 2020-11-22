@@ -52,7 +52,8 @@ class MatchController extends Controller
         $teams = Team::all();
 
         if($user -> isAdmin()){
-            return view('admin.matches.matches', ['user' => $user, 'leagues' => $leagues, 'teams'  => $teams] );
+            $today = Carbon::today();
+            return view('admin.matches.matches', ['user' => $user, 'leagues' => $leagues, 'teams'  => $teams, 'today' => $today] );
         }
         else if($user -> isCapitan()){
             $today = Carbon::now();

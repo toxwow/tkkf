@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -271,6 +272,14 @@ class TeamController extends Controller
             $team->information = $request->get('information');
         }
         if($user -> isCapitan()){
+            $photoImage =  $request->file('logo');
+            if($photoImage != null){
+                if($team->logo != ''){
+                    Storage::delete('public/images/teams/'.$team->logo);
+                }
+                Storage::putFile('public/images/teams', $request->file('logo'));
+                $team->logo = $photoImage->hashName();
+            }
 
             $team->time = $request->get('time');
             $team->address = $request->get('address');

@@ -37,6 +37,7 @@
                                                             @if($match->teamHome->logo == null)
                                                                 <img src="https://static.hltv.org/images/team/logo/3487" alt="">
                                                             @else
+                                                                <img src="{{Storage::url('images/teams/'.$match->teamHome->logo)}}" height="50px;" alt="">
 
                                                             @endif
                                                         </div>
@@ -44,9 +45,10 @@
                                                                 <p class="date">{{date('d.m',strtotime($match->date))}}</p>
                                                         </div>
                                                         <div class="enemy-team">
-                                                            @if($match->teamHome->logo == null)
+                                                            @if($match->teamEnemy->logo == null)
                                                                 <img src="https://static.hltv.org/images/team/logo/3487" alt="">
                                                             @else
+                                                                <img src="{{Storage::url('images/teams/'.$match->teamEnemy->logo)}}" height="50px;" alt="">
 
                                                             @endif
                                                             <p class="team-name"><a href="{{route('team',$match->teamEnemy->id)}}">{{$match->teamEnemy->name}}</a></p>

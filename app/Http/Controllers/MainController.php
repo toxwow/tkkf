@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\League;
+use App\User;
+use Illuminate\Support\Str;
+use App\Mail\ChangeInformationTeam;
+use App\Mail\changePassword;
 use App\Team;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -151,6 +157,20 @@ class MainController extends Controller
 
     public function contact(){
         return view('home.contact');
+    }
+
+
+
+    public function changePassword( $id){
+        $userTo = User::find($id);
+        $name = $userTo->name.' '.$userTo->surname;
+        $mail = $userTo->email;
+        $mailsTo = $mail;
+        $password = (Str::random(12));
+        $userTo -> password = Hash::make($password);
+        $userTo->save();
+        Mail::to($mailsTo)->send(new changePassword($password, $mail, $name));
+
     }
 
     public function documents(){

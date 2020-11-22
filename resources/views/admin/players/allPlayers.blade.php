@@ -49,21 +49,21 @@
                     <table class="table table-dark table-striped" >
                         <thead>
                         <tr>
-                            <th class="sort" data-sort="name">Imię</th>
-                            <th class="sort" data-sort="surname">Nazwisko</th>
+                            <th class="sort" data-sort="name">Imię i nazwisko</th>
                             <th class="sort" data-sort="date">Data urodzenia</th>
                             <th class="sort" data-sort="team-name">Drużyna</th>
                             <th class="sort" data-sort="league-name">Liga</th>
+                            <th class="sort" data-sort="dodany">Dodany</th>
                         </tr>
                         </thead>
                         <tbody  class="list" >
                             @foreach($players as  $player)
                                 <tr>
-                                    <td class="name">{{$player->name}}</td>
-                                    <td class="surname">{{$player->surname}}</td>
+                                    <td class="name">{{$player->name}} {{$player->surname}}</td>
                                     <td class="date">{{$player->birth}}</td>
                                     <td class="team-name">{{$player->team->name}}</td>
                                     <td class="league-name">{{$player->team->league->name}}</td>
+                                    <td class="dodany">{{$player->created_at}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

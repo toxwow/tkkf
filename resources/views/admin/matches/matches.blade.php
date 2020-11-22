@@ -5,6 +5,8 @@
         var teams =  {!! json_encode($teams->toArray()) !!}
 
     </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
     <script src="{{ asset('js/admin/matches.js') }}" defer></script>
 
 @endpush
@@ -59,62 +61,69 @@
                     </div>
                 </div>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="all-matches">
+                        <input class="search form-control my-4" placeholder="Wyszukaj meczu" />
                         <table class="table table-dark table-striped">
                             <thead>
-                            <th>Liga</th>
-                            <th>Gospodarze</th>
+                            <th class="sort" data-sort="league">Liga</th>
+                            <th class="sort" data-sort="homeTeam">Gospodarze</th>
                             <th>wynik</th>
-                            <th>Goście</th>
-                            <th>Data</th>
-                            <th>Status</th>
+                            <th class="sort" data-sort="enemyTeam">Goście</th>
+                            <th class="sort" data-sort="date">Data</th>
+                            <th class="sort" data-sort="status">Status</th>
                             <th></th>
                             </thead>
-                            @foreach($leagues as $league)
-                            @foreach($league->matches as $matches)
-                            <tr>
-                                <td style="font-size: 12px;">{{$league->name}}</td>
-                                <td>{{$teams->find($matches->home_team_id)->name}}</td>
-                                <td>
-                                    @if($matches->status === 'nieodbyty')
-                                        czekam na wynik
-                                    @else
-                                        {{$matches->home_team_score}} : {{$matches->enemy_team_score}}
-                                    @endif
-                                </td>
-                                <td>{{$teams->find($matches->enemy_team_id)->name}}</td>
+                            <tbody class="list" >
+                                @foreach($leagues as $league)
+                                @foreach($league->matches as $matches)
+                                <tr>
+                                    <td style="font-size: 12px;" class="league">{{$league->name}}</td>
+                                    <td class="homeTeam">{{$teams->find($matches->home_team_id)->name}}</td>
+                                    <td>
+                                        @if($matches->status === 'nieodbyty')
+                                            @if($matches->date > $today)
+                                            czekam na mecz
+                                            @else
+                                                <span style="color: #a6d2ff;">czekam na wynik</span>
+                                            @endif
+                                        @else
+                                            {{$matches->home_team_score}} : {{$matches->enemy_team_score}}
+                                        @endif
+                                    </td>
+                                    <td class="enemyTeam">{{$teams->find($matches->enemy_team_id)->name}}</td>
 
-                                <td>{{$matches->date}}</td>
-                                <td>
-                                    @if($matches->status === 'niezaakceptowany')
-                                    Niezaakceptowany
-                                    @elseif($matches->status === 'zaakceptowany')
-                                    Zakończony
-                                    @else
-                                    Nieodbyty
-                                    @endif
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                                            <i class="icofont-settings-alt"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a href="{{ route('mecze.edit',$matches->id)}}" class="dropdown-item">Edytuj</a>
+                                    <td class="date">{{$matches->date}}</td>
+                                    <td class="status">
+                                        @if($matches->status === 'niezaakceptowany')
+                                        Niezaakceptowany
+                                        @elseif($matches->status === 'zaakceptowany')
+                                        Zakończony
+                                        @else
+                                        Nieodbyty
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-info" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+                                                <i class="icofont-settings-alt"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a href="{{ route('mecze.edit',$matches->id)}}" class="dropdown-item">Edytuj</a>
 
 
-                                            <form action="{{ route('mecze.destroy', $matches->id)}}" method="post" style="display: inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="dropdown-item" type="submit">Usuń mecz</button>
-                                            </form>
+                                                <form action="{{ route('mecze.destroy', $matches->id)}}" method="post" style="display: inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item" type="submit">Usuń mecz</button>
+                                                </form>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                            @endforeach
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
 

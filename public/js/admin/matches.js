@@ -110,6 +110,10 @@ $('.filter').click(function () {
     $("tr:contains('" + text + "')").show();
   }
 });
+var options = {
+  valueNames: ['league', 'homeTeam', 'enemyTeam', 'date', 'status']
+};
+var hackerList = new List('all-matches', options);
 
 /***/ }),
 

@@ -50,7 +50,6 @@
                     <table class="table table-dark table-striped">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th class="sort" data-sort="name">Imię i nazwisko</th>
                             <th class="sort" data-sort="email">E-mail</th>
                             <th>Telefon</th>
@@ -63,7 +62,6 @@
                         <tbody class="list">
                         @foreach($users as $key => $user1)
                             <tr>
-                                <td>{{$key}}</td>
                                 <td class="name">{{$user1['name']}}</td>
                                 <td class="email">{{$user1['email']}}</td>
                                 <td>{{$user1['phone']}}</td>
@@ -78,7 +76,13 @@
                                         {{$user1['last_seen']}}
                                     @endif
                                 </td>
-                                <td><a class="btn btn-primary" href="{{ route('uzytkownicy.edit', $key)}}"><i class="icofont-settings-alt"></i></a></td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a class="btn btn-primary mr-2" href="{{ route('uzytkownicy.edit', $key)}}"><i class="icofont-settings-alt"></i></a>
+                                        <a class="btn btn-success restPassword" data-id="{{ $user1['id'] }}"><i class="icofont-ui-unlock"></i></a>
+
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

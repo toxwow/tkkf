@@ -22,8 +22,14 @@
             <div class="col-12 mb-1">
                 <div class="content-header">
                     <div class="content-title">
-                        <div class="icon-wrapper">
-                            <i class="icofont-users"></i>
+                        <div class="logo-wrapper mr-3">
+                            <div>
+                                @if($team['logo'] != '')
+                                <img src="{{Storage::url('images/teams/'.$team['logo'])}}" height="50px;" alt="">
+                                @else
+                                    <img height="50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAJ1BMVEX////Ly8vIyMjR0dHd3d3o6Oj7+/vx8fHg4OD39/fa2trX19fr6+uWykArAAAFVElEQVR4nO2d6ZLiMAyESZyDJLz/8+4QyHBMgG7H0cHq+7lVS6ljW5JtyXM4BEEQBEEQ7MDQt82UqvpKldJ4bPtO26wyDG1zkVY9Mv/T1Pba9m2jO43VH2nPOqfW61h2bXqv7qYytdrGZnAC5S0iR1/TdWgYeVeRyY/GPtHyrhoHbdMhcvXNGkf7TmeLvlmjcZ8zTNv0nSUmy8N43KxvxqzH6asyAqv6qC1lnbGQvrPESVvMCsUG0KrEQivwJjFpK3piY4gwL3EoLW+WaGiinooP4EVioy1sofQSvEk0kt40ewn8kWgiES8YBVfQVnfYW2A9auvbWeCPRO0UdW+BlfY83c2L3tBNwtv9Bf5IVNwt9hICNeP+ICJQcxBl9CmuxO0HMrBEHYEiXuaqUCU9lVqEMyo7RUF9Ogm4QKi/Vyjva7Lm6HL7m4H8NE28uqppT31/ao/Undvy36VDIutH6/RwydvS547i3pQ0rzo9/wC9jIW3iZx9q9+fPpwTFdgxAutq3dN3nEDZhcgM4etjXU6i6FafGcJ3h7rU3kvU1TBD+DaOUScgkq6GsavcLwnGfCIWfkonKZ8so+4MbtPHtUOtaBFxZwj/8HliTYRCsXAx4jZ93vIQd1ZyGyj8qwPej5imYgERn6TQR8e/l5hCfJJCF7jEnP+Tve8EPoTQN8fjhZRCwpNCv4e7GimF8DcHT1aIZS2kED69AJ07oVDG0xDeHftB/ERLSCH+ycH7IkKhTMSHs2501RCzVCZrg8MX+sUJX7qvsgXUHPiLE1uxfZUtFLengX9QZgcMu1K4rBA/O5e56h7GBgQ9N8KXoZEKNxZz4bA4hCu13KDwBnzzZKGCLwdcoH4BXxZERuPU0RA7fKfLkDgu1TY1Dzxls9ok9Al8BJ1GQ6YYQNvWLJhLCzN9FxTMnYXLSUq12WgbmwNzi+/TkzJFVS7DPdVIZKiFDYa63rbR+8TBlcWZarTE4AQ6DBVk1Z6/ISRL/N0N4cCWlnobQrqu1Jkj5V89MdBgSdBl9Cp6SmeGnF5MRwdQfV6TlBc3Mxwz3wTxMUf7rP6Ki0Brc/T8PuCdb++Gvj0/t5fdPmTpWYyZrr7KSWlKqVp7J5FEW9EzpZuC7aVrhTsuzS3C0v165hbhgTodBLAYCYsKNOdlzhQVaDHUl+x8trllKhgsbAosGCyMCiTqt5wK5HufX2FVINWH9prapBedoTpnXws0mMksFHGlpq/RSrwraG83cc/2vNv6Q9eb8247r0C+YGOwqO2+jbzw5QO4Me+2vgJnNgSLlXdBLJKdd9eVvfOYVTLz7rqyHOMfyHKlrv4uSYa8ejIfIO5g8+766Vkl+zDBovYn78Dl3Y2nyfkL0XTuUh+Tdys9Y7kZPFhYPK1HwIfQTYR/5Pub7Mx1ZBcHz7u9LkO8ptlVEdcd+GsZLraCK6AC7d5JfKD4eyDmwIOF4UP7t8B5t8EKEgz84SGny5Bo59W2NBc4WHiN9/DlqNe0m3jxxGnajefdXne/eN7tdhmiebeDC6YXoK7UbdoN591ed79E3q1taS5w3u119wvn3W7Tbjjvdpt2H5oEom1oEARBEARBEARBEARBEARBkE+HHgYnD71baxB1pdqmZvL9daV4MZTXC264CcHtBXfpvzNnj6gr/cVrXSleDOX1ghv/S3peC9rwv6SnbWku319Xigp0+gc4mLpSr/Eed6Ve4z2ed2tbmgucd3uN93De7baAHa+c9Rrv8SYEr5WzeN6tbWkucLBwWzmLBgu3Gwv40R238R7Pu7UNzQYV6HZj0dUgbuN9EARBEARBEATB/8A/RPM4XilEn7EAAAAASUVORK5CYII=" alt="">
+                                @endif
+                            </div>
                         </div>
                         <div class="text-wrapper">
                             <p class="title">Drużyna {{$team['name']}}</p>

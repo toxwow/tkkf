@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
-                                <form method="post" action="{{ route('druzyna.update', $team->id) }}">
+                                <form method="post" action="{{ route('druzyna.update', $team->id) }}" enctype="multipart/form-data">
                                     @method('PATCH')
                                     @csrf
                                 @csrf
@@ -41,6 +41,10 @@
                                 <div class="form-group">
                                         <label for="name">Nazwa druzyny:</label>
                                         <input type="text" class="form-control" name="name" value="{{$team->name}}" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="logo">Logo</label>
+                                        <input type="file" class="form-control" name="logo"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Adres:</label>

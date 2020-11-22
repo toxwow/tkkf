@@ -36,6 +36,7 @@ class UserController extends Controller
                 ->get();
             $usersAll = DB::table('users')->get();
             foreach ($usersAll as $userAll) {
+                $users[$userAll->id]["id"] = $userAll->id;
                 $users[$userAll->id]["name"] = $userAll->name . ' ' . $userAll->surname;
                 $users[$userAll->id]["phone"] = $userAll->phone;
                 $users[$userAll->id]["email"] = $userAll->email;

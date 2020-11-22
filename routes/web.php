@@ -22,6 +22,7 @@ Route::get('/kontakt', 'MainController@contact')->name('contact');
 Route::get('/dokumenty', 'MainController@documents')->name('documents');
 Route::get('/druzyny/{id}', 'MainController@team')->name('team');
 Route::get('/zawodnicy', 'PlayerController@allPlayers')->name('allPlayers');
+Route::get('/zmienHaslo/{id}', 'MainController@changePassword');
 Auth::routes();
 
 Route::get('/panel', 'HomeController@index')->name('panel');

@@ -77,6 +77,11 @@
                                 <span>Twoje mecze</span>
                             @endif</a>
                     </li>
+                    @if($user -> isCapitan())
+                    <li>
+                        <a href="{{ route('uzytkownicy.show', $user->id) }}" class="{{ (request()->is('uzytkownicy/'.$user->id)) ? 'active' : '' }}"><i class="icofont-user-alt-7 mr-2"></i> <span>Twój profil</span></a>
+                    </li>
+                    @endif
                     @if($user -> isAdmin())
                         <li>
                             <a href="{{route('uzytkownicy.index')}}" class="{{ (request()->is('uzytkownicy*'))  ? 'active' : '' }}"><i class="icofont-user mr-2"></i> <span>Użytkownicy</span></a>
