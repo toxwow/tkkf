@@ -52,11 +52,11 @@
                             <a href="{{route('articles')}}" class="nav-link {{ (request()->is('artykuły*')) || (request()->is('artykuł*'))  ? 'active' : '' }}"><i class="icofont-ui-note mr-2"></i> Artykuły</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('season')}}" class="nav-link {{ (request()->is('sezon'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i> Tabela 2020/2021</a>
+                            <a href="{{route('season')}}" class="nav-link {{ (request()->is('sezon'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i> Tabela</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon-*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i>  Poprzedni sezon </a>
-                        </li>
+                        {{--<li class="nav-item">--}}
+                            {{--<a href="{{route('seasonPast')}}" class="nav-link {{ (request()->is('sezon-*'))  ? 'active' : '' }}"> <i class="icofont-listing-number mr-2"></i>  Poprzedni sezon </a>--}}
+                        {{--</li>--}}
                         <li class="nav-item">
                             <a href="{{route('documents')}}" class="nav-link {{ (request()->is('dokumenty'))  ? 'active' : '' }}"> <i class="icofont-download mr-2"></i>  Dokumenty </a>
                         </li>
