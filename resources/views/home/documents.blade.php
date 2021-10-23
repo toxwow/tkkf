@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Regulamin TKKF</h5>
-                        <p class="card-text">REGULAMIN RAMOWY, Małopolskiej Ligi TKKF w piłce siatkowej kobiet i mężczyzn - sezon 2020/2021
+                        <p class="card-text">REGULAMIN RAMOWY, Małopolskiej Ligi TKKF w piłce siatkowej kobiet i mężczyzn
                             Eliminacje strefowe i finał wojewódzki</p>
                         <a href="{{ asset('files/regulamin.doc') }}" download class="btn btn-primary">Pobierz plik</a>
                     </div>
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">Karta zgłoszenia zespołu na sezon 2020/2021</h5>
+                        <h5 class="card-title">Karta zgłoszenia zespołu</h5>
                         <p class="card-text">Kapitan ma obowiązek dostarczenia sędziemu wypełnionej karty na pierwszy mecz sezonu.</p>
                         <a href="{{ asset('files/karta.doc') }}" download class="btn btn-primary">Pobierz plik</a>
                     </div>
