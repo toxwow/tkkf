@@ -62,7 +62,13 @@
                                     <td class="name">{{$player->name}} {{$player->surname}}</td>
                                     <td class="date">{{$player->birth}}</td>
                                     <td class="team-name">{{$player->team->name}}</td>
-                                    <td class="league-name">{{$player->team->league->name}}</td>
+                                    <td class="league-name">
+                                        @if(!empty($player->team->league->name))
+                                            {{$player->team->league->name}}
+                                        @else
+                                            brak
+                                        @endif
+                                    </td>
                                     <td class="dodany">{{$player->created_at}}</td>
                                 </tr>
                             @endforeach
